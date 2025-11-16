@@ -13,10 +13,6 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-  const goTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   return (
     <div className="hero">
