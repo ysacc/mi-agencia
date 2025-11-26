@@ -492,6 +492,27 @@ body {
   .portfolio-swiper {
     padding: 1rem 0 2.5rem 0;
   }
+
+  /* Fix: prevent mobile sliders from overflowing the viewport */
+  .portfolio-swiper,
+  .team-swiper {
+    overflow: hidden; /* hide large inline widths created by Swiper */
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+
+  .portfolio-swiper .swiper-wrapper,
+  .team-swiper .swiper-wrapper {
+    box-sizing: border-box;
+  }
+
+  .portfolio-swiper .swiper-slide,
+  .team-swiper .swiper-slide {
+    max-width: 100% !important; /* don't allow slides wider than container */
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
 }
 
 /* ===== Ajustes generales para esquema claro y medias ===== */
