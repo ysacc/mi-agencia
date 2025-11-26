@@ -72,8 +72,8 @@ interface Translation {
 export const translations: Record<Lang, Translation> = {
   es: {
     navbar: {
-      brandMain: 'Agencia',
-      brandAccent: 'Roncal',
+      brandMain: 'BR ',
+      brandAccent: 'Digital Systems',
       sections: {
         inicio: 'Inicio',
         servicios: 'Servicios',
@@ -232,8 +232,8 @@ export const translations: Record<Lang, Translation> = {
   // --- ENGLISH ---
   en: {
     navbar: {
-      brandMain: 'Roncal',
-      brandAccent: 'Digital',
+      brandMain: 'BR ',
+      brandAccent: 'Digital Systems',
       sections: {
         inicio: 'Home',
         servicios: 'Services',
@@ -392,8 +392,8 @@ export const translations: Record<Lang, Translation> = {
   // --- FRANÇAIS ---
   fr: {
     navbar: {
-      brandMain: 'Agence',
-      brandAccent: 'Roncal',
+      brandMain: 'BR ',
+      brandAccent: 'Digital Systems',
       sections: {
         inicio: 'Accueil',
         servicios: 'Services',
@@ -553,8 +553,8 @@ export const translations: Record<Lang, Translation> = {
   // --- DEUTSCH ---
   de: {
     navbar: {
-      brandMain: 'Roncal',
-      brandAccent: 'Digital',
+      brandMain: 'BR ',
+      brandAccent: 'Digital Systems',
       sections: {
         inicio: 'Start',
         servicios: 'Leistungen',

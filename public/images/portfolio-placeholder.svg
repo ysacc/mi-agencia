@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
+  <rect width="800" height="500" fill="#eef2f6"/>
+  <g fill="none" stroke="#d1dbe4" stroke-width="18">
+    <path d="M0 0 L800 500"/>
+    <path d="M0 70 L730 500"/>
+    <path d="M70 0 L800 430"/>
+  </g>
+  <rect x="40" y="40" width="720" height="420" rx="14" fill="#ffffff" stroke="#e6edf3"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="20">Portafolio — Imagen de ejemplo</text>
+</svg>

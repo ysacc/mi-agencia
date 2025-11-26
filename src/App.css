@@ -1,17 +1,23 @@
+/* Importar estilos de Swiper */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+
 /* ===========================
    VARIABLES GLOBALES
    =========================== */
 :root {
-  --bg-main: #020617; /* fondo general */
-  --bg-section: #020617;
-  --bg-section-alt: #02081b;
-  --bg-card: #020617;
-  --bg-card-soft: #02081f;
-  --border-color: #1e293b;
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #22d3ee;
-  --accent-strong: #06b6d4;
+  --bg-main: #ffffff; /* fondo general claro para apariencia profesional */
+  --bg-section: #f8fafc;
+  --bg-section-alt: #f0f7f9; /* más claro y amigable */
+  --bg-card: #ffffff;
+  --bg-card-soft: #f3f4f6;
+  --border-color: #e6edf3;
+  --text-main: #0f1724;
+  --text-muted: #5b6b74;
+  --accent: #0ea5a4; /* mantiene toque tech (teal) */
+  --accent-strong: #1fb6ff;
 }
 
 /* ===========================
@@ -36,7 +42,7 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+  background: linear-gradient(180deg, var(--bg-section), var(--bg-main));
   color: var(--text-main);
 }
 
@@ -61,16 +67,17 @@ body {
 
 .section {
   padding: 4rem 0;
+  background: var(--bg-main);
 }
 
 .section-alt {
   padding: 4rem 0;
-  background: rgba(15, 23, 42, 0.75);
+  background: var(--bg-section-alt);
 }
 
 .section-muted {
   padding: 4rem 0;
-  background: rgba(15, 23, 42, 0.4);
+  background: var(--bg-section);
 }
 
 /* Encabezados de sección */
@@ -83,6 +90,7 @@ body {
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
+  color: var(--text-main);
 }
 
 .section-subtitle {
@@ -100,7 +108,7 @@ body {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(2, 6, 23, 0.86);
+  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -115,6 +123,7 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  color: var(--text-main);
 }
 
 .nav-logo span {
@@ -172,7 +181,7 @@ body {
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -237,21 +246,69 @@ body {
 
 .hero-box {
   width: 100%;
-  height: 190px;
   border-radius: 1.25rem;
   border: 1px solid var(--border-color);
-  background: radial-gradient(
-      circle at top,
-      rgba(34, 211, 238, 0.12),
-      transparent 55%
-    ),
-    linear-gradient(145deg, #020617, #02081f);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  background: radial-gradient(circle at top, rgba(14,165,164,0.06), transparent 55%);
+  box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+  min-height: 450px;
 }
 
 @media (min-width: 768px) {
   .hero-box {
-    height: 260px;
+    min-height: 420px;
+  }
+
+  /* ===== Imagen hero y tratamientos para presentación más profesional ===== */
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-box {
+    background: linear-gradient(180deg, rgba(14,165,164,0.04), rgba(31,182,255,0.01));
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 30px rgba(16,24,40,0.04);
+    min-height: 420px;
+    padding: 0; /* quitar padding para que el slider ocupe todo el contenedor */
+  }
+
+  /* Botones y CTA más amigables para emprendedores */
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+/* Media dentro de tarjetas / portafolio */
+.card-media {
+  width: 100%;
+  height: 160px;
+  border-radius: 0.85rem;
+  background-color: var(--bg-card-soft);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0.9rem;
+}  /* Fotos de equipo */
+  .team-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 0.95rem;
+    display: block;
+  }
+
+  /* Ajustes para texto en esquema claro */
+  .hero-title,
+  .card-title,
+  .member-name {
+    color: var(--text-main);
+  }
+
+  .hero-text,
+  .card-text,
+  .contact-side-text {
+    color: var(--text-muted);
   }
 }
 
@@ -320,28 +377,273 @@ body {
 }
 
 .card {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 1.1rem;
   padding: 1.4rem;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.85);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
   transition: 0.2s;
+  color: var(--text-main);
 }
 
 .card:hover {
   border-color: var(--accent-strong);
   transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(14, 165, 164, 0.12);
 }
 
 .card-title {
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text-main);
 }
 
 .card-text {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+/* ============ Swiper / Carrusel Profesional ============ */
+.portfolio-swiper {
+  padding: 2rem 0;
+  overflow: visible;
+}
+
+.team-swiper {
+  padding: 2rem 0;
+  overflow: visible;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background: rgba(255,255,255,0.9);
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 8px 24px rgba(16,24,40,0.08);
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--accent);
+  box-shadow: 0 12px 32px rgba(14,165,164,0.2);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: #fff;
+}
+
+.swiper-pagination-bullet {
+  background: var(--border-color);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--accent);
+  width: 28px;
+  border-radius: 999px;
+}
+
+/* Hover 'float' effect similar a melcard */
+.card {
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(14,165,164,0.15);
+  border-color: var(--accent);
+}
+
+/* Subtle floating animation for hero box */
+.hero-visual .hero-box {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive carrusel */
+@media (max-width: 640px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .portfolio-swiper {
+    padding: 1rem 0 2.5rem 0;
+  }
+}
+
+/* ===== Ajustes generales para esquema claro y medias ===== */
+.site-header {
+  background: rgba(255,255,255,0.8);
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-box {
+  background: linear-gradient(180deg, rgba(14,165,164,0.02), rgba(31,182,255,0.005));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 0.9rem;
+}
+
+/* Hero slider image style */
+.hero-slide-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 0.9rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-slide-img { 
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Forzar centrado y tamaño del Swiper */
+.hero-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-swiper .swiper-wrapper {
+  align-items: center; /* centra verticalmente las slides */
+}
+
+.hero-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure slide images are visible; remove potential opacity hides */
+.hero-swiper .swiper-slide img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force a sensible height for hero on desktop so images are visible */
+@media (min-width: 1024px) {
+  .hero-box { min-height: 600px; }
+}
+
+@media (min-width: 1280px) {
+  .hero-box { min-height: 680px; }
+}
+
+/* Fix: force sensible widths for Swiper to avoid extremely large inline widths */
+.hero-box {
+  overflow: hidden; /* hide any overflow from mis-sized wrapper */
+  max-width: 1200px; /* constrain hero width for layout stability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-swiper, .hero-swiper .swiper-wrapper {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.hero-swiper .swiper-slide {
+  width: 100% !important; /* ensure each slide matches container */
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+}
+
+.hero-slide-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* If Swiper still sets huge inline widths, cap them visually */
+.hero-swiper .swiper-wrapper[style] {
+  max-width: 1200000px; /* safety cap: 1.2M px */
+}
+
+/* Ensure hero has breathing room on large screens */
+.container .hero {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* fallback cuando imagen no carga: mostrar miniatura */
+.hero-slide-img[alt] {
+  background-color: var(--bg-card-soft);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+  color: var(--text-main);
+}
+
+.card-media {
+  width: 100%;
+  height: 160px;
+  border-radius: 0.85rem;
+  background-color: var(--bg-card-soft);
+  background-image: url('/images/portfolio-placeholder.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0.9rem;
+}
+
+.team-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0.95rem;
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+/* Ajustes finos para botones en esquema claro */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
 }
 
 .card-tag {
@@ -352,7 +654,7 @@ body {
   letter-spacing: 0.12em;
   padding: 0.25rem 0.8rem;
   border-radius: 999px;
-  background: #020617;
+  background: var(--bg-card-soft);
   color: var(--accent);
 }
 
@@ -384,8 +686,8 @@ body {
   letter-spacing: 0.08em;
   padding: 0.18rem 0.6rem;
   border-radius: 999px;
-  background: #020617;
-  color: var(--text-muted);
+  background: var(--bg-card-soft);
+  color: var(--accent);
 }
 
 /* ===========================
@@ -420,7 +722,7 @@ body {
   border: 1px solid var(--border-color);
   padding: 0.7rem 0.9rem;
   font-size: 0.9rem;
-  background: #020617;
+  background: var(--bg-card);
   color: var(--text-main);
   outline: none;
   transition: 0.2s;

@@ -27,13 +27,21 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(
-      `Hola, soy ${
-        form.nombre || 'un interesado'
-      } y quiero más información sobre sus servicios.`
+    // Mensaje amigable que no depende del formulario
+    const parts: string[] = [];
+    if (form.nombre) parts.push(`Nombre: ${form.nombre}`);
+    if (form.email) parts.push(`Email: ${form.email}`);
+    parts.push(
+      'Estoy interesado en sus servicios web. Por favor, mándenme el catálogo o indíquenme cómo reservar una cita.'
     );
-    // Cambia el número por el tuyo
-    window.open(`https://wa.me/51XXXXXXXXX?text=${text}`, '_blank');
+    if (form.mensaje) parts.push(`Detalle: ${form.mensaje}`);
+
+    const message = parts.join(' | ');
+    const text = encodeURIComponent(message);
+    // Cambia el número por el tuyo si hace falta
+    const url = `https://wa.me/51928577224?text=${text}`;
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null;
   };
 
   return (
