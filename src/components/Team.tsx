@@ -37,7 +37,7 @@ const Team: React.FC<TeamProps> = ({ lang }) => {
         }}
         className="team-swiper"
       >
-        {t.members.map((member, idx) => (
+        {t.members.map(member => (
           <SwiperSlide key={member.name}>
             <article className="card" data-aos="zoom-in">
               <img
