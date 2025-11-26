@@ -26,22 +26,29 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
     setForm({ nombre: '', email: '', mensaje: '' });
   };
 
-  const handleWhatsApp = () => {
-    // Mensaje amigable que no depende del formulario
-    const parts: string[] = [];
-    if (form.nombre) parts.push(`Nombre: ${form.nombre}`);
-    if (form.email) parts.push(`Email: ${form.email}`);
-    parts.push(
-      'Estoy interesado en sus servicios web. Por favor, mándenme el catálogo o indíquenme cómo reservar una cita.'
-    );
-    if (form.mensaje) parts.push(`Detalle: ${form.mensaje}`);
-
-    const message = parts.join(' | ');
+  const sendWhatsAppMessage = (message: string) => {
     const text = encodeURIComponent(message);
-    // Cambia el número por el tuyo si hace falta
     const url = `https://wa.me/51928577224?text=${text}`;
     const win = window.open(url, '_blank');
     if (win) win.opener = null;
+  };
+
+  const handleWhatsAppCatalog = () => {
+    const parts: string[] = [];
+    if (form.nombre) parts.push(`Nombre: ${form.nombre}`);
+    if (form.email) parts.push(`Email: ${form.email}`);
+    parts.push('Solicito el catálogo de servicios web y paquetes disponibles. Por favor envíen precios y tiempos estimados.');
+    if (form.mensaje) parts.push(`Comentario: ${form.mensaje}`);
+    sendWhatsAppMessage(parts.join(' | '));
+  };
+
+  const handleWhatsAppAppointment = () => {
+    const parts: string[] = [];
+    if (form.nombre) parts.push(`Nombre: ${form.nombre}`);
+    if (form.email) parts.push(`Email: ${form.email}`);
+    parts.push('Quisiera reservar una cita para hablar sobre un proyecto web. Indiquen por favor disponibilidad para llamada o reunión.');
+    if (form.mensaje) parts.push(`Comentario: ${form.mensaje}`);
+    sendWhatsAppMessage(parts.join(' | '));
   };
 
   return (
@@ -91,13 +98,22 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
 
         <div>
           <p className="contact-side-text">{t.sideText}</p>
-          <button
-            type="button"
-            className="btn btn-outline btn-wsp"
-            onClick={handleWhatsApp}
-          >
-            {t.whatsappCta}
-          </button>
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className="btn btn-outline btn-wsp"
+              onClick={handleWhatsAppCatalog}
+            >
+              Pedir catálogo
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline btn-wsp"
+              onClick={handleWhatsAppAppointment}
+            >
+              Reservar cita
+            </button>
+          </div>
           <p className="contact-side-note">{t.sideSub}</p>
         </div>
       </div>
