@@ -1,31 +1,31 @@
 import React from 'react';
 import { translations, type Lang } from '../translations';
+
 interface NavbarProps {
   lang: Lang;
   setLang: (l: Lang) => void;
 }
 
-const sections = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'servicios', label: 'Servicios' },
-  { id: 'proceso', label: 'Proceso' },
-  { id: 'equipo', label: 'Equipo' },
-  { id: 'portafolio', label: 'Portafolio' },
-  { id: 'contacto', label: 'Contacto' },
-];
+const SECTION_IDS = ['inicio', 'servicios', 'proceso', 'equipo', 'portafolio', 'contacto'] as const;
 
 const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
   const t = translations[lang].navbar;
+
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLang(e.target.value as Lang);
   };
+
+  // translations.ts define navbar.sections como objeto por idioma
+  const sections = SECTION_IDS.map(id => ({
+    id,
+    // fallback por si faltara alguna clave
+    label: (t.sections as any)?.[id] ?? id,
+  }));
 
   return (
     <header className="site-header">
@@ -34,6 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
           <div className="nav-logo">
             {t.brandMain} <span>{t.brandAccent}</span>
           </div>
+
           <ul className="nav-links">
             {sections.map(s => (
               <li key={s.id}>
@@ -53,8 +54,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
             className="nav-cta"
             onClick={() => handleScroll('contacto')}
           >
-            Hablemos
+            {t.cta}
           </button>
+
           <select
             value={lang}
             onChange={handleLangChange}
@@ -66,6 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
               fontSize: '0.8rem',
               padding: '0.3rem 0.7rem',
             }}
+            aria-label="Seleccionar idioma"
           >
             <option value="es">ES</option>
             <option value="en">EN</option>

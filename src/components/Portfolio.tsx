@@ -5,10 +5,21 @@ import { translations, type Lang } from '../translations';
 
 interface PortfolioProps {
   lang: Lang;
+  onSelectCase?: (caseName: string) => void; // NUEVO
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ lang, onSelectCase }) => {
   const t = translations[lang].portfolio;
+
+  const goToContact = () => {
+    const el = document.getElementById('contacto');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleCaseCta = (caseName: string) => {
+    onSelectCase?.(caseName);
+    goToContact();
+  };
 
   return (
     <>
@@ -26,12 +37,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
           prevEl: '.swiper-button-prev',
         }}
         pagination={{ clickable: true }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         breakpoints={{
-          640: { slidesPerView: 1.5 },
+          640: { slidesPerView: 1.2 },
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 2.5 },
         }}
@@ -39,7 +47,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
       >
         {t.projects.map((project, idx) => (
           <SwiperSlide key={project.name}>
-            <article className="card" data-aos="zoom-in">
+            <article className="card case-card" data-aos="zoom-in">
               <div
                 className="card-media"
                 role="img"
@@ -50,12 +58,38 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
                   }')`,
                 }}
               />
-              <h3 className="card-title">{project.name}</h3>
+
+              <div className="case-head">
+                <h3 className="card-title">{project.name}</h3>
+                <span className="card-tag">{project.tag}</span>
+              </div>
+
               <p className="card-text">{project.description}</p>
-              <span className="card-tag">{project.tag}</span>
+
+              {/* Si ya agregaste result/stack en translations, esto se muestra */}
+              {'result' in project && <p className="case-result">{(project as any).result}</p>}
+
+              {'stack' in project && Array.isArray((project as any).stack) && (
+                <div className="case-stack">
+                  {(project as any).stack.map((s: string) => (
+                    <span key={s} className="case-chip">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <button
+                type="button"
+                className="btn btn-primary case-cta"
+                onClick={() => handleCaseCta(project.name)}
+              >
+                {'cta' in project ? (project as any).cta : 'Ver caso'}
+              </button>
             </article>
           </SwiperSlide>
         ))}
+
         <div className="swiper-button-prev" />
         <div className="swiper-button-next" />
       </Swiper>

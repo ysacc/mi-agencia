@@ -8,16 +8,29 @@
    VARIABLES GLOBALES
    =========================== */
 :root {
-  --bg-main: #ffffff; /* fondo general claro para apariencia profesional */
-  --bg-section: #f8fafc;
-  --bg-section-alt: #f0f7f9; /* más claro y amigable */
-  --bg-card: #ffffff;
-  --bg-card-soft: #f3f4f6;
-  --border-color: #e6edf3;
-  --text-main: #0f1724;
-  --text-muted: #5b6b74;
-  --accent: #0ea5a4; /* mantiene toque tech (teal) */
-  --accent-strong: #1fb6ff;
+  /* Dark Tech Theme Palette */
+  --bg-main: #0f172a;
+  /* Deep Slate Blue */
+  --bg-section: #0f172a;
+  /* Matching main bg */
+  --bg-section-alt: #1e293b;
+  /* Lighter Slate for contrast */
+
+  --bg-card: rgba(30, 41, 59, 0.7);
+  /* Glass-like dark card */
+  --bg-card-soft: rgba(51, 65, 85, 0.5);
+
+  --border-color: rgba(148, 163, 184, 0.1);
+
+  --text-main: #f8fafc;
+  /* Slate-50 */
+  --text-muted: #94a3b8;
+  /* Slate-400 */
+
+  --accent: #22d3ee;
+  /* Cyan-400 - Vibrant Tech Blue */
+  --accent-strong: #0ea5e9;
+  /* Sky-500 */
 }
 
 /* ===========================
@@ -42,7 +55,7 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-  background: linear-gradient(180deg, var(--bg-section), var(--bg-main));
+  background: linear-gradient(180deg, var(--bg-main), var(--bg-section-alt));
   color: var(--text-main);
 }
 
@@ -108,7 +121,8 @@ body {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(15, 23, 42, 0.8);
+  /* Dark glass */
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -248,8 +262,8 @@ body {
   width: 100%;
   border-radius: 1.25rem;
   border: 1px solid var(--border-color);
-  background: radial-gradient(circle at top, rgba(14,165,164,0.06), transparent 55%);
-  box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+  background: radial-gradient(circle at top, rgba(34, 211, 238, 0.1), transparent 55%);
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
   min-height: 450px;
 }
 
@@ -266,11 +280,12 @@ body {
   }
 
   .hero-box {
-    background: linear-gradient(180deg, rgba(14,165,164,0.04), rgba(31,182,255,0.01));
+    background: linear-gradient(180deg, rgba(34, 211, 238, 0.05), rgba(15, 23, 42, 0.01));
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 30px rgba(16,24,40,0.04);
+    box-shadow: 0 8px 30px rgba(16, 24, 40, 0.04);
     min-height: 420px;
-    padding: 0; /* quitar padding para que el slider ocupe todo el contenedor */
+    padding: 0;
+    /* quitar padding para que el slider ocupe todo el contenedor */
   }
 
   /* Botones y CTA más amigables para emprendedores */
@@ -279,17 +294,19 @@ body {
     color: #fff;
   }
 
-/* Media dentro de tarjetas / portafolio */
-.card-media {
-  width: 100%;
-  height: 160px;
-  border-radius: 0.85rem;
-  background-color: var(--bg-card-soft);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 0.9rem;
-}  /* Fotos de equipo */
+  /* Media dentro de tarjetas / portafolio */
+  .card-media {
+    width: 100%;
+    height: 160px;
+    border-radius: 0.85rem;
+    background-color: var(--bg-card-soft);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Fotos de equipo */
   .team-photo {
     width: 100%;
     height: 220px;
@@ -407,12 +424,14 @@ body {
 /* ============ Swiper / Carrusel Profesional ============ */
 .portfolio-swiper {
   padding: 2rem 0;
-  overflow: visible;
+  overflow: hidden;
+  /* Fix: Prevent horizontal scrollbar */
 }
 
 .team-swiper {
   padding: 2rem 0;
-  overflow: visible;
+  overflow: hidden;
+  /* Fix: Prevent horizontal scrollbar */
 }
 
 .swiper-slide {
@@ -421,18 +440,19 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background: rgba(255,255,255,0.9);
+  background: var(--bg-card);
+  color: var(--accent);
   border-radius: 999px;
   width: 48px;
   height: 48px;
-  box-shadow: 0 8px 24px rgba(16,24,40,0.08);
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
   transition: all 0.3s ease;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background: var(--accent);
-  box-shadow: 0 12px 32px rgba(14,165,164,0.2);
+  box-shadow: 0 12px 32px rgba(14, 165, 164, 0.2);
 }
 
 .swiper-button-next::after,
@@ -466,7 +486,7 @@ body {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(14,165,164,0.15);
+  box-shadow: 0 20px 48px rgba(14, 165, 164, 0.15);
   border-color: var(--accent);
 }
 
@@ -476,19 +496,28 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Responsive carrusel */
 @media (max-width: 640px) {
+
   .swiper-button-next,
   .swiper-button-prev {
     width: 40px;
     height: 40px;
   }
-  
+
   .portfolio-swiper {
     padding: 1rem 0 2.5rem 0;
   }
@@ -496,7 +525,8 @@ body {
   /* Fix: prevent mobile sliders from overflowing the viewport */
   .portfolio-swiper,
   .team-swiper {
-    overflow: hidden; /* hide large inline widths created by Swiper */
+    overflow: hidden;
+    /* hide large inline widths created by Swiper */
     padding-left: 0.4rem;
     padding-right: 0.4rem;
   }
@@ -508,7 +538,8 @@ body {
 
   .portfolio-swiper .swiper-slide,
   .team-swiper .swiper-slide {
-    max-width: 100% !important; /* don't allow slides wider than container */
+    max-width: 100% !important;
+    /* don't allow slides wider than container */
     box-sizing: border-box;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
@@ -517,13 +548,13 @@ body {
 
 /* ===== Ajustes generales para esquema claro y medias ===== */
 .site-header {
-  background: rgba(255,255,255,0.8);
+  background: rgba(15, 23, 42, 0.85);
   color: var(--text-main);
   border-bottom: 1px solid var(--border-color);
 }
 
 .hero-box {
-  background: linear-gradient(180deg, rgba(14,165,164,0.02), rgba(31,182,255,0.005));
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.05), rgba(15, 23, 42, 0.3));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -548,7 +579,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .hero-slide-img { 
+  .hero-slide-img {
     width: 100% !important;
     height: 100% !important;
   }
@@ -561,7 +592,8 @@ body {
 }
 
 .hero-swiper .swiper-wrapper {
-  align-items: center; /* centra verticalmente las slides */
+  align-items: center;
+  /* centra verticalmente las slides */
 }
 
 .hero-swiper .swiper-slide {
@@ -580,28 +612,36 @@ body {
 
 /* Force a sensible height for hero on desktop so images are visible */
 @media (min-width: 1024px) {
-  .hero-box { min-height: 600px; }
+  .hero-box {
+    min-height: 600px;
+  }
 }
 
 @media (min-width: 1280px) {
-  .hero-box { min-height: 680px; }
+  .hero-box {
+    min-height: 680px;
+  }
 }
 
 /* Fix: force sensible widths for Swiper to avoid extremely large inline widths */
 .hero-box {
-  overflow: hidden; /* hide any overflow from mis-sized wrapper */
-  max-width: 1200px; /* constrain hero width for layout stability */
+  overflow: hidden;
+  /* hide any overflow from mis-sized wrapper */
+  max-width: 1200px;
+  /* constrain hero width for layout stability */
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-swiper, .hero-swiper .swiper-wrapper {
+.hero-swiper,
+.hero-swiper .swiper-wrapper {
   width: 100% !important;
   box-sizing: border-box;
 }
 
 .hero-swiper .swiper-slide {
-  width: 100% !important; /* ensure each slide matches container */
+  width: 100% !important;
+  /* ensure each slide matches container */
   max-width: 100% !important;
   flex: 0 0 100% !important;
   box-sizing: border-box;
@@ -619,7 +659,8 @@ body {
 
 /* If Swiper still sets huge inline widths, cap them visually */
 .hero-swiper .swiper-wrapper[style] {
-  max-width: 1200000px; /* safety cap: 1.2M px */
+  max-width: 1200000px;
+  /* safety cap: 1.2M px */
 }
 
 /* Ensure hero has breathing room on large screens */
@@ -636,7 +677,7 @@ body {
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.04);
   color: var(--text-main);
 }
 
@@ -781,4 +822,181 @@ body {
   font-size: 0.82rem;
   color: var(--text-muted);
   text-align: center;
+}
+
+/* ===== HERO: proof badges (señales tech) ===== */
+
+.hero-proof {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 36rem;
+}
+
+.hero-proof-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-main);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 768px) {
+  .hero-proof-badge {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== SERVICES: paquetes productizados ===== */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.service-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-card-soft);
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+}
+
+.service-bullets {
+  margin: 0.9rem 0 0;
+  padding-left: 1.05rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.service-bullets li {
+  margin: 0.35rem 0;
+}
+
+.service-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.service-price {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.service-cta {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* ===== PORTFOLIO: casos con resultados ===== */
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.case-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.case-result {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.case-stack {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.case-chip {
+  font-size: 0.7rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-main);
+}
+
+.case-cta {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* ===== PROCESS: flujo ingenieril con iconos ===== */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+}
+
+.process-card {
+  display: flex;
+  gap: 0.95rem;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.process-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.process-content {
+  flex: 1 1 auto;
+}
+
+.process-title {
+  margin-top: 0.05rem;
+}
+
+.process-text {
+  margin-top: 0.45rem;
 }

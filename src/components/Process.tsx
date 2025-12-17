@@ -14,11 +14,18 @@ const Process: React.FC<ProcessProps> = ({ lang }) => {
         <h2 className="section-title">{t.title}</h2>
         <p className="section-subtitle">{t.subtitle}</p>
       </div>
-      <div className="grid-2">
+
+      <div className="process-grid">
         {t.steps.map(step => (
-          <article key={step.title} className="card">
-            <h3 className="card-title">{step.title}</h3>
-            <p className="card-text">{step.description}</p>
+          <article key={step.title} className="card process-card">
+            <div className="process-icon" aria-hidden="true">
+              {step.icon}
+            </div>
+
+            <div className="process-content">
+              <h3 className="card-title process-title">{step.title}</h3>
+              <p className="card-text process-text">{step.description}</p>
+            </div>
           </article>
         ))}
       </div>

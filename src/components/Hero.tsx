@@ -11,8 +11,16 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ lang }) => {
   const t = translations[lang].hero;
+
   const handleContact = () => {
     const el = document.getElementById('contacto');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handlePortfolio = () => {
+    const el = document.getElementById('portafolio');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -46,33 +54,42 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
       animate="visible"
     >
       <div className="hero-main">
-        <motion.div className="hero-pill" variants={itemVariants}>{t.tag}</motion.div>
+        <motion.div className="hero-pill" variants={itemVariants}>
+          {t.tag}
+        </motion.div>
+
         <motion.h1 className="hero-title" variants={itemVariants}>
           {t.titleMain}
           <span className="hero-highlight">{t.titleHighlight}</span>
         </motion.h1>
-        <motion.p className="hero-text" variants={itemVariants}>{t.sub}</motion.p>
+
+        <motion.p className="hero-text" variants={itemVariants}>
+          {t.sub}
+        </motion.p>
+
         <motion.div className="hero-actions" variants={itemVariants}>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={handleContact}
-          >
+          <button type="button" className="btn btn-primary" onClick={handleContact}>
             {t.cta}
           </button>
-          <button
-            type="button"
-            className="btn btn-text"
-            onClick={() => {
-              const el = document.getElementById('portafolio');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-          >
+
+          <button type="button" className="btn btn-text" onClick={handlePortfolio}>
             {t.seeProjects}
           </button>
         </motion.div>
-        <motion.p className="hero-langs" variants={itemVariants}>{t.langs}</motion.p>
+
+        {/* NUEVO: señales tech (proof) */}
+        <motion.div className="hero-proof" variants={itemVariants}>
+          <span className="hero-proof-badge">{t.proof1}</span>
+          <span className="hero-proof-badge">{t.proof2}</span>
+          <span className="hero-proof-badge">{t.proof3}</span>
+          <span className="hero-proof-badge">{t.proof4}</span>
+        </motion.div>
+
+        <motion.p className="hero-langs" variants={itemVariants}>
+          {t.langs}
+        </motion.p>
       </div>
+
       <motion.div
         className="hero-visual"
         initial={{ opacity: 0, x: 100 }}
@@ -88,11 +105,18 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
             pagination={{ clickable: true }}
             className="hero-swiper"
           >
-            {['emprendedor.png', 'empresa full.png', 'tienda oline.png', 'flyer.png'].map((name, i) => (
-              <SwiperSlide key={i}>
-                <img src={`/images/${encodeURIComponent(name)}`} alt={`Slide ${i + 1}`} className="hero-slide-img" />
-              </SwiperSlide>
-            ))}
+            {['emprendedor.png', 'empresa full.png', 'tienda oline.png', 'flyer.png'].map(
+              (name, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={`/images/${encodeURIComponent(name)}`}
+                    alt={`Slide ${i + 1}`}
+                    className="hero-slide-img"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
       </motion.div>
