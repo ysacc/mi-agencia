@@ -177,44 +177,44 @@ export const translations: Record<Lang, Translation> = {
       title: "Nuestro proceso",
       subtitle:
         "Un flujo pensado para que tengas claridad desde el día uno: qué haremos, cómo y cuándo lo tendrás listo.",
-steps: [
-  {
-    icon: "🧭",
-    title: "1. Discovery & objetivos",
-    description:
-      "Aterrizamos objetivos, usuarios, alcance y restricciones. Definimos éxito (KPIs) y prioridad del MVP.",
-  },
-  {
-    icon: "🏗️",
-    title: "2. Arquitectura & plan",
-    description:
-      "Definimos stack, integraciones (WhatsApp/pagos/APIs), modelo de datos y plan por sprints con entregables claros.",
-  },
-  {
-    icon: "🧩",
-    title: "3. Sprint de diseño (UX/UI)",
-    description:
-      "Wireframes y UI final en componentes. Validamos copy, estructura y flujo de conversión antes de construir.",
-  },
-  {
-    icon: "⚙️",
-    title: "4. Desarrollo por sprints",
-    description:
-      "Implementamos funcionalidades incrementales (frontend + backend). Demo semanal y feedback para iterar rápido.",
-  },
-  {
-    icon: "✅",
-    title: "5. QA, performance & seguridad",
-    description:
-      "Pruebas funcionales, revisión de edge cases, performance (CWV) y hardening básico antes de pasar a producción.",
-  },
-  {
-    icon: "🚀",
-    title: "6. Deploy, monitoreo & mejora continua",
-    description:
-      "Publicación con checklist, analítica/trackeo, observabilidad y roadmap de mejoras post-lanzamiento.",
-  },
-],
+      steps: [
+        {
+          icon: "🧭",
+          title: "1. Discovery & objetivos",
+          description:
+            "Aterrizamos objetivos, usuarios, alcance y restricciones. Definimos éxito (KPIs) y prioridad del MVP.",
+        },
+        {
+          icon: "🏗️",
+          title: "2. Arquitectura & plan",
+          description:
+            "Definimos stack, integraciones (WhatsApp/pagos/APIs), modelo de datos y plan por sprints con entregables claros.",
+        },
+        {
+          icon: "🧩",
+          title: "3. Sprint de diseño (UX/UI)",
+          description:
+            "Wireframes y UI final en componentes. Validamos copy, estructura y flujo de conversión antes de construir.",
+        },
+        {
+          icon: "⚙️",
+          title: "4. Desarrollo por sprints",
+          description:
+            "Implementamos funcionalidades incrementales (frontend + backend). Demo semanal y feedback para iterar rápido.",
+        },
+        {
+          icon: "✅",
+          title: "5. QA, performance & seguridad",
+          description:
+            "Pruebas funcionales, revisión de edge cases, performance (CWV) y hardening básico antes de pasar a producción.",
+        },
+        {
+          icon: "🚀",
+          title: "6. Deploy, monitoreo & mejora continua",
+          description:
+            "Publicación con checklist, analítica/trackeo, observabilidad y roadmap de mejoras post-lanzamiento.",
+        },
+      ],
 
     },
     team: {
@@ -230,7 +230,7 @@ steps: [
           tags: ["React", "Node.js", "AWS"],
         },
         {
-          name: "Flor",
+          name: "Flor Bottcher",
           role: "Marketing & Legal (ES / EN / DE)",
           description:
             "Gestión de marca, contenidos y contratos. Atiende clientes en español, inglés y alemán.",
@@ -256,44 +256,44 @@ steps: [
       title: "Portafolio",
       subtitle:
         "Algunos tipos de proyectos que hemos construido o podemos desarrollar para tu negocio. Siempre con foco en resultados.",
-projects: [
-  {
-    name: "Dashboard de monitoreo para empresa de seguridad",
-    description:
-      "Panel web para visualizar alertas, cámaras y estados en tiempo real, con filtros y métricas clave.",
-    tag: "Sistemas a medida",
-    result: "Visibilidad operativa en tiempo real y control centralizado",
-    stack: ["React", "TypeScript", "APIs", "Dashboards"],
-    cta: "Ver caso",
-  },
-  {
-    name: "Landing para academia online",
-    description:
-      "Página de alta conversión con información de cursos, testimonios y formulario directo a WhatsApp.",
-    tag: "Landing page",
-    result: "Mejor flujo de captación y contacto directo por WhatsApp",
-    stack: ["React", "SEO", "Analytics", "WhatsApp"],
-    cta: "Ver caso",
-  },
-  {
-    name: "Sitio corporativo para estudio contable",
-    description:
-      "Web institucional con servicios, equipo, blog y agenda de citas, optimizada para posicionamiento local.",
-    tag: "Web corporativa",
-    result: "Presencia profesional y base SEO para posicionamiento local",
-    stack: ["React", "SEO Técnico", "Performance", "Formularios"],
-    cta: "Ver caso",
-  },
-  {
-    name: "Portal interno de tareas y seguimientos",
-    description:
-      "Aplicación web para organizar tareas, responsables y estados, pensada para ordenar la operación.",
-    tag: "Automatización",
-    result: "Mejor orden operativo con seguimiento de responsables y estados",
-    stack: ["React", "Roles", "Automatización", "Workflows"],
-    cta: "Ver caso",
-  },
-],
+      projects: [
+        {
+          name: "Dashboard de monitoreo para empresa de seguridad",
+          description:
+            "Panel web para visualizar alertas, cámaras y estados en tiempo real, con filtros y métricas clave.",
+          tag: "Sistemas a medida",
+          result: "Visibilidad operativa en tiempo real y control centralizado",
+          stack: ["React", "TypeScript", "APIs", "Dashboards"],
+          cta: "Ver caso",
+        },
+        {
+          name: "Landing para academia online",
+          description:
+            "Página de alta conversión con información de cursos, testimonios y formulario directo a WhatsApp.",
+          tag: "Landing page",
+          result: "Mejor flujo de captación y contacto directo por WhatsApp",
+          stack: ["React", "SEO", "Analytics", "WhatsApp"],
+          cta: "Ver caso",
+        },
+        {
+          name: "Sitio corporativo para estudio contable",
+          description:
+            "Web institucional con servicios, equipo, blog y agenda de citas, optimizada para posicionamiento local.",
+          tag: "Web corporativa",
+          result: "Presencia profesional y base SEO para posicionamiento local",
+          stack: ["React", "SEO Técnico", "Performance", "Formularios"],
+          cta: "Ver caso",
+        },
+        {
+          name: "Portal interno de tareas y seguimientos",
+          description:
+            "Aplicación web para organizar tareas, responsables y estados, pensada para ordenar la operación.",
+          tag: "Automatización",
+          result: "Mejor orden operativo con seguimiento de responsables y estados",
+          stack: ["React", "Roles", "Automatización", "Workflows"],
+          cta: "Ver caso",
+        },
+      ],
 
     },
     contact: {
@@ -401,44 +401,44 @@ projects: [
       title: "Our process",
       subtitle:
         "A workflow designed so you have clarity from day one: what we'll do, how and when you'll have it ready.",
-steps: [
-  {
-    icon: "🧭",
-    title: "1. Discovery & goals",
-    description:
-      "We define objectives, users, scope and constraints. Success metrics (KPIs) and MVP priorities.",
-  },
-  {
-    icon: "🏗️",
-    title: "2. Architecture & plan",
-    description:
-      "We define stack, integrations (WhatsApp/payments/APIs), data model and a sprint plan with clear deliverables.",
-  },
-  {
-    icon: "🧩",
-    title: "3. UX/UI design sprint",
-    description:
-      "Wireframes and final UI components. We validate copy, structure and conversion flow before building.",
-  },
-  {
-    icon: "⚙️",
-    title: "4. Sprint-based development",
-    description:
-      "Incremental delivery (frontend + backend). Weekly demos and feedback loops to iterate fast.",
-  },
-  {
-    icon: "✅",
-    title: "5. QA, performance & security",
-    description:
-      "Functional testing, edge cases, performance (CWV) and baseline hardening before production.",
-  },
-  {
-    icon: "🚀",
-    title: "6. Deploy, monitoring & iteration",
-    description:
-      "Release with checklist, analytics/tracking, observability and a post-launch improvement roadmap.",
-  },
-],
+      steps: [
+        {
+          icon: "🧭",
+          title: "1. Discovery & goals",
+          description:
+            "We define objectives, users, scope and constraints. Success metrics (KPIs) and MVP priorities.",
+        },
+        {
+          icon: "🏗️",
+          title: "2. Architecture & plan",
+          description:
+            "We define stack, integrations (WhatsApp/payments/APIs), data model and a sprint plan with clear deliverables.",
+        },
+        {
+          icon: "🧩",
+          title: "3. UX/UI design sprint",
+          description:
+            "Wireframes and final UI components. We validate copy, structure and conversion flow before building.",
+        },
+        {
+          icon: "⚙️",
+          title: "4. Sprint-based development",
+          description:
+            "Incremental delivery (frontend + backend). Weekly demos and feedback loops to iterate fast.",
+        },
+        {
+          icon: "✅",
+          title: "5. QA, performance & security",
+          description:
+            "Functional testing, edge cases, performance (CWV) and baseline hardening before production.",
+        },
+        {
+          icon: "🚀",
+          title: "6. Deploy, monitoring & iteration",
+          description:
+            "Release with checklist, analytics/tracking, observability and a post-launch improvement roadmap.",
+        },
+      ],
 
     },
     team: {
@@ -480,44 +480,44 @@ steps: [
       title: "Portfolio",
       subtitle:
         "Some types of projects we've built or can build for your business. Always focused on results.",
-projects: [
-  {
-    name: "Monitoring dashboard for a security company",
-    description:
-      "Web panel to view alerts, cameras and status in real time, with filters and key metrics.",
-    tag: "Custom systems",
-    result: "Real-time operational visibility and centralized control",
-    stack: ["React", "TypeScript", "APIs", "Dashboards"],
-    cta: "View case",
-  },
-  {
-    name: "Landing page for an online academy",
-    description:
-      "High-conversion page with clear course information, testimonials and direct WhatsApp form.",
-    tag: "Landing page",
-    result: "Improved lead capture flow with direct WhatsApp contact",
-    stack: ["React", "SEO", "Analytics", "WhatsApp"],
-    cta: "View case",
-  },
-  {
-    name: "Corporate site for an accounting firm",
-    description:
-      "Institutional site with services, team, blog and booking, optimized for local SEO.",
-    tag: "Corporate website",
-    result: "Professional presence and a strong technical SEO foundation",
-    stack: ["React", "Technical SEO", "Performance", "Forms"],
-    cta: "View case",
-  },
-  {
-    name: "Internal task & follow-up portal",
-    description:
-      "Web app to organize tasks, assignees and statuses, designed to streamline daily operations.",
-    tag: "Automation",
-    result: "Better operational clarity with assignees and status tracking",
-    stack: ["React", "Roles", "Automation", "Workflows"],
-    cta: "View case",
-  },
-],
+      projects: [
+        {
+          name: "Monitoring dashboard for a security company",
+          description:
+            "Web panel to view alerts, cameras and status in real time, with filters and key metrics.",
+          tag: "Custom systems",
+          result: "Real-time operational visibility and centralized control",
+          stack: ["React", "TypeScript", "APIs", "Dashboards"],
+          cta: "View case",
+        },
+        {
+          name: "Landing page for an online academy",
+          description:
+            "High-conversion page with clear course information, testimonials and direct WhatsApp form.",
+          tag: "Landing page",
+          result: "Improved lead capture flow with direct WhatsApp contact",
+          stack: ["React", "SEO", "Analytics", "WhatsApp"],
+          cta: "View case",
+        },
+        {
+          name: "Corporate site for an accounting firm",
+          description:
+            "Institutional site with services, team, blog and booking, optimized for local SEO.",
+          tag: "Corporate website",
+          result: "Professional presence and a strong technical SEO foundation",
+          stack: ["React", "Technical SEO", "Performance", "Forms"],
+          cta: "View case",
+        },
+        {
+          name: "Internal task & follow-up portal",
+          description:
+            "Web app to organize tasks, assignees and statuses, designed to streamline daily operations.",
+          tag: "Automation",
+          result: "Better operational clarity with assignees and status tracking",
+          stack: ["React", "Roles", "Automation", "Workflows"],
+          cta: "View case",
+        },
+      ],
 
     },
     contact: {
@@ -626,44 +626,44 @@ projects: [
       title: "Notre processus",
       subtitle:
         "Un flux de travail pensé pour vous donner de la clarté dès le premier jour.",
-steps: [
-  {
-    icon: "🧭",
-    title: "1. Découverte & objectifs",
-    description:
-      "Définition des objectifs, utilisateurs, périmètre et contraintes. KPIs et priorités du MVP.",
-  },
-  {
-    icon: "🏗️",
-    title: "2. Architecture & plan",
-    description:
-      "Choix du stack, intégrations (WhatsApp/paiements/APIs), modèle de données et plan par sprints.",
-  },
-  {
-    icon: "🧩",
-    title: "3. Sprint UX/UI",
-    description:
-      "Wireframes et UI finale en composants. Validation du contenu et du parcours de conversion.",
-  },
-  {
-    icon: "⚙️",
-    title: "4. Développement par sprints",
-    description:
-      "Livraison incrémentale (frontend + backend). Démos hebdomadaires et itérations rapides.",
-  },
-  {
-    icon: "✅",
-    title: "5. QA, performance & sécurité",
-    description:
-      "Tests fonctionnels, cas limites, performance (CWV) et sécurisation de base avant production.",
-  },
-  {
-    icon: "🚀",
-    title: "6. Déploiement, monitoring & amélioration",
-    description:
-      "Mise en ligne avec checklist, analytics/suivi, observabilité et roadmap post-lancement.",
-  },
-],
+      steps: [
+        {
+          icon: "🧭",
+          title: "1. Découverte & objectifs",
+          description:
+            "Définition des objectifs, utilisateurs, périmètre et contraintes. KPIs et priorités du MVP.",
+        },
+        {
+          icon: "🏗️",
+          title: "2. Architecture & plan",
+          description:
+            "Choix du stack, intégrations (WhatsApp/paiements/APIs), modèle de données et plan par sprints.",
+        },
+        {
+          icon: "🧩",
+          title: "3. Sprint UX/UI",
+          description:
+            "Wireframes et UI finale en composants. Validation du contenu et du parcours de conversion.",
+        },
+        {
+          icon: "⚙️",
+          title: "4. Développement par sprints",
+          description:
+            "Livraison incrémentale (frontend + backend). Démos hebdomadaires et itérations rapides.",
+        },
+        {
+          icon: "✅",
+          title: "5. QA, performance & sécurité",
+          description:
+            "Tests fonctionnels, cas limites, performance (CWV) et sécurisation de base avant production.",
+        },
+        {
+          icon: "🚀",
+          title: "6. Déploiement, monitoring & amélioration",
+          description:
+            "Mise en ligne avec checklist, analytics/suivi, observabilité et roadmap post-lancement.",
+        },
+      ],
 
     },
     team: {
@@ -705,44 +705,44 @@ steps: [
       title: "Portfolio",
       subtitle:
         "Exemples de projets que nous avons construits ou que nous pouvons créer pour votre activité.",
-projects: [
-  {
-    name: "Tableau de bord de monitoring pour une entreprise de sécurité",
-    description:
-      "Interface pour visualiser alertes, caméras et statuts en temps réel, avec filtres et métriques.",
-    tag: "Systèmes sur mesure",
-    result: "Visibilité opérationnelle en temps réel et contrôle centralisé",
-    stack: ["React", "TypeScript", "APIs", "Dashboards"],
-    cta: "Voir le cas",
-  },
-  {
-    name: "Landing page pour une académie en ligne",
-    description:
-      "Page de conversion avec informations claires, témoignages et formulaire WhatsApp.",
-    tag: "Landing page",
-    result: "Meilleure acquisition avec contact direct via WhatsApp",
-    stack: ["React", "SEO", "Analytics", "WhatsApp"],
-    cta: "Voir le cas",
-  },
-  {
-    name: "Site corporate pour un cabinet comptable",
-    description:
-      "Site institutionnel avec services, équipe, blog et prise de rendez-vous.",
-    tag: "Site corporate",
-    result: "Présence professionnelle et base SEO technique solide",
-    stack: ["React", "SEO technique", "Performance", "Formulaires"],
-    cta: "Voir le cas",
-  },
-  {
-    name: "Portail interne de tâches et suivi",
-    description:
-      "Application web pour organiser tâches, responsables et statuts.",
-    tag: "Automatisation",
-    result: "Meilleure organisation opérationnelle avec suivi des statuts",
-    stack: ["React", "Rôles", "Automatisation", "Workflows"],
-    cta: "Voir le cas",
-  },
-],
+      projects: [
+        {
+          name: "Tableau de bord de monitoring pour une entreprise de sécurité",
+          description:
+            "Interface pour visualiser alertes, caméras et statuts en temps réel, avec filtres et métriques.",
+          tag: "Systèmes sur mesure",
+          result: "Visibilité opérationnelle en temps réel et contrôle centralisé",
+          stack: ["React", "TypeScript", "APIs", "Dashboards"],
+          cta: "Voir le cas",
+        },
+        {
+          name: "Landing page pour une académie en ligne",
+          description:
+            "Page de conversion avec informations claires, témoignages et formulaire WhatsApp.",
+          tag: "Landing page",
+          result: "Meilleure acquisition avec contact direct via WhatsApp",
+          stack: ["React", "SEO", "Analytics", "WhatsApp"],
+          cta: "Voir le cas",
+        },
+        {
+          name: "Site corporate pour un cabinet comptable",
+          description:
+            "Site institutionnel avec services, équipe, blog et prise de rendez-vous.",
+          tag: "Site corporate",
+          result: "Présence professionnelle et base SEO technique solide",
+          stack: ["React", "SEO technique", "Performance", "Formulaires"],
+          cta: "Voir le cas",
+        },
+        {
+          name: "Portail interne de tâches et suivi",
+          description:
+            "Application web pour organiser tâches, responsables et statuts.",
+          tag: "Automatisation",
+          result: "Meilleure organisation opérationnelle avec suivi des statuts",
+          stack: ["React", "Rôles", "Automatisation", "Workflows"],
+          cta: "Voir le cas",
+        },
+      ],
 
     },
     contact: {
@@ -851,44 +851,44 @@ projects: [
       title: "Unser Ablauf",
       subtitle:
         "Ein strukturierter Prozess, der Ihnen von Anfang an Klarheit gibt.",
-steps: [
-  {
-    icon: "🧭",
-    title: "1. Discovery & Ziele",
-    description:
-      "Ziele, Nutzer, Umfang und Einschränkungen. KPIs und MVP-Prioritäten werden definiert.",
-  },
-  {
-    icon: "🏗️",
-    title: "2. Architektur & Plan",
-    description:
-      "Stack, Integrationen (WhatsApp/Zahlungen/APIs), Datenmodell und Sprint-Plan mit Deliverables.",
-  },
-  {
-    icon: "🧩",
-    title: "3. UX/UI-Design Sprint",
-    description:
-      "Wireframes und finale UI als Komponenten. Validierung von Copy, Struktur und Conversion-Flow.",
-  },
-  {
-    icon: "⚙️",
-    title: "4. Entwicklung in Sprints",
-    description:
-      "Inkrementelle Umsetzung (Frontend + Backend). Wöchentliche Demos und schnelle Iterationen.",
-  },
-  {
-    icon: "✅",
-    title: "5. QA, Performance & Sicherheit",
-    description:
-      "Funktionstests, Edge Cases, Performance (CWV) und Basishärtung vor dem Go-Live.",
-  },
-  {
-    icon: "🚀",
-    title: "6. Deploy, Monitoring & Weiterentwicklung",
-    description:
-      "Release mit Checklist, Analytics/Tracking, Observability und Roadmap nach dem Launch.",
-  },
-],
+      steps: [
+        {
+          icon: "🧭",
+          title: "1. Discovery & Ziele",
+          description:
+            "Ziele, Nutzer, Umfang und Einschränkungen. KPIs und MVP-Prioritäten werden definiert.",
+        },
+        {
+          icon: "🏗️",
+          title: "2. Architektur & Plan",
+          description:
+            "Stack, Integrationen (WhatsApp/Zahlungen/APIs), Datenmodell und Sprint-Plan mit Deliverables.",
+        },
+        {
+          icon: "🧩",
+          title: "3. UX/UI-Design Sprint",
+          description:
+            "Wireframes und finale UI als Komponenten. Validierung von Copy, Struktur und Conversion-Flow.",
+        },
+        {
+          icon: "⚙️",
+          title: "4. Entwicklung in Sprints",
+          description:
+            "Inkrementelle Umsetzung (Frontend + Backend). Wöchentliche Demos und schnelle Iterationen.",
+        },
+        {
+          icon: "✅",
+          title: "5. QA, Performance & Sicherheit",
+          description:
+            "Funktionstests, Edge Cases, Performance (CWV) und Basishärtung vor dem Go-Live.",
+        },
+        {
+          icon: "🚀",
+          title: "6. Deploy, Monitoring & Weiterentwicklung",
+          description:
+            "Release mit Checklist, Analytics/Tracking, Observability und Roadmap nach dem Launch.",
+        },
+      ],
 
     },
     team: {
@@ -930,44 +930,44 @@ steps: [
       title: "Projekte",
       subtitle:
         "Beispiele für Projekte, die wir umgesetzt haben oder für Sie umsetzen können.",
-projects: [
-  {
-    name: "Monitoring-Dashboard für Sicherheitsunternehmen",
-    description:
-      "Web-Panel zur Anzeige von Alarmen, Kameras und Status in Echtzeit.",
-    tag: "Individuelle Systeme",
-    result: "Echtzeit-Transparenz und zentralisierte Steuerung",
-    stack: ["React", "TypeScript", "APIs", "Dashboards"],
-    cta: "Fall ansehen",
-  },
-  {
-    name: "Landingpage für Online-Akademie",
-    description:
-      "Conversion-starke Seite mit Kursinfos, Testimonials und WhatsApp-Formular.",
-    tag: "Landingpage",
-    result: "Besserer Lead-Flow mit direktem WhatsApp-Kontakt",
-    stack: ["React", "SEO", "Analytics", "WhatsApp"],
-    cta: "Fall ansehen",
-  },
-  {
-    name: "Firmenseite für Steuerkanzlei",
-    description:
-      "Corporate Website mit Leistungen, Team, Blog und Terminbuchung.",
-    tag: "Corporate Website",
-    result: "Professioneller Auftritt und starke technische SEO-Basis",
-    stack: ["React", "Technisches SEO", "Performance", "Formulare"],
-    cta: "Fall ansehen",
-  },
-  {
-    name: "Internes Aufgaben- & Tracking-Portal",
-    description:
-      "Web-App zur Organisation von Aufgaben, Zuständigkeiten und Status.",
-    tag: "Automatisierung",
-    result: "Mehr Klarheit im Betrieb durch Status- und Verantwortungs-Tracking",
-    stack: ["React", "Rollen", "Automatisierung", "Workflows"],
-    cta: "Fall ansehen",
-  },
-],
+      projects: [
+        {
+          name: "Monitoring-Dashboard für Sicherheitsunternehmen",
+          description:
+            "Web-Panel zur Anzeige von Alarmen, Kameras und Status in Echtzeit.",
+          tag: "Individuelle Systeme",
+          result: "Echtzeit-Transparenz und zentralisierte Steuerung",
+          stack: ["React", "TypeScript", "APIs", "Dashboards"],
+          cta: "Fall ansehen",
+        },
+        {
+          name: "Landingpage für Online-Akademie",
+          description:
+            "Conversion-starke Seite mit Kursinfos, Testimonials und WhatsApp-Formular.",
+          tag: "Landingpage",
+          result: "Besserer Lead-Flow mit direktem WhatsApp-Kontakt",
+          stack: ["React", "SEO", "Analytics", "WhatsApp"],
+          cta: "Fall ansehen",
+        },
+        {
+          name: "Firmenseite für Steuerkanzlei",
+          description:
+            "Corporate Website mit Leistungen, Team, Blog und Terminbuchung.",
+          tag: "Corporate Website",
+          result: "Professioneller Auftritt und starke technische SEO-Basis",
+          stack: ["React", "Technisches SEO", "Performance", "Formulare"],
+          cta: "Fall ansehen",
+        },
+        {
+          name: "Internes Aufgaben- & Tracking-Portal",
+          description:
+            "Web-App zur Organisation von Aufgaben, Zuständigkeiten und Status.",
+          tag: "Automatisierung",
+          result: "Mehr Klarheit im Betrieb durch Status- und Verantwortungs-Tracking",
+          stack: ["React", "Rollen", "Automatisierung", "Workflows"],
+          cta: "Fall ansehen",
+        },
+      ],
 
     },
     contact: {
