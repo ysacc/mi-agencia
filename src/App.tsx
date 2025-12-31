@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import './App.css';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
-import Portfolio from './components/Portfolio';
-import Process from './components/Process';
-import Services from './components/Services';
-import Team from './components/Team';
-import type { Lang } from './translations';
+import React, { useState } from "react";
+import "./App.css";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Services from "./components/Services";
+import type { Lang } from "./translations";
+import TrustedCompanies from "./components/TrustedCompanies";
+import Reviews from "./components/Reviews";
+import WhyChooseUs from "./components/WhyChooseUs";
+import WhyHireUs from "./components/WhyHireUs";
+import FAQ from "./components/FAQ";
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Lang>('es');
+  const [lang, setLang] = useState<Lang>("es");
 
   // Servicios seleccionados (desde Services)
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -28,6 +30,9 @@ const App: React.FC = () => {
             <Hero lang={lang} />
           </div>
         </section>
+        <section id="companies" className="section">
+          <TrustedCompanies lang={lang} />
+        </section>
 
         <section id="servicios" className="section-alt">
           <div className="container">
@@ -35,36 +40,21 @@ const App: React.FC = () => {
               lang={lang}
               onSelectService={(title) => {
                 setSelectedService(title);
-                setSelectedCase(null); // opcional: limpiar caso si eligen servicio
+                setSelectedCase(null);
               }}
             />
           </div>
         </section>
 
-        <section id="portafolio" className="section">
-          <div className="container">
-            <Portfolio
-              lang={lang}
-              onSelectCase={(caseName) => {
-                setSelectedCase(caseName);
-                setSelectedService(null); // opcional: limpiar servicio si eligen caso
-              }}
-            />
-          </div>
+        <section id="reviews" className="section">
+          <Reviews lang={lang} />
         </section>
+        <WhyChooseUs lang={lang} />
+        <WhyHireUs lang={lang} />
 
-        <section id="proceso" className="section-alt">
-          <div className="container">
-            <Process lang={lang} />
-          </div>
+        <section id="faq" className="section">
+          <FAQ />
         </section>
-
-        <section id="equipo" className="section">
-          <div className="container">
-            <Team lang={lang} />
-          </div>
-        </section>
-
         <section id="contacto" className="section-alt">
           <div className="container">
             <Contact

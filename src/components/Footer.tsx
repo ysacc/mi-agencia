@@ -1,5 +1,5 @@
-import React from 'react';
-import { translations, type Lang } from '../translations';
+import React from "react";
+import { translations, type Lang } from "../translations";
 
 interface FooterProps {
   lang: Lang;
@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
   return (
     <footer className="site-footer">
       <div className="container">
-        © {year} Agencia Roncal. {t.text}
+        © {year} BR Digital Systems. {t.text}
       </div>
     </footer>
   );

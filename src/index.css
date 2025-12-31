@@ -1,3 +1,6 @@
+@import "swiper/css";
+@import "swiper/css/free-mode";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
