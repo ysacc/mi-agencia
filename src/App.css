@@ -1755,3 +1755,106 @@ button {
 .footer-note {
   color: rgba(255, 255, 255, 0.45);
 }
+/* =========================
+   HERO FIX (tu componente Hero.tsx)
+   Pegar al FINAL del CSS
+========================= */
+
+/* Evita scroll lateral por elementos "anchos" (Swiper suele causar esto) */
+html, body { overflow-x: hidden; }
+
+/* CLAVE: en grid/flex, el hijo por defecto tiene min-width:auto y NO encoge -> el texto se corta */
+.hero,
+.hero-main,
+.hero-visual,
+.hero-box {
+  min-width: 0;
+}
+
+/* Asegura que el grid no fuerce columnas demasiado anchas */
+.hero.hero-commercial {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+/* El título debe romper línea sí o sí */
+.hero-title.hero-title-commercial {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere; /* evita cortes raros si hay palabras largas */
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* El highlight NO debe comportarse como bloque ni nowrap */
+.hero-title .hero-highlight {
+  display: inline;
+  white-space: inherit;
+}
+
+/* Swiper y contenedores: evita que el slider empuje el layout en móvil */
+.hero-swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+  min-width: 0;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* TABLET: apila y ajusta tamaños */
+@media (max-width: 1024px) {
+  .hero.hero-commercial {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-visual {
+    justify-content: center; /* mejor que a la derecha en tablet */
+  }
+
+  .hero-box.hero-box-commercial {
+    max-width: 520px; /* un poco más ancho en tablet */
+    width: 100%;
+  }
+}
+
+/* MÓVIL: reduce tipografías, paddings y evita overflow */
+@media (max-width: 768px) {
+  .hero.hero-commercial {
+    padding: 16px 0 6px;
+  }
+
+  .hero-pill {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .hero-title.hero-title-commercial {
+    font-size: clamp(28px, 7.2vw, 38px);
+    line-height: 1.06;
+  }
+
+  .hero-offer {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .hero-offer-amount {
+    font-size: 40px; /* baja un poco en móvil */
+  }
+}
+
+/* MÓVIL PEQUEÑO: aún más compacto */
+@media (max-width: 420px) {
+  .hero-title.hero-title-commercial {
+    font-size: 28px;
+  }
+
+  .hero-offer-amount {
+    font-size: 36px;
+  }
+}
