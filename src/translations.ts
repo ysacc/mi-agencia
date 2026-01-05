@@ -8,6 +8,7 @@ export type ServiceItem = {
   delivery: string;
   fromPrice: string;
   cta: string;
+  fromLabel: string;
 };
 
 export type StepItem = { icon: string; title: string; description: string };
@@ -276,13 +277,13 @@ export const translations: Record<Lang, Translation> = {
       h1a: "Páginas web que",
       h1b: "venden",
       h1c: "por ti",
-      sub: "Lanza tu web con WhatsApp y formulario listo para captar clientes. Diseño profesional, rápido y sin complicaciones.",
+      sub: "Lanza tu web con WhatsApp y formulario listos para captar clientes. Diseño profesional, rápido y sin complicaciones.",
       priceLabel: "Desde",
-      price: "S/ 299",
+      price: "USD 299",
       priceNote: "Pago único · Entrega rápida",
       cta: "Quiero mi web",
       cta2: "Ver precios",
-      trust: "Respuesta en menos de 24h",
+      trust: "Respuesta en menos de 24 h",
       bullets: [
         "WhatsApp + formulario",
         "Diseño profesional",
@@ -299,7 +300,7 @@ export const translations: Record<Lang, Translation> = {
         {
           title: "Web Emprendedor",
           fromLabel: "Desde",
-          price: "S/ 299",
+          price: "USD 299",
           badge: "Más solicitado",
           bullets: [
             "WhatsApp + formulario",
@@ -311,11 +312,11 @@ export const translations: Record<Lang, Translation> = {
         {
           title: "Tienda Online",
           fromLabel: "Desde",
-          price: "S/ 499",
+          price: "USD 499",
           badge: "Para vender",
           bullets: [
             "Catálogo de productos",
-            "Pagos online",
+            "Pagos en línea",
             "Panel de administración",
           ],
           cta: "Quiero vender online",
@@ -323,7 +324,7 @@ export const translations: Record<Lang, Translation> = {
         {
           title: "Aula Virtual",
           fromLabel: "Desde",
-          price: "S/ 499",
+          price: "USD 499",
           badge: "Educación",
           bullets: ["Clases online", "Acceso para alumnos", "Escalable"],
           cta: "Crear aula virtual",
@@ -342,8 +343,9 @@ export const translations: Record<Lang, Translation> = {
             "Integración WhatsApp + formularios",
             "Analítica (eventos y conversiones)",
           ],
-          delivery: "Entrega: 7–14 días",
-          fromPrice: "Desde S/ 999",
+          delivery: "Entrega estimada: 7–14 días",
+          fromLabel: "Desde",
+          fromPrice: "USD 999",
           cta: "Agendar diagnóstico",
         },
         {
@@ -357,8 +359,9 @@ export const translations: Record<Lang, Translation> = {
             "Roles y permisos (si aplica)",
             "Base escalable (MVP → v2)",
           ],
-          delivery: "Entrega: 2–4 semanas",
-          fromPrice: "Desde S/ 2,499",
+          delivery: "Entrega estimada: 2–4 semanas",
+          fromLabel: "Desde",
+          fromPrice: "USD 2,499",
           cta: "Agendar diagnóstico",
         },
         {
@@ -368,12 +371,13 @@ export const translations: Record<Lang, Translation> = {
           tag: "Para vender",
           bullets: [
             "Catálogo + productos + categorías",
-            "Checkout / pagos (según pasarela)",
+            "Checkout / pagos en línea",
             "WhatsApp + notificaciones",
             "SEO + performance optimizada",
           ],
-          delivery: "Entrega: 2–3 semanas",
-          fromPrice: "Desde S/ 3,499",
+          delivery: "Entrega estimada: 2–3 semanas",
+          fromLabel: "Desde",
+          fromPrice: "USD 3,499",
           cta: "Agendar diagnóstico",
         },
       ],

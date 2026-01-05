@@ -19,14 +19,26 @@ const Services: React.FC<ServicesProps> = ({ lang, onSelectService }) => {
     goToContact();
   };
 
-  const getPriceLabel = (fromPrice: string) => {
-    const m = fromPrice.match(/S\/\s*\d[\d.,]*/i);
-    return m ? `S/ ${m[0].replace(/S\/\s*/i, "")}` : fromPrice;
-  };
+  const parseMoney = (value: string) => {
+    // Acepta: "USD 2,499", "S/ 999", "999", "2,499"
+    const v = (value || "").trim();
 
-  const getFromLabel = (fromPrice: string) => {
-    if (/desde/i.test(fromPrice)) return fromPrice;
-    return `Desde ${fromPrice}`;
+    // Detectar moneda por prefijo
+    const currencyMatch = v.match(/^(USD|US\$|S\/)\s*/i);
+    const currency = currencyMatch ? currencyMatch[1].toUpperCase() : "";
+
+    // Extraer número (mantiene comas para miles)
+    const amount = v.replace(/^(USD|US\$|S\/)\s*/i, "").trim();
+
+    // Normalizar etiqueta de moneda a lo que mostrarás
+    const currencyLabel =
+      currency === "US$" || currency === "USD"
+        ? "USD"
+        : currency === "S/"
+        ? "S/"
+        : "";
+
+    return { currencyLabel, amount };
   };
 
   return (
@@ -69,12 +81,9 @@ const Services: React.FC<ServicesProps> = ({ lang, onSelectService }) => {
         </div>
       )}
 
-      {/* SERVICIOS COMERCIALES */}
-      <div className="services-commercial-grid">
+      {/* SERVICIOS COMERCIALES (solo desktop/tablet) */}
+      <div className="services-commercial-grid hide-on-mobile">
         {t.items.map((service, idx) => {
-          const priceBig = getPriceLabel(service.fromPrice);
-          const fromSmall = getFromLabel(service.fromPrice);
-
           return (
             <article
               key={service.title}
@@ -91,14 +100,25 @@ const Services: React.FC<ServicesProps> = ({ lang, onSelectService }) => {
               <h3 className="service-commercial-title">{service.title}</h3>
               <p className="service-commercial-sub">{service.description}</p>
 
-              <div className="service-commercial-price">
-                <span className="service-commercial-currency">S/</span>
-                <span className="service-commercial-amount">
-                  {priceBig.replace("S/", "").trim()}
-                </span>
-              </div>
+              {(() => {
+                const { currencyLabel, amount } = parseMoney(service.fromPrice);
 
-              <div className="service-commercial-from">{fromSmall}</div>
+                return (
+                  <>
+                    <div className="service-commercial-from">
+                      {service.fromLabel ?? "Desde"}
+                    </div>
+                    <div className="service-commercial-price">
+                      <span className="service-commercial-currency">
+                        {currencyLabel || "USD"}
+                      </span>
+                      <span className="service-commercial-amount">
+                        {amount}
+                      </span>
+                    </div>
+                  </>
+                );
+              })()}
 
               <ul className="service-commercial-list">
                 {service.bullets.slice(0, 6).map((b) => (

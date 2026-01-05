@@ -21,7 +21,7 @@ const NAV_SECTIONS = [
   { id: "contacto", key: "contacto" },
 ] as const;
 
-const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
+const Navbar: React.FC<NavbarProps> = ({ lang }) => {
   const t = translations[lang].navbar;
 
   const handleScroll = (id: string) => {
@@ -29,9 +29,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLang(e.target.value as Lang);
-  };
+  // const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setLang(e.target.value as Lang);
+  // };
 
   const sections = NAV_SECTIONS.map((s) => ({
     id: s.id,
@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
               {t.cta}
             </button>
 
-            <select
+            {/* <select
               value={lang}
               onChange={handleLangChange}
               className="nav-lang"
@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang }) => {
               <option value="en">EN</option>
               <option value="fr">FR</option>
               <option value="de">DE</option>
-            </select>
+            </select> */}
           </div>
         </div>
       </div>

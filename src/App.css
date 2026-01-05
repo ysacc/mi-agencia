@@ -91,6 +91,7 @@ button {
 
 .section-heading {
   text-align: left;
+    margin-bottom: 22px;
 }
 
 .section-title {
@@ -439,9 +440,10 @@ button {
 .trusted-heading {
   text-align: center;
   margin-bottom: 22px;
+  
 }
 
-.trusted-heading h3 {
+/* .trusted-heading h3 {
   margin: 0;
   font-size: 22px;
   font-weight: 1000;
@@ -452,7 +454,7 @@ button {
   margin: 10px 0 0;
   color: var(--text-dim);
   font-size: 14px;
-}
+} */
 
 .trusted-marquee {
   position: relative;
@@ -514,8 +516,8 @@ button {
 }
 
 .trusted-logo {
-  width: 260px;
-  height: 110px;
+  width: 300px;
+  height: 130px;
   display: grid;
   place-items: center;
   border-radius: 18px;
@@ -525,8 +527,8 @@ button {
 }
 
 .trusted-logo img {
-  max-width: 210px;
-  max-height: 74px;
+  max-width: 240px;
+  max-height: 90px;
   object-fit: contain;
   opacity: 1;
   filter: none;
@@ -553,13 +555,17 @@ button {
 
 @media (max-width: 640px) {
   .trusted-logo {
-    width: 190px;
-    height: 86px;
+    width: 220px;
+    /* antes 190 */
+    height: 100px;
+    /* antes 86 */
   }
 
   .trusted-logo img {
-    max-width: 150px;
-    max-height: 58px;
+    max-width: 170px;
+    /* antes 150 */
+    max-height: 66px;
+    /* antes 58 */
   }
 
   .trusted-track--left {
@@ -1856,5 +1862,11 @@ html, body { overflow-x: hidden; }
 
   .hero-offer-amount {
     font-size: 36px;
+  }
+}
+/* Ocultar en mobile (ajusta breakpoint si usas otro) */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
   }
 }

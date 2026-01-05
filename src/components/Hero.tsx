@@ -106,16 +106,18 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
             pagination={{ clickable: true }}
             className="hero-swiper"
           >
-            {["web299.png", "tienda499.png", "aula499.png"].map((name, i) => (
-              <SwiperSlide key={i}>
-                <img
-                  src={`/images/${encodeURIComponent(name)}`}
-                  alt={`Oferta ${i + 1}`}
-                  className="hero-slide-img"
-                  loading={i === 0 ? "eager" : "lazy"}
-                />
-              </SwiperSlide>
-            ))}
+            {["web299usd.png", "tienda499usd.png", "aula499usd.png"].map(
+              (name, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={`/images/${encodeURIComponent(name)}`}
+                    alt={`Oferta ${i + 1}`}
+                    className="hero-slide-img"
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
         </div>
       </motion.div>
