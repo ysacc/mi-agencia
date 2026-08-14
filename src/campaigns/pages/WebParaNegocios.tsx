@@ -10,9 +10,17 @@ import SolutionExamples, {
 import ProcessSteps, { type ProcessStep } from "../components/ProcessSteps";
 import CampaignFAQ, { type FaqItem } from "../components/CampaignFAQ";
 import CampaignCTA from "../components/CampaignCTA";
+import RelatedServices from "../components/RelatedServices";
 import Reveal from "../components/Reveal";
 import Icon from "../components/Icon";
 import WebMockup from "../components/visuals/WebMockup";
+import JsonLd from "../../components/JsonLd";
+import {
+  buildBreadcrumb,
+  buildFaqPage,
+  buildGraph,
+  buildServiceGraph,
+} from "../../lib/structuredData";
 
 const campaign = getCampaign("web-para-negocios");
 
@@ -185,8 +193,26 @@ const FAQ: FaqItem[] = [
   },
 ];
 
+const STRUCTURED_DATA = buildGraph([
+  buildServiceGraph({
+    name: "Diseño y desarrollo de páginas web para negocios",
+    description:
+      "Desarrollo de páginas web profesionales para negocios locales, profesionales independientes y pequeñas empresas, con diseño responsive, WhatsApp integrado y formulario de contacto.",
+    path: campaign.path,
+    offers: [
+      "Página web para negocio local",
+      "Web para profesional independiente o consultorio",
+      "Web institucional para pequeña empresa",
+      "Página de captación para campañas",
+    ],
+  }),
+  buildBreadcrumb("Páginas web para negocios", campaign.path),
+  buildFaqPage(FAQ),
+]);
+
 const WebParaNegocios: React.FC = () => (
   <CampaignLayout campaign={campaign}>
+    <JsonLd data={STRUCTURED_DATA} />
     <CampaignHero
       eyebrow="Para negocios locales, profesionales y emprendedores"
       title={
@@ -286,6 +312,8 @@ const WebParaNegocios: React.FC = () => (
       subtitle="Un proceso corto y sin vueltas, pensado para que no tengas que estar encima."
       steps={PROCESS}
     />
+
+    <RelatedServices />
 
     <CampaignFAQ
       title="Preguntas frecuentes"

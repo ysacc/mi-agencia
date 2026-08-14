@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import type { CampaignConfig } from "../campaignConfig";
 import { CampaignContext } from "../lib/campaignContext";
-import { captureUtm } from "../lib/utm";
-import { trackPageView } from "../lib/analytics";
+import { captureUtm } from "../../lib/utm";
+import { trackPageView } from "../../lib/analytics";
 import CampaignHeader from "./CampaignHeader";
 import CampaignFooter from "./CampaignFooter";
 import WhatsAppButton from "./WhatsAppButton";
@@ -27,9 +27,10 @@ const CampaignLayout: React.FC<CampaignLayoutProps> = ({
 
     // 2. page_view identificando la campaña.
     trackPageView({
+      page: campaign.path,
       campaign: campaign.name,
       campaignId: campaign.id,
-      path: campaign.path,
+      service: campaign.name,
       title: campaign.seo.title,
     });
   }, [campaign]);

@@ -1,5 +1,6 @@
 import React from "react";
 import { translations, type Lang } from "../translations";
+import { trackViewService } from "../lib/analytics";
 
 interface ServicesProps {
   lang: Lang;
@@ -15,6 +16,12 @@ const Services: React.FC<ServicesProps> = ({ lang, onSelectService }) => {
   };
 
   const handleServiceCta = (serviceTitle: string) => {
+    trackViewService({
+      page: "/",
+      service: serviceTitle,
+      location: "servicios",
+      label: serviceTitle,
+    });
     onSelectService?.(serviceTitle);
     goToContact();
   };
@@ -82,7 +89,7 @@ const Services: React.FC<ServicesProps> = ({ lang, onSelectService }) => {
       )}
 
       {/* SERVICIOS COMERCIALES (solo desktop/tablet) */}
-      <div className="services-commercial-grid hide-on-mobile">
+      <div className="services-commercial-grid">
         {t.items.map((service, idx) => {
           return (
             <article

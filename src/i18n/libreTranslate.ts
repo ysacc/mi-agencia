@@ -23,14 +23,17 @@ async function translateText(q: string, target: Lang) {
   return String(data.translatedText || "");
 }
 
+type Nested = Record<string, unknown>;
+
 function flattenStrings(
-  obj: any,
+  obj: unknown,
   prefix = "",
   out: Record<string, string> = {}
 ) {
-  if (!obj) return out;
-  for (const k of Object.keys(obj)) {
-    const val = obj[k];
+  const source = obj as Nested | null;
+  if (!source) return out;
+  for (const k of Object.keys(source)) {
+    const val = source[k];
     const path = prefix ? `${prefix}.${k}` : k;
 
     if (typeof val === "string") out[path] = val;
@@ -40,13 +43,13 @@ function flattenStrings(
   return out;
 }
 
-function applyFlatStrings(base: any, flat: Record<string, string>) {
+function applyFlatStrings(base: unknown, flat: Record<string, string>) {
   const clone = structuredClone(base);
   for (const path in flat) {
     const parts = path.split(".");
-    let ref: any = clone;
+    let ref = clone as Nested;
     for (let i = 0; i < parts.length - 1; i++) {
-      ref = ref[parts[i]];
+      ref = ref[parts[i]] as Nested;
     }
     ref[parts[parts.length - 1]] = flat[path];
   }
@@ -60,7 +63,9 @@ export async function getDict(lang: Lang) {
   try {
     const raw = localStorage.getItem(cacheKey(lang));
     if (raw) return JSON.parse(raw);
-  } catch {}
+  } catch {
+    // Sin acceso a localStorage (modo privado o almacenamiento lleno).
+  }
 
   const base = translations.es;
   const flat = flattenStrings(base);
@@ -82,7 +87,9 @@ export async function getDict(lang: Lang) {
 
   try {
     localStorage.setItem(cacheKey(lang), JSON.stringify(dict));
-  } catch {}
+  } catch {
+    // Sin acceso a localStorage (modo privado o almacenamiento lleno).
+  }
 
   return dict;
 }

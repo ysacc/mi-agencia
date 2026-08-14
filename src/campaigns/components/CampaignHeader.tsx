@@ -1,6 +1,6 @@
 import React from "react";
 import { BRAND } from "../campaignConfig";
-import { withUtm } from "../lib/utm";
+import { withUtm } from "../../lib/utm";
 
 /**
  * Encabezado reducido: sin navegación que distraiga.

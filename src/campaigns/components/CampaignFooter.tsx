@@ -1,17 +1,25 @@
 import React from "react";
-import { BRAND, SITE_URL } from "../campaignConfig";
-import { WHATSAPP_DISPLAY } from "../lib/whatsapp";
-import { withUtm } from "../lib/utm";
+import {
+  BRAND,
+  SITE_DOMAIN,
+  SITE_URL,
+  SLOGAN,
+  SOCIAL_LINKS,
+  SERVICE_LINKS,
+} from "../../lib/site";
+import { WHATSAPP_DISPLAY } from "../../lib/whatsapp";
+import { withUtm } from "../../lib/utm";
+import { trackSocialClick } from "../../lib/analytics";
+import { useCampaign } from "../lib/campaignContext";
 
 /**
- * Footer simplificado para campañas: marca, contacto real y dominio.
- *
- * No se listan redes sociales porque el repositorio no tiene ninguna URL de
- * redes registrada; añadir perfiles inventados sería un dato falso.
- * Cuando existan, se agregan aquí como enlaces (target="_blank" + rel="noopener noreferrer").
+ * Footer simplificado para campañas: marca, servicios relacionados,
+ * redes reales y contacto.
  */
 const CampaignFooter: React.FC = () => {
+  const campaign = useCampaign();
   const year = new Date().getFullYear();
+  const otherServices = SERVICE_LINKS.filter((s) => s.id !== campaign.id);
 
   return (
     <footer className="cmp-footer">
@@ -28,14 +36,54 @@ const CampaignFooter: React.FC = () => {
           />
           <div>
             <p className="cmp-footer-name">{BRAND}</p>
-            <p className="cmp-footer-tag">Tecnología para tu crecimiento</p>
+            <p className="cmp-footer-tag">{SLOGAN}</p>
           </div>
         </div>
 
-        <div className="cmp-footer-links">
-          <a href={withUtm("/")}>Sitio principal</a>
-          <a href={SITE_URL}>brdigitalsystem.online</a>
-          <span className="cmp-footer-phone">WhatsApp {WHATSAPP_DISPLAY}</span>
+        <nav className="cmp-footer-nav" aria-label="Otros servicios">
+          <p className="cmp-footer-heading">Otros servicios</p>
+          <ul>
+            {otherServices.map((service) => (
+              <li key={service.id}>
+                <a href={withUtm(service.path)}>{service.name}</a>
+              </li>
+            ))}
+            <li>
+              <a href={withUtm("/")}>Sitio principal</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="cmp-footer-contact">
+          <p className="cmp-footer-heading">Contacto</p>
+          <p className="cmp-footer-phone">WhatsApp {WHATSAPP_DISPLAY}</p>
+          <a className="cmp-footer-domain" href={SITE_URL}>
+            {SITE_DOMAIN}
+          </a>
+
+          <ul className="cmp-footer-social">
+            {SOCIAL_LINKS.map((social) => (
+              <li key={social.name}>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackSocialClick({
+                      page: campaign.path,
+                      campaign: campaign.name,
+                      campaignId: campaign.id,
+                      location: "footer",
+                      network: social.name,
+                      label: social.handle,
+                    })
+                  }
+                >
+                  {social.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

@@ -1,1 +1,1 @@
-export type Dict = Record<string, any>;
+export type Dict = Record<string, unknown>;

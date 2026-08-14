@@ -1,18 +1,30 @@
 import { useMemo } from "react";
 import { translations, type Lang } from "../translations";
 
-type LogoItem = { src: string; alt?: string };
+type LogoItem = { src: string; webp: string; alt: string };
 
+/** Tamaño intrínseco aproximado de las muestras, para reservar el espacio. */
+const LOGO_WIDTH = 384;
+const LOGO_HEIGHT = 300;
+
+/**
+ * Muestras de proyectos web.
+ *
+ * PENDIENTE DE VERIFICAR: estas imágenes son maquetas de sitios, no logotipos
+ * de clientes. Si corresponden a proyectos reales, conviene sustituir el alt
+ * por el nombre del proyecto; si no lo son, esta sección debería retirarse
+ * para no dar a entender una cartera de clientes que no existe.
+ */
 const LOGOS: LogoItem[] = [
-  { src: "/logos/logo1.png", alt: "Cliente 1" },
-  { src: "/logos/logo2.png", alt: "Cliente 2" },
-  { src: "/logos/logo3.png", alt: "Cliente 3" },
-  { src: "/logos/logo4.png", alt: "Cliente 4" },
-  { src: "/logos/logo5.png", alt: "Cliente 5" },
-  { src: "/logos/logo6.png", alt: "Cliente 6" },
-  { src: "/logos/logo7.png", alt: "Cliente 7" },
-  { src: "/logos/logo8.png", alt: "Cliente 8" },
-  { src: "/logos/logo9.png", alt: "Cliente 9" },
+  { src: "/logos/logo1.png", webp: "/logos/logo1.webp", alt: "Muestra de diseño web para veterinaria" },
+  { src: "/logos/logo2.png", webp: "/logos/logo2.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo3.png", webp: "/logos/logo3.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo4.png", webp: "/logos/logo4.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo5.png", webp: "/logos/logo5.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo6.png", webp: "/logos/logo6.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo7.png", webp: "/logos/logo7.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo8.png", webp: "/logos/logo8.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo9.png", webp: "/logos/logo9.webp", alt: "Muestra de diseño web de proyecto" },
 ];
 
 interface TrustedCompaniesProps {
@@ -39,7 +51,18 @@ const TrustedCompanies: React.FC<TrustedCompaniesProps> = ({ lang }) => {
             <div className="trusted-track trusted-track--left">
               {track.map((l, i) => (
                 <div className="trusted-logo" key={`t1-${i}`}>
-                  <img src={l.src} alt={l.alt ?? ""} draggable={false} />
+                  <picture>
+                    <source srcSet={l.webp} type="image/webp" />
+                    <img
+                      src={l.src}
+                      alt={l.alt}
+                      width={LOGO_WIDTH}
+                      height={LOGO_HEIGHT}
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                    />
+                  </picture>
                 </div>
               ))}
             </div>
@@ -50,7 +73,20 @@ const TrustedCompanies: React.FC<TrustedCompaniesProps> = ({ lang }) => {
             <div className="trusted-track trusted-track--right">
               {track.map((l, i) => (
                 <div className="trusted-logo" key={`t2-${i}`}>
-                  <img src={l.src} alt={l.alt ?? ""} draggable={false} />
+                  {/* Carril decorativo duplicado: alt vacío para no repetir
+                      la misma información a los lectores de pantalla. */}
+                  <picture>
+                    <source srcSet={l.webp} type="image/webp" />
+                    <img
+                      src={l.src}
+                      alt=""
+                      width={LOGO_WIDTH}
+                      height={LOGO_HEIGHT}
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                    />
+                  </picture>
                 </div>
               ))}
             </div>

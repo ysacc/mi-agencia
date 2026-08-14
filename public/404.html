@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Página no encontrada | BR Digital System</title>
+  <meta name="description" content="La página que buscas no existe o cambió de dirección." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      color: rgba(255, 255, 255, 0.94);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(900px 620px at 12% 0%, rgba(43, 211, 248, 0.09), transparent 60%),
+        radial-gradient(900px 620px at 92% 8%, rgba(0, 91, 255, 0.12), transparent 60%),
+        linear-gradient(180deg, #0b1220, #0f172a 45%, #080e1a);
+    }
+
+    main { width: 100%; max-width: 620px; }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: block;
+    }
+
+    .code {
+      margin: 22px 0 0;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2bd3f8;
+    }
+
+    h1 {
+      margin: 8px 0 0;
+      font-size: clamp(1.8rem, 1.3rem + 2.4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    p { margin: 14px 0 0; color: rgba(255, 255, 255, 0.74); }
+
+    ul { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; }
+
+    a.card {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 160ms ease;
+    }
+
+    a.card:hover, a.card:focus-visible { border-color: rgba(43, 211, 248, 0.5); }
+
+    a.card strong { display: block; font-size: 1rem; }
+
+    a.card span { color: rgba(255, 255, 255, 0.62); font-size: 0.9rem; }
+
+    .home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      margin-top: 24px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: #2bd3f8;
+      color: #04141c;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    :focus-visible { outline: 3px solid #2bd3f8; outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      a.card { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img class="logo" src="/images/favicon-192.png" width="48" height="48"
+      alt="BR Digital System" />
+
+    <p class="code">Error 404</p>
+    <h1>Esta página no existe o cambió de dirección</h1>
+    <p>Puede que el enlace esté incompleto. Estas son las secciones principales:</p>
+
+    <ul>
+      <li>
+        <a class="card" href="/web-para-negocios">
+          <strong>Páginas web para negocios</strong>
+          <span>Presencia profesional para negocios locales y profesionales independientes.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="/tienda-online">
+          <strong>Tiendas online</strong>
+          <span>Catálogo, carrito y pedidos ordenados para vender por internet.</span>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="/sistemas-a-medida">
+          <strong>Sistemas a medida y automatización</strong>
+          <span>Sistemas web, dashboards e integraciones para reducir trabajo manual.</span>
+        </a>
+      </li>
+    </ul>
+
+    <a class="home" href="/">Ir al inicio</a>
+  </main>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCampaign } from "../lib/campaignContext";
-import { buildWhatsAppUrl } from "../lib/whatsapp";
-import { trackWhatsAppClick } from "../lib/analytics";
+import { buildWhatsAppUrl } from "../../lib/whatsapp";
+import { trackWhatsAppClick } from "../../lib/analytics";
 
 /**
  * Botón flotante de WhatsApp.
@@ -34,8 +34,10 @@ const WhatsAppButton: React.FC = () => {
       aria-label={`${campaign.cta.floating} — WhatsApp`}
       onClick={() =>
         trackWhatsAppClick({
+          page: campaign.path,
           campaign: campaign.name,
           campaignId: campaign.id,
+          service: campaign.name,
           location: "boton_flotante",
           label: campaign.cta.floating,
         })

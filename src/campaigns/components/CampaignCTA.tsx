@@ -1,6 +1,6 @@
 import React from "react";
 import { useCampaign } from "../lib/campaignContext";
-import { WHATSAPP_DISPLAY } from "../lib/whatsapp";
+import { WHATSAPP_DISPLAY } from "../../lib/whatsapp";
 import WhatsAppCta from "./WhatsAppCta";
 import Reveal from "./Reveal";
 

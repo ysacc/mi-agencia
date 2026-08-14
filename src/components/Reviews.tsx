@@ -12,7 +12,9 @@ function Stars({ rating }: { rating: number }) {
   const total = 5;
 
   return (
-    <div className="review-stars" aria-label={`Calificación ${rating} de 5`}>
+    // role="img" para que aria-label sea válido: un div genérico no admite
+    // nombre accesible, y sin él la calificación no se anuncia.
+    <div className="review-stars" role="img" aria-label={`Calificación ${rating} de 5`}>
       {Array.from({ length: total }, (_, i) => (
         <span
           key={i}

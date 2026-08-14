@@ -7,10 +7,9 @@
  * cada campaña pueda tener secciones y argumentos distintos.
  */
 
-export const SITE_URL = "https://brdigitalsystem.online";
+import { BRAND, SITE_URL } from "../lib/site";
 
-/** La marca se escribe SIEMPRE así: sin "s" final. */
-export const BRAND = "BR Digital System";
+export { BRAND, SITE_URL };
 
 export type CampaignId =
   | "web-para-negocios"

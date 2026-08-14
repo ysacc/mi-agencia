@@ -733,9 +733,11 @@ export const translations: Record<Lang, Translation> = {
 
   // ✅ Para que compile sin romper, completa luego EN/FR/DE copiando ES y traduciendo.
   // Si ya tienes en/fr/de en tu archivo, deja esas versiones como están.
-  en: undefined as any,
-  fr: undefined as any,
-  de: undefined as any,
+  // Pendientes de traducir: hoy la interfaz solo se muestra en español.
+  // Se resuelven a la versión ES para que nunca quede la UI vacía.
+  en: undefined as unknown as Translation,
+  fr: undefined as unknown as Translation,
+  de: undefined as unknown as Translation,
 };
 
 // --- ENGLISH ---

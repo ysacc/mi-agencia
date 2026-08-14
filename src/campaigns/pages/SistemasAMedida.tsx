@@ -10,9 +10,17 @@ import SolutionExamples, {
 import ProcessSteps, { type ProcessStep } from "../components/ProcessSteps";
 import CampaignFAQ, { type FaqItem } from "../components/CampaignFAQ";
 import CampaignCTA from "../components/CampaignCTA";
+import RelatedServices from "../components/RelatedServices";
 import Reveal from "../components/Reveal";
 import Icon from "../components/Icon";
 import SystemMockup from "../components/visuals/SystemMockup";
+import JsonLd from "../../components/JsonLd";
+import {
+  buildBreadcrumb,
+  buildFaqPage,
+  buildGraph,
+  buildServiceGraph,
+} from "../../lib/structuredData";
 
 const campaign = getCampaign("sistemas-a-medida");
 
@@ -199,8 +207,27 @@ const FAQ: FaqItem[] = [
   },
 ];
 
+const STRUCTURED_DATA = buildGraph([
+  buildServiceGraph({
+    name: "Desarrollo de software y sistemas a medida",
+    description:
+      "Desarrollo de sistemas web a medida, dashboards, integraciones con APIs y automatización de procesos para empresas que trabajan con Excel y tareas manuales repetitivas.",
+    path: campaign.path,
+    offers: [
+      "Sistema web a medida",
+      "Dashboards e indicadores de gestión",
+      "Automatización de procesos",
+      "Integración de sistemas por API",
+      "Aplicaciones web empresariales",
+    ],
+  }),
+  buildBreadcrumb("Sistemas a medida y automatización", campaign.path),
+  buildFaqPage(FAQ),
+]);
+
 const SistemasAMedida: React.FC = () => (
   <CampaignLayout campaign={campaign}>
+    <JsonLd data={STRUCTURED_DATA} />
     <CampaignHero
       eyebrow="Para empresas y equipos con procesos manuales"
       title={
@@ -307,6 +334,8 @@ const SistemasAMedida: React.FC = () => (
         </Reveal>
       </div>
     </section>
+
+    <RelatedServices />
 
     <CampaignFAQ
       title="Preguntas frecuentes"

@@ -1,7 +1,7 @@
 import React from "react";
 import { useCampaign } from "../lib/campaignContext";
-import { buildWhatsAppUrl } from "../lib/whatsapp";
-import { trackWhatsAppClick } from "../lib/analytics";
+import { buildWhatsAppUrl } from "../../lib/whatsapp";
+import { trackWhatsAppClick } from "../../lib/analytics";
 
 export type CtaVariant = "primary" | "secondary" | "outline";
 
@@ -36,6 +36,16 @@ const WhatsAppCta: React.FC<WhatsAppCtaProps> = ({
     location,
   });
 
+  const handleClick = () =>
+    trackWhatsAppClick({
+      page: campaign.path,
+      campaign: campaign.name,
+      campaignId: campaign.id,
+      service: campaign.name,
+      location,
+      label,
+    });
+
   return (
     <a
       className={`cmp-btn cmp-btn-${variant} ${className}`.trim()}
@@ -43,14 +53,7 @@ const WhatsAppCta: React.FC<WhatsAppCtaProps> = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel ?? label}
-      onClick={() =>
-        trackWhatsAppClick({
-          campaign: campaign.name,
-          campaignId: campaign.id,
-          location,
-          label,
-        })
-      }
+      onClick={handleClick}
     >
       <svg
         className="cmp-btn-icon"

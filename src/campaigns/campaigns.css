@@ -82,7 +82,8 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  /* Sin min-width: el diseño es fluido y debe caber también por debajo de
+     320 px (por ejemplo con el zoom de texto activado). */
   overflow-x: hidden;
   color: var(--cmp-text);
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
@@ -1017,6 +1018,41 @@ textarea {
   }
 }
 
+/* Servicios relacionados */
+.cmp-related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.cmp-card-related {
+  padding: 0;
+}
+
+.cmp-card-related a {
+  display: block;
+  padding: 20px;
+  border-radius: inherit;
+}
+
+.cmp-related-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--cmp-accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .cmp-related-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Nota destacada */
 .cmp-note-section {
   padding-top: 0;
@@ -1224,20 +1260,46 @@ textarea {
   font-size: 0.84rem;
 }
 
-.cmp-footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  font-size: 0.88rem;
+.cmp-footer-heading {
+  margin: 0 0 10px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cmp-text-muted);
+}
+
+.cmp-footer-nav ul,
+.cmp-footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 0.9rem;
   color: var(--cmp-text-dim);
 }
 
-.cmp-footer-links a:hover {
+.cmp-footer-nav a:hover,
+.cmp-footer-social a:hover,
+.cmp-footer-domain:hover {
   color: var(--cmp-accent);
+  text-decoration: underline;
 }
 
-.cmp-footer-phone {
-  color: var(--cmp-text-muted);
+.cmp-footer-social {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.cmp-footer-phone,
+.cmp-footer-domain {
+  display: block;
+  color: var(--cmp-text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
 }
 
 .cmp-footer-legal {
@@ -1250,12 +1312,9 @@ textarea {
 
 @media (min-width: 768px) {
   .cmp-footer-inner {
-    grid-template-columns: auto 1fr;
-    justify-content: space-between;
-  }
-
-  .cmp-footer-links {
-    justify-content: flex-end;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
   }
 
   /* Espacio suficiente para que el botón flotante no tape el contenido

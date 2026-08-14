@@ -1,64 +1,68 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { translations, type Lang } from "../translations";
+import { SERVICE_LINKS } from "../lib/site";
+import { withUtm } from "../lib/utm";
+import { trackViewService } from "../lib/analytics";
 
 interface NavbarProps {
   lang: Lang;
   setLang: (l: Lang) => void;
 }
 
-/**
- * Mantén aquí SOLO las secciones que realmente existen en App.tsx
- * y que quieras mostrar en el menú.
- *
- * Si luego reactivas Portfolio/Team, las vuelves a agregar.
- */
+/** Secciones ancla de la home. */
 const NAV_SECTIONS = [
-  { id: "inicio", key: "inicio" },
-  { id: "companies", key: "companies" }, // TrustedCompanies
-  { id: "servicios", key: "servicios" },
-  { id: "reviews", key: "reviews" },
-  { id: "faq", key: "faq" }, // si agregaste FAQ con id="faq"
-  { id: "contacto", key: "contacto" },
+  { id: "inicio", key: "inicio", fallback: "Inicio" },
+  { id: "servicios", key: "servicios", fallback: "Servicios" },
+  { id: "reviews", key: "reviews", fallback: "Reseñas" },
+  { id: "faq", key: "faq", fallback: "FAQ" },
+  { id: "contacto", key: "contacto", fallback: "Contacto" },
 ] as const;
 
 const Navbar: React.FC<NavbarProps> = ({ lang }) => {
   const t = translations[lang].navbar;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
 
-  const handleScroll = (id: string) => {
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  // Escape cierra el menú y devuelve el foco al botón que lo abrió.
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const goToSection = (id: string) => {
+    closeMenu();
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setLang(e.target.value as Lang);
-  // };
-
   const sections = NAV_SECTIONS.map((s) => ({
     id: s.id,
-    // Intenta leer del translations; si no existe, usa fallback “bonito”
-    label:
-      (t.sections as any)?.[s.key] ??
-      (s.key === "companies"
-        ? "Empresas"
-        : s.key === "reviews"
-        ? "Reseñas"
-        : s.key === "faq"
-        ? "FAQ"
-        : s.key),
+    label: t.sections?.[s.key as keyof typeof t.sections] ?? s.fallback,
   }));
 
   return (
     <header className="site-header">
       <div className="container">
-        <div className="navbar">
-          <div
-            className="nav-logo"
-            role="button"
-            tabIndex={0}
-            onClick={() => handleScroll("inicio")}
-          >
+        <nav className="navbar" aria-label="Navegación principal">
+          <a className="nav-logo" href={withUtm("/")}>
             {t.brandMain} <span>{t.brandAccent}</span>
-          </div>
+          </a>
 
           <ul className="nav-links">
             {sections.map((s) => (
@@ -66,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang }) => {
                 <button
                   type="button"
                   className="nav-link-btn"
-                  onClick={() => handleScroll(s.id)}
+                  onClick={() => goToSection(s.id)}
                 >
                   {s.label}
                 </button>
@@ -78,23 +82,69 @@ const Navbar: React.FC<NavbarProps> = ({ lang }) => {
             <button
               type="button"
               className="nav-cta"
-              onClick={() => handleScroll("contacto")}
+              onClick={() => goToSection("contacto")}
             >
               {t.cta}
             </button>
 
-            {/* <select
-              value={lang}
-              onChange={handleLangChange}
-              className="nav-lang"
-              aria-label="Seleccionar idioma"
+            <button
+              ref={toggleRef}
+              type="button"
+              className="nav-burger"
+              aria-expanded={menuOpen}
+              aria-controls="menu-movil"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              onClick={() => setMenuOpen((v) => !v)}
             >
-              <option value="es">ES</option>
-              <option value="en">EN</option>
-              <option value="fr">FR</option>
-              <option value="de">DE</option>
-            </select> */}
+              <span className={`nav-burger-bars ${menuOpen ? "is-open" : ""}`} />
+            </button>
           </div>
+        </nav>
+      </div>
+
+      {/* Menú móvil (disclosure): visible solo bajo 900px */}
+      <div
+        id="menu-movil"
+        className={`nav-mobile ${menuOpen ? "is-open" : ""}`}
+        hidden={!menuOpen}
+      >
+        <div className="container">
+          <ul className="nav-mobile-list">
+            {sections.map((s) => (
+              <li key={s.id}>
+                <button
+                  type="button"
+                  className="nav-mobile-link"
+                  onClick={() => goToSection(s.id)}
+                >
+                  {s.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <p className="nav-mobile-heading">Servicios</p>
+          <ul className="nav-mobile-list">
+            {SERVICE_LINKS.map((service) => (
+              <li key={service.id}>
+                <a
+                  className="nav-mobile-link"
+                  href={withUtm(service.path)}
+                  onClick={() => {
+                    trackViewService({
+                      page: "/",
+                      service: service.name,
+                      location: "menu_movil",
+                      label: service.name,
+                    });
+                    closeMenu();
+                  }}
+                >
+                  {service.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </header>

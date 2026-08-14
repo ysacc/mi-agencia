@@ -10,9 +10,17 @@ import SolutionExamples, {
 import ProcessSteps, { type ProcessStep } from "../components/ProcessSteps";
 import CampaignFAQ, { type FaqItem } from "../components/CampaignFAQ";
 import CampaignCTA from "../components/CampaignCTA";
+import RelatedServices from "../components/RelatedServices";
 import Reveal from "../components/Reveal";
 import Icon from "../components/Icon";
 import ShopMockup from "../components/visuals/ShopMockup";
+import JsonLd from "../../components/JsonLd";
+import {
+  buildBreadcrumb,
+  buildFaqPage,
+  buildGraph,
+  buildServiceGraph,
+} from "../../lib/structuredData";
 
 const campaign = getCampaign("tienda-online");
 
@@ -170,8 +178,26 @@ const FAQ: FaqItem[] = [
   },
 ];
 
+const STRUCTURED_DATA = buildGraph([
+  buildServiceGraph({
+    name: "Desarrollo de tiendas online",
+    description:
+      "Creación de tiendas online con catálogo por categorías, fichas de producto, carrito de compras, pedidos por WhatsApp, pagos en línea cuando aplique y panel de administración.",
+    path: campaign.path,
+    offers: [
+      "Tienda online con catálogo y carrito",
+      "Catálogo digital con pedidos por WhatsApp",
+      "Tienda con pagos en línea",
+      "Panel de administración de productos",
+    ],
+  }),
+  buildBreadcrumb("Tiendas online", campaign.path),
+  buildFaqPage(FAQ),
+]);
+
 const TiendaOnline: React.FC = () => (
   <CampaignLayout campaign={campaign}>
+    <JsonLd data={STRUCTURED_DATA} />
     <CampaignHero
       eyebrow="Para negocios que venden por chat, redes o catálogo PDF"
       title={
@@ -274,6 +300,8 @@ const TiendaOnline: React.FC = () => (
         </Reveal>
       </div>
     </section>
+
+    <RelatedServices />
 
     <CampaignFAQ
       title="Preguntas frecuentes"

@@ -91,3 +91,28 @@ footer, el favicon y las imágenes Open Graph de las tres landings, y todavía
 lleva la "s" final en el texto de la imagen. Al reemplazar ese archivo por la
 versión corregida, las tres landings y el sitio principal quedan actualizados
 sin tocar código.
+
+---
+
+## Auditoría técnica (14/08/2026)
+
+Cambios aplicados en esa revisión, más allá de las landings:
+
+- **SEO técnico**: `lang="es"`, title/description/canonical/Open Graph en la home,
+  `robots.txt`, `sitemap.xml`, `site.webmanifest`, favicon ligero y página 404 real
+  (`public/404.html`, servida por Vercel al no existir ya el catch-all).
+- **Datos estructurados**: Organization y WebSite en la home, FAQPage en la home y
+  en cada landing (generado desde el mismo array que se muestra), y Service +
+  BreadcrumbList en las tres landings.
+- **Rendimiento**: imágenes convertidas a WebP con respaldo PNG (hero 6,4 MB → 250 KB,
+  muestras 1,7 MB → 100 KB), `srcset` de 480/900 px, width/height en todas las
+  imágenes, `framer-motion` sustituido por animación CSS (bundle 268 → 156 KB).
+- **Accesibilidad**: menú móvil accesible, foco visible global, enlace de salto al
+  contenido, labels asociados, errores de formulario anunciados, `role="img"` en la
+  calificación de reseñas y respeto de `prefers-reduced-motion` en todo el sitio.
+- **Conversión**: enlaces internos de la home a los tres servicios, botón flotante de
+  WhatsApp también en la home y footer con redes reales.
+- **Analítica**: eventos `page_view`, `view_service`, `click_primary_cta`,
+  `click_whatsapp`, `click_social`, `lead_start`, `submit_form` y `form_error`,
+  todos con página, campaña, servicio, ubicación del CTA y UTM.
+- **Seguridad**: cabeceras en `vercel.json`, honeypot anti-spam y `npm audit` en 0.
