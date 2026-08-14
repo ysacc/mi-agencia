@@ -6,6 +6,7 @@ import {
   SLOGAN,
   SOCIAL_LINKS,
   SERVICE_LINKS,
+  CONTACT_EMAIL,
 } from "../lib/site";
 import { WHATSAPP_DISPLAY, buildWhatsAppUrl } from "../lib/whatsapp";
 import { withUtm } from "../lib/utm";
@@ -87,6 +88,9 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
               >
                 WhatsApp {WHATSAPP_DISPLAY}
               </a>
+            </li>
+            <li>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </li>
             <li>
               <a href={withUtm("/")}>{SITE_DOMAIN}</a>

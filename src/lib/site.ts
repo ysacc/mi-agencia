@@ -17,6 +17,9 @@ export const SITE_DOMAIN = "brdigitalsystem.online";
 export const WHATSAPP_NUMBER = "19144345249";
 export const WHATSAPP_DISPLAY = "+1 914 434 5249";
 
+/** Correo de contacto comercial. */
+export const CONTACT_EMAIL = "brdigitalsystem.contact@gmail.com";
+
 export interface SocialLink {
   name: string;
   handle: string;

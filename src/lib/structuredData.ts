@@ -6,7 +6,14 @@
  * porque no hay datos comprobables para ellos.
  */
 
-import { BRAND, SITE_URL, SLOGAN, SOCIAL_LINKS, WHATSAPP_NUMBER } from "./site";
+import {
+  BRAND,
+  CONTACT_EMAIL,
+  SITE_URL,
+  SLOGAN,
+  SOCIAL_LINKS,
+  WHATSAPP_NUMBER,
+} from "./site";
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
@@ -33,6 +40,7 @@ export function buildOrganization(): Record<string, unknown> {
       {
         "@type": "ContactPoint",
         telephone: `+${WHATSAPP_NUMBER}`,
+        email: CONTACT_EMAIL,
         contactType: "customer service",
         availableLanguage: ["es"],
       },

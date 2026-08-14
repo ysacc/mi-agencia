@@ -6,6 +6,7 @@ import {
   SLOGAN,
   SOCIAL_LINKS,
   SERVICE_LINKS,
+  CONTACT_EMAIL,
 } from "../../lib/site";
 import { WHATSAPP_DISPLAY } from "../../lib/whatsapp";
 import { withUtm } from "../../lib/utm";
@@ -57,6 +58,9 @@ const CampaignFooter: React.FC = () => {
         <div className="cmp-footer-contact">
           <p className="cmp-footer-heading">Contacto</p>
           <p className="cmp-footer-phone">WhatsApp {WHATSAPP_DISPLAY}</p>
+          <a className="cmp-footer-domain" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
+          </a>
           <a className="cmp-footer-domain" href={SITE_URL}>
             {SITE_DOMAIN}
           </a>

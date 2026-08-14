@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { translations, type Lang } from "../translations";
 import { buildWhatsAppUrl } from "../lib/whatsapp";
+import { CONTACT_EMAIL } from "../lib/site";
 import {
   trackFormError,
   trackFormSubmit,
@@ -229,7 +230,7 @@ const Contact: React.FC<ContactProps> = ({
     // mailto NO envía automático; abre el cliente de correo del usuario.
     const subject = encodeURIComponent(t.emailSubject);
     const body = encodeURIComponent(payload);
-    window.location.href = `mailto:samironcal@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   const resetAll = () => {
