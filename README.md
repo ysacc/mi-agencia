@@ -1,4 +1,16 @@
-# React + TypeScript + Vite
+# BR Digital System
+
+Sitio web de BR Digital System (React + TypeScript + Vite, desplegado en Vercel).
+
+- Sitio principal: `index.html` → `src/App.tsx`
+- Landings de campaña: `/web-para-negocios`, `/tienda-online`, `/sistemas-a-medida`
+  → ver [docs/landings-campanas.md](docs/landings-campanas.md)
+
+Comandos: `npm run dev`, `npm run lint`, `npm run build`, `npm run preview`.
+
+---
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

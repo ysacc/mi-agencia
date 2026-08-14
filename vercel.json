@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/web-para-negocios",
+      "destination": "/web-para-negocios/index.html"
+    },
+    {
+      "source": "/tienda-online",
+      "destination": "/tienda-online/index.html"
+    },
+    {
+      "source": "/sistemas-a-medida",
+      "destination": "/sistemas-a-medida/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

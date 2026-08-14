@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
   return (
     <footer className="site-footer">
       <div className="container">
-        © {year} BR Digital Systems. {t.text}
+        © {year} BR Digital System. {t.text}
       </div>
     </footer>
   );

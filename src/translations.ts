@@ -257,7 +257,7 @@ export const translations: Record<Lang, Translation> = {
   es: {
     navbar: {
       brandMain: "BR ",
-      brandAccent: "Digital Systems",
+      brandAccent: "Digital System",
       sections: {
         inicio: "Inicio",
         companies: "Empresas",
@@ -581,7 +581,7 @@ export const translations: Record<Lang, Translation> = {
         "Quiero agendar una cita (llamada o videollamada). Envíen disponibilidad.",
 
       // Email
-      emailSubject: "Nueva solicitud desde BR Digital Systems",
+      emailSubject: "Nueva solicitud desde BR Digital System",
 
       // Lado derecho (cierre rápido)
       sideTitle: "Cierre rápido",
@@ -742,7 +742,7 @@ export const translations: Record<Lang, Translation> = {
 //   en: {
 //     navbar: {
 //       brandMain: "BR ",
-//       brandAccent: "Digital Systems",
+//       brandAccent: "Digital System",
 //       sections: {
 //         inicio: "Home",
 //         servicios: "Services",
@@ -983,7 +983,7 @@ export const translations: Record<Lang, Translation> = {
 //   fr: {
 //     navbar: {
 //       brandMain: "BR ",
-//       brandAccent: "Digital Systems",
+//       brandAccent: "Digital System",
 //       sections: {
 //         inicio: "Accueil",
 //         servicios: "Services",
@@ -1226,7 +1226,7 @@ export const translations: Record<Lang, Translation> = {
 //   de: {
 //     navbar: {
 //       brandMain: "BR ",
-//       brandAccent: "Digital Systems",
+//       brandAccent: "Digital System",
 //       sections: {
 //         inicio: "Start",
 //         servicios: "Leistungen",
