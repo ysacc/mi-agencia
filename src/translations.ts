@@ -633,10 +633,10 @@ export const translations: Record<Lang, Translation> = {
     },
 
     trustedCompanies: {
-      ariaLabel: "Empresas que confían en nosotros",
-      title: "Empresas que confían en nosotros",
+      ariaLabel: "Marcas con las que hemos trabajado",
+      title: "Marcas con las que hemos trabajado",
       subtitle:
-        "Marcas con las que hemos trabajado en proyectos web y software.",
+        "Experiencia en proyectos web y de software para empresas de banca, retail, salud, educación e industria.",
     },
 
     reviews: {

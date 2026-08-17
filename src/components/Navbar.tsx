@@ -13,7 +13,6 @@ interface NavbarProps {
 const NAV_SECTIONS = [
   { id: "inicio", key: "inicio", fallback: "Inicio" },
   { id: "servicios", key: "servicios", fallback: "Servicios" },
-  { id: "reviews", key: "reviews", fallback: "Reseñas" },
   { id: "faq", key: "faq", fallback: "FAQ" },
   { id: "contacto", key: "contacto", fallback: "Contacto" },
 ] as const;

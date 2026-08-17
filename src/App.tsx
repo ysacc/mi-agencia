@@ -8,7 +8,6 @@ import Services from "./components/Services";
 import ServiceLinks from "./components/ServiceLinks";
 import type { Lang } from "./translations";
 import TrustedCompanies from "./components/TrustedCompanies";
-import Reviews from "./components/Reviews";
 import WhyChooseUs from "./components/WhyChooseUs";
 import WhyHireUs from "./components/WhyHireUs";
 import FAQ from "./components/FAQ";
@@ -74,10 +73,6 @@ const App: React.FC = () => {
             />
             <ServiceLinks />
           </div>
-        </section>
-
-        <section id="reviews" className="section">
-          <Reviews lang={lang} />
         </section>
 
         <WhyChooseUs lang={lang} />
