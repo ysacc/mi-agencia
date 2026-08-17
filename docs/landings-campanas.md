@@ -105,11 +105,30 @@ funcionan en `npm run dev` y `npm run preview` gracias al plugin
 
 ## Recursos de marca
 
-`public/images/logoempresa.png` es el logo original (1254 x 1254). De el derivan
-tres archivos, que hay que regenerar si el logo cambia:
+El original vive en `brand/logoempresa.png` (1254 x 1254). Esa carpeta queda
+fuera de `public/`, asi que el archivo no se despliega: solo sirve como maestro
+para generar los derivados, que son los que usa el sitio.
 
-| Derivado                     | Contenido                    | Donde se usa                                             |
-| ---------------------------- | ---------------------------- | -------------------------------------------------------- |
+| Derivado                 | Contenido                    | Donde se usa                                            |
+| ------------------------ | ---------------------------- | ------------------------------------------------------- |
+| `images/favicon-32.png`  | Isotipo BR                   | Favicon de la pestana                                    |
+| `images/favicon-192.png` | Isotipo BR                   | Icono movil, cabecera y pie de landings, pie de la home  |
+| `images/favicon-512.png` | Isotipo BR                   | Manifiesto                                               |
+| `images/logo-og.jpg`     | Logo completo, 1200 x 630    | Open Graph y Twitter Card de las cuatro paginas          |
+
+Los iconos usan solo el isotipo porque el texto "DIGITAL SYSTEM" resulta
+ilegible por debajo de unos 200 px. La imagen social lleva el logo completo
+centrado sobre el fondo de la marca, en la proporcion 1,91:1 que piden Facebook,
+WhatsApp y LinkedIn.
+
+## Formatos de imagen
+
+Cada imagen se sirve en WebP con respaldo JPEG mediante `<picture>`: los
+navegadores modernos reciben el WebP y los antiguos el JPEG, sin JavaScript.
+Los PNG originales, que pesaban entre 190 KB y 2,2 MB por archivo, se
+sustituyeron por estos dos formatos.
+
+---------------------------- | ---------------------------- | -------------------------------------------------------- |
 | `images/favicon-192.png`     | Isotipo BR sobre el fondo    | Favicon, cabecera y pie de las landings, pie de la home   |
 | `images/favicon-512.png`     | Isotipo BR sobre el fondo    | Manifiesto                                                |
 | `images/logo-og.jpg`         | Logo completo (1200 x 1200)  | Open Graph y Twitter Card de las cuatro paginas           |

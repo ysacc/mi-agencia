@@ -16,15 +16,15 @@ const LOGO_HEIGHT = 300;
  * para no dar a entender una cartera de clientes que no existe.
  */
 const LOGOS: LogoItem[] = [
-  { src: "/logos/logo1.png", webp: "/logos/logo1.webp", alt: "Muestra de diseño web para veterinaria" },
-  { src: "/logos/logo2.png", webp: "/logos/logo2.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo3.png", webp: "/logos/logo3.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo4.png", webp: "/logos/logo4.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo5.png", webp: "/logos/logo5.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo6.png", webp: "/logos/logo6.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo7.png", webp: "/logos/logo7.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo8.png", webp: "/logos/logo8.webp", alt: "Muestra de diseño web de proyecto" },
-  { src: "/logos/logo9.png", webp: "/logos/logo9.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo1.jpg", webp: "/logos/logo1.webp", alt: "Muestra de diseño web para veterinaria" },
+  { src: "/logos/logo2.jpg", webp: "/logos/logo2.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo3.jpg", webp: "/logos/logo3.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo4.jpg", webp: "/logos/logo4.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo5.jpg", webp: "/logos/logo5.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo6.jpg", webp: "/logos/logo6.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo7.jpg", webp: "/logos/logo7.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo8.jpg", webp: "/logos/logo8.webp", alt: "Muestra de diseño web de proyecto" },
+  { src: "/logos/logo9.jpg", webp: "/logos/logo9.webp", alt: "Muestra de diseño web de proyecto" },
 ];
 
 interface TrustedCompaniesProps {

@@ -12,7 +12,7 @@ interface HeroProps {
 /**
  * Imágenes de oferta.
  *
- * Se sirve WebP con respaldo PNG y dos anchos (480 y 900) para que el móvil
+ * Se sirve WebP con respaldo JPEG y dos anchos (480 y 900) para que el móvil
  * no descargue la versión grande. Se declaran width/height para reservar el
  * espacio y evitar saltos de layout.
  */
@@ -20,19 +20,19 @@ const SLIDES = [
   {
     webp: "/images/web299usd.webp",
     webpSmall: "/images/web299usd-480.webp",
-    png: "/images/web299usd.png",
+    jpg: "/images/web299usd.jpg",
     alt: "Paquete Web Emprendedor desde USD 299: incluye WhatsApp, formulario de contacto, rapidez con soporte y diseño responsive.",
   },
   {
     webp: "/images/tienda499usd.webp",
     webpSmall: "/images/tienda499usd-480.webp",
-    png: "/images/tienda499usd.png",
+    jpg: "/images/tienda499usd.jpg",
     alt: "Paquete Tienda Online desde USD 499: catálogo de productos, pedidos y administración de la tienda.",
   },
   {
     webp: "/images/aula499usd.webp",
     webpSmall: "/images/aula499usd-480.webp",
-    png: "/images/aula499usd.png",
+    jpg: "/images/aula499usd.jpg",
     alt: "Paquete Aula Virtual desde USD 499: cursos y exámenes, calificaciones y alumnos, preparado para crecer.",
   },
 ];
@@ -152,7 +152,7 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
                     sizes="(max-width: 1024px) 92vw, 420px"
                   />
                   <img
-                    src={slide.png}
+                    src={slide.jpg}
                     alt={slide.alt}
                     className="hero-slide-img"
                     width={IMG_WIDTH}
