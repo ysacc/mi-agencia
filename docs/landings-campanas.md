@@ -3,11 +3,11 @@
 Tres páginas independientes, pensadas para tráfico pagado. No forman parte del
 sitio principal: cada una se compila como su propio HTML estático.
 
-| Ruta                  | Campaña             | Público                                   | Acento  |
-| --------------------- | ------------------- | ----------------------------------------- | ------- |
-| `/web-para-negocios`  | Web para Negocios   | Negocios locales, profesionales, pymes    | Cian    |
-| `/tienda-online`      | Tienda Online       | Quien vende por chat, redes o catálogo PDF| Cálido  |
-| `/sistemas-a-medida`  | Sistemas a Medida   | Empresas con procesos manuales y Excel    | Azul    |
+| Ruta                 | Campaña           | Público                                    | Acento |
+| -------------------- | ----------------- | ------------------------------------------ | ------ |
+| `/web-para-negocios` | Web para Negocios | Negocios locales, profesionales, pymes     | Cian   |
+| `/tienda-online`     | Tienda Online     | Quien vende por chat, redes o catálogo PDF | Cálido |
+| `/sistemas-a-medida` | Sistemas a Medida | Empresas con procesos manuales y Excel     | Azul   |
 
 ## Estructura de archivos
 
@@ -69,18 +69,18 @@ eventos empiezan a llegar sin tocar código.
 
 Eventos emitidos:
 
-| Evento                     | Cuándo                                        |
-| -------------------------- | --------------------------------------------- |
-| `page_view`                | Carga de la página                            |
-| `view_service`             | Interés en un servicio concreto               |
-| `click_primary_cta`        | CTA principal (hero)                          |
-| `click_whatsapp`           | Cualquier CTA que abre WhatsApp               |
-| `cta_final_click`          | CTA de cierre                                 |
-| `whatsapp_flotante_click`  | Botón flotante                                |
-| `click_social`             | Enlace a una red social                       |
-| `lead_start`               | Primer campo del formulario                   |
-| `submit_form`              | Envío válido del formulario                   |
-| `form_error`               | Envío rechazado por validación                |
+| Evento                    | Cuándo                          |
+| ------------------------- | ------------------------------- |
+| `page_view`               | Carga de la página              |
+| `view_service`            | Interés en un servicio concreto |
+| `click_primary_cta`       | CTA principal (hero)            |
+| `click_whatsapp`          | Cualquier CTA que abre WhatsApp |
+| `cta_final_click`         | CTA de cierre                   |
+| `whatsapp_flotante_click` | Botón flotante                  |
+| `click_social`            | Enlace a una red social         |
+| `lead_start`              | Primer campo del formulario     |
+| `submit_form`             | Envío válido del formulario     |
+| `form_error`              | Envío rechazado por validación  |
 
 Todos llevan `page`, `campaign`, `campaign_id`, `service`, `cta_location` y los
 UTM disponibles.
@@ -103,16 +103,24 @@ funcionan en `npm run dev` y `npm run preview` gracias al plugin
   repositorio no tiene proyectos reales documentados, así que no se incluyó
   sección de portafolio. Cuando existan casos verificables, se agrega.
 
-## Pendiente de marca
+## Recursos de marca
 
-`public/images/logoempresa.jpg` es el logo original y todavía lleva la "s" final
-en el texto de la imagen. De él derivan tres archivos que sí se usan en el sitio:
+`public/images/logoempresa.png` es el logo original (1254 x 1254). De el derivan
+tres archivos, que hay que regenerar si el logo cambia:
 
-| Derivado                     | Dónde se usa                                  |
-| ---------------------------- | --------------------------------------------- |
-| `images/favicon-192.png`     | Favicon, cabecera y pie de las landings, pie de la home |
-| `images/favicon-512.png`     | Manifiesto                                    |
-| `images/logo-og.jpg`         | Open Graph y Twitter Card de las cuatro páginas |
+| Derivado                     | Contenido                    | Donde se usa                                             |
+| ---------------------------- | ---------------------------- | -------------------------------------------------------- |
+| `images/favicon-192.png`     | Isotipo BR sobre el fondo    | Favicon, cabecera y pie de las landings, pie de la home   |
+| `images/favicon-512.png`     | Isotipo BR sobre el fondo    | Manifiesto                                                |
+| `images/logo-og.jpg`         | Logo completo (1200 x 1200)  | Open Graph y Twitter Card de las cuatro paginas           |
+
+Los iconos usan solo el isotipo porque el texto "DIGITAL SYSTEM" resulta
+ilegible por debajo de unos 200 px; la imagen social si lleva el logo completo.
+
+------------------------ | ------------------------------------------------------- |
+| `images/favicon-192.png` | Favicon, cabecera y pie de las landings, pie de la home |
+| `images/favicon-512.png` | Manifiesto                                              |
+| `images/logo-og.jpg`     | Open Graph y Twitter Card de las cuatro páginas         |
 
 Al sustituir el original hay que regenerar esos tres derivados; ningún componente
 necesita cambios.
