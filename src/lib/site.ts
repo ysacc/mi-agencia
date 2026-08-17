@@ -39,8 +39,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     name: "TikTok",
-    handle: "@br.digital.system",
-    url: "https://www.tiktok.com/@br.digital.system",
+    handle: "@brdigitalsystem",
+    url: "https://www.tiktok.com/@brdigitalsystem",
   },
 ];
 
