@@ -693,9 +693,9 @@ export const translations: Record<Lang, Translation> = {
       title: "¿Por qué contratar nuestros servicios?",
       subtitle: "Amplia experiencia para el desarrollo web de tu empresa",
       stats: [
-        { value: "10+", label: "Años de experiencia" },
-        { value: "800+", label: "Proyectos realizados" },
-        { value: "200+", label: "Clientes satisfechos" },
+        { value: "8+", label: "Años de experiencia" },
+        { value: "300+", label: "Proyectos realizados" },
+        { value: "50+", label: "Clientes atendidos" },
       ],
     },
 
