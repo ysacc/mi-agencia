@@ -128,22 +128,6 @@ navegadores modernos reciben el WebP y los antiguos el JPEG, sin JavaScript.
 Los PNG originales, que pesaban entre 190 KB y 2,2 MB por archivo, se
 sustituyeron por estos dos formatos.
 
----------------------------- | ---------------------------- | -------------------------------------------------------- |
-| `images/favicon-192.png`     | Isotipo BR sobre el fondo    | Favicon, cabecera y pie de las landings, pie de la home   |
-| `images/favicon-512.png`     | Isotipo BR sobre el fondo    | Manifiesto                                                |
-| `images/logo-og.jpg`         | Logo completo (1200 x 1200)  | Open Graph y Twitter Card de las cuatro paginas           |
-
-Los iconos usan solo el isotipo porque el texto "DIGITAL SYSTEM" resulta
-ilegible por debajo de unos 200 px; la imagen social si lleva el logo completo.
-
------------------------- | ------------------------------------------------------- |
-| `images/favicon-192.png` | Favicon, cabecera y pie de las landings, pie de la home |
-| `images/favicon-512.png` | Manifiesto                                              |
-| `images/logo-og.jpg`     | Open Graph y Twitter Card de las cuatro páginas         |
-
-Al sustituir el original hay que regenerar esos tres derivados; ningún componente
-necesita cambios.
-
 ---
 
 ## Auditoría técnica (14/08/2026)
