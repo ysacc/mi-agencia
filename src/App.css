@@ -246,10 +246,6 @@ button {
   font-weight: 700;
 }
 
-.navbar-links a:hover {
-  color: var(--text);
-}
-
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -1809,97 +1805,6 @@ button {
   letter-spacing: -0.02em;
 }
 
-.footer-logo span {
-  color: var(--brand-cyan);
-}
-
-.footer-desc {
-  margin: 14px 0 22px;
-  color: var(--text-dim);
-  line-height: 1.6;
-  max-width: 420px;
-}
-
-.footer-cta {
-  background: var(--brand-orange);
-  color: #0b1220;
-  border: none;
-  border-radius: 999px;
-  padding: 12px 18px;
-  font-weight: 1000;
-  cursor: pointer;
-}
-
-.footer-cta:hover {
-  transform: translateY(-1px);
-}
-
-/* Links & Contact */
-.footer-title {
-  font-size: 14px;
-  font-weight: 1000;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.footer-links ul,
-.footer-contact ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-}
-
-.footer-links button {
-  background: none;
-  border: none;
-  color: var(--text-dim);
-  cursor: pointer;
-  padding: 0;
-  font-size: 14px;
-}
-
-.footer-links button:hover {
-  color: #fff;
-}
-
-.footer-contact li {
-  color: var(--text-dim);
-  font-size: 14px;
-}
-
-.footer-contact a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
-}
-
-/* Bottom bar */
-.footer-bottom {
-  margin-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px 0;
-}
-
-.footer-bottom-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 13px;
-}
-
-.footer-note {
-  color: rgba(255, 255, 255, 0.45);
-}
 /* =========================
    HERO FIX (tu componente Hero.tsx)
    Pegar al FINAL del CSS
