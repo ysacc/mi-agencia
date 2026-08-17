@@ -14,10 +14,10 @@ interface Company {
  * exista, la tarjeta muestra el nombre de la empresa: asi la seccion nunca se
  * ve rota y los logos se pueden ir agregando de uno en uno.
  *
- * Formato recomendado para cada archivo: PNG con fondo transparente, unos
- * 400 px de ancho y el logo en una sola tinta (blanco o negro). El CSS lo pinta
- * en blanco, que es el tratamiento habitual de un muro de marcas sobre fondo
- * oscuro y evita que ocho paletas distintas compitan entre si.
+ * Formato recomendado para cada archivo: PNG con fondo transparente y unos
+ * 400 px de ancho. Los logos se muestran en sus colores originales sobre una
+ * tarjeta clara: recolorearlos a una sola tinta arruina los que tienen
+ * recortes en blanco o mas de un color, y suele ir contra el manual de marca.
  *
  * Usar siempre los archivos oficiales que entrega cada empresa en su manual de
  * marca, y contar con su autorizacion para mostrarlos.

@@ -516,26 +516,29 @@ button {
   place-items: center;
   width: 210px;
   height: 92px;
-  padding: 18px 24px;
+  padding: 16px 22px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Tarjeta clara: permite mostrar cada logo en sus colores originales, sin
+     alterarlos, y mantiene el contraste sobre el fondo oscuro de la seccion. */
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: var(--shadow);
 }
 
-/* Logo en una sola tinta: evita que ocho paletas compitan sobre el fondo
-   oscuro, que es el tratamiento habitual de un muro de marcas. */
 .trusted-brand img {
   max-width: 100%;
-  max-height: 52px;
+  max-height: 56px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.82;
 }
 
 /* Respaldo mientras no exista el archivo del logo */
 .trusted-brand.is-text {
+  width: auto;
+  min-width: 180px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.88);
   font-size: 16px;
   font-weight: 800;
@@ -543,20 +546,17 @@ button {
   text-transform: uppercase;
   text-align: center;
   line-height: 1.25;
-  width: auto;
-  min-width: 180px;
-  padding: 18px 28px;
 }
 
 @media (max-width: 640px) {
   .trusted-brand {
     width: 168px;
     height: 76px;
-    padding: 14px 18px;
+    padding: 12px 16px;
   }
 
   .trusted-brand img {
-    max-height: 42px;
+    max-height: 46px;
   }
 
   .trusted-brand.is-text {

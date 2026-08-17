@@ -23,12 +23,15 @@ así que se pueden ir agregando de uno en uno sin romper nada.
 ## Formato
 
 - **PNG con fondo transparente**, unos 400 px de ancho.
-- El logo en **una sola tinta** (blanco o negro): el CSS lo pinta en blanco, que
-  es el tratamiento normal de un muro de marcas sobre fondo oscuro y evita que
-  ocho paletas distintas compitan entre sí. Si el archivo trae color, se verá en
-  blanco igualmente.
+- **En sus colores originales.** Se muestran sobre una tarjeta clara, así que no
+  hace falta adaptarlos: pintarlos a una sola tinta arruina los logos que tienen
+  recortes en blanco (Interbank perdería el rombo interior) o más de un color
+  (Clínica Ricardo Palma perdería el detalle de la hoja), y además suele ir
+  contra el manual de marca.
 - Sin recuadros ni márgenes grandes alrededor del logo: la tarjeta ya aporta su
   propio espacio.
+- Alto útil: el logo se escala para no pasar de 56 px de alto en escritorio y
+  46 px en móvil, manteniendo su proporción.
 
 ## Antes de publicarlos
 
