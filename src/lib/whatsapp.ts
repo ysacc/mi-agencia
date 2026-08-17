@@ -8,7 +8,7 @@
  * - Se conservan los UTM disponibles y se identifica el origen del lead.
  */
 
-import { formatUtmSummary, getUtm } from "./utm";
+import { formatUtmRef, getUtm } from "./utm";
 import { WHATSAPP_NUMBER } from "./site";
 
 export { WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from "./site";
@@ -27,28 +27,27 @@ export interface WhatsAppMessageOptions {
 }
 
 /**
- * Arma el texto final: mensaje + trazabilidad (campaña o servicio,
- * ubicación del CTA y UTM cuando existan).
+ * Arma el texto final del mensaje.
+ *
+ * Lo escribe el cliente, así que tiene que leerse natural: la campaña ya se
+ * menciona dentro del propio mensaje, y el servicio y la ubicación del CTA
+ * viajan en los eventos de analítica, no en el texto.
+ *
+ * Lo único que se añade es una referencia corta del origen publicitario, y
+ * solo cuando la visita trae UTM (es decir, cuando viene de una campaña):
+ *
+ *   Hola, llegué desde la campaña Tienda Online. Quiero información…
+ *
+ *   Ref. ig/social/link_in_bio
  */
 export function buildWhatsAppMessage({
   message,
-  campaignName,
-  service,
-  location,
 }: WhatsAppMessageOptions): string {
-  const trace: string[] = [];
-  if (campaignName) trace.push(`Campaña: ${campaignName}`);
-  if (service) trace.push(`Servicio: ${service}`);
-  if (location) trace.push(`Origen: ${location}`);
-
-  const utmSummary = formatUtmSummary(getUtm());
-  if (utmSummary) trace.push(utmSummary);
-
-  if (trace.length === 0) return message;
-  return `${message}\n\n---\n${trace.join(" · ")}`;
+  const ref = formatUtmRef(getUtm());
+  return ref ? `${message}\n\nRef. ${ref}` : message;
 }
 
-/** URL final: https://wa.me/19144345249?text=MENSAJE_CODIFICADO */
+/** URL final: https://wa.me/51928577224?text=MENSAJE_CODIFICADO */
 export function buildWhatsAppUrl(options: WhatsAppMessageOptions): string {
   const text = encodeURIComponent(buildWhatsAppMessage(options));
   return `${WHATSAPP_BASE_URL}?text=${text}`;

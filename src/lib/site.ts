@@ -14,8 +14,8 @@ export const SITE_URL = "https://brdigitalsystem.online";
 export const SITE_DOMAIN = "brdigitalsystem.online";
 
 /** Número comercial en formato E.164 sin "+". */
-export const WHATSAPP_NUMBER = "19144345249";
-export const WHATSAPP_DISPLAY = "+1 914 434 5249";
+export const WHATSAPP_NUMBER = "51928577224";
+export const WHATSAPP_DISPLAY = "+51 928 577 224";
 
 /** Correo de contacto comercial. */
 export const CONTACT_EMAIL = "brdigitalsystem.contact@gmail.com";

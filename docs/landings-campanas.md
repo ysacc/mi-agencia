@@ -30,18 +30,25 @@ src/campaigns/
 
 ## WhatsApp
 
-Número: `+1 914 434 5249` → `https://wa.me/19144345249`.
+Número: `+51 928 577 224` → `https://wa.me/51928577224`.
 
 Todo CTA usa `<a href target="_blank" rel="noopener noreferrer">`: WhatsApp nunca
 se abre solo, siempre tras un click del usuario. El mensaje se arma en
-`buildWhatsAppUrl()` y se codifica con `encodeURIComponent`:
+`buildWhatsAppUrl()` y se codifica con `encodeURIComponent`.
+
+El texto lo lee y lo envia el propio cliente, asi que se mantiene natural: la
+campana ya se nombra dentro del mensaje, y el servicio y la ubicacion del CTA
+viajan en los eventos de analitica, no en el texto. Lo unico que se anade es una
+referencia corta del origen, y solo cuando la visita trae UTM:
 
 ```
-<mensaje de la campaña>
+Hola, llegue desde la campana Tienda Online. Quiero informacion para vender mis
+productos por internet.
 
----
-Campaña: Tienda Online · Origen: hero · source: facebook · medium: cpc · campaign: … · content: …
+Ref. facebook/cpc/tienda_ago/video1
 ```
+
+Sin UTM (trafico directo u organico) el mensaje va limpio, sin ninguna linea extra.
 
 Los UTM (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`) se leen de la
 URL de entrada, se guardan en `sessionStorage` y se reinyectan tanto en el

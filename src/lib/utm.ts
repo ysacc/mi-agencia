@@ -89,10 +89,16 @@ export function withUtm(path: string): string {
   return query ? `${base}?${query}` : base;
 }
 
-/** Resumen legible del origen, para adjuntar al mensaje de WhatsApp. */
-export function formatUtmSummary(utm: UtmParams = getUtm()): string {
-  const parts = UTM_KEYS.filter((key) => utm[key]).map(
-    (key) => `${key.replace("utm_", "")}: ${utm[key]}`
-  );
-  return parts.join(" · ");
+/**
+ * Referencia compacta del origen para adjuntar al mensaje de WhatsApp.
+ *
+ * Se usan solo los valores, sin los nombres de los parámetros: el mensaje lo
+ * lee el propio cliente antes de enviarlo, así que debe parecer un código de
+ * referencia y no una traza técnica.
+ * Ejemplo: "ig/social/link_in_bio".
+ */
+export function formatUtmRef(utm: UtmParams = getUtm()): string {
+  return UTM_KEYS.map((key) => utm[key])
+    .filter(Boolean)
+    .join("/");
 }
