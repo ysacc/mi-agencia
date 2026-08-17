@@ -28,7 +28,7 @@ const CampaignFooter: React.FC = () => {
         <div className="cmp-footer-brand">
           <img
             className="cmp-brand-logo"
-            src="/images/logoempresa.jpg"
+            src="/images/favicon-192.png"
             alt=""
             width={36}
             height={36}

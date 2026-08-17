@@ -6,10 +6,10 @@ import { withUtm } from "../../lib/utm";
  * Encabezado reducido: sin navegación que distraiga.
  * Solo marca + enlace discreto de vuelta al sitio principal.
  *
- * NOTA DE MARCA: `/images/logoempresa.jpg` es el logo actual del proyecto y
- * todavía dice "BR DIGITAL SYSTEMS" (con "s"). Cuando exista la versión
- * corregida del archivo, basta con reemplazar ese asset: aquí, en el favicon de
- * los `index.html` y en las imágenes Open Graph se usa la misma ruta.
+ * NOTA DE MARCA: el logo que se muestra (`/images/favicon-192.png`) y la imagen
+ * Open Graph (`/images/logo-og.jpg`) derivan de `/images/logoempresa.jpg`, que
+ * todavía lleva la "s" final en la marca. Al reemplazar ese archivo hay que
+ * regenerar los dos derivados; no hace falta tocar código.
  */
 const CampaignHeader: React.FC = () => (
   <header className="cmp-header">
@@ -17,7 +17,7 @@ const CampaignHeader: React.FC = () => (
       <a className="cmp-brand" href={withUtm("/")} aria-label={`${BRAND} — inicio`}>
         <img
           className="cmp-brand-logo"
-          src="/images/logoempresa.jpg"
+          src="/images/favicon-192.png"
           alt=""
           width={40}
           height={40}

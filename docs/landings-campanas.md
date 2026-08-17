@@ -23,9 +23,14 @@ src/campaigns/
   pages/                         Contenido y estructura de cada landing
   components/                    Piezas reutilizables (layout, hero, dolores, beneficios, FAQ, CTA)
   components/visuals/            Maquetas del hero hechas con DOM + CSS
-  lib/whatsapp.ts                Construcción del enlace de WhatsApp
-  lib/utm.ts                     Captura y persistencia de UTM
-  lib/analytics.ts               Envío de eventos a la herramienta que exista
+  lib/campaignContext.ts         Campaña activa disponible en todo el árbol
+
+src/lib/                         Compartido con el sitio principal
+  site.ts                        Marca, dominio, WhatsApp, correo y redes
+  whatsapp.ts                    Construcción del enlace de WhatsApp
+  utm.ts                         Captura y persistencia de UTM
+  analytics.ts                   Envío de eventos a la herramienta que exista
+  structuredData.ts              Generación del JSON-LD
 ```
 
 ## WhatsApp
@@ -64,21 +69,28 @@ eventos empiezan a llegar sin tocar código.
 
 Eventos emitidos:
 
-| Evento                     | Cuándo                                   |
-| -------------------------- | ---------------------------------------- |
-| `page_view`                | Carga de la landing                      |
-| `whatsapp_click`           | Cualquier CTA que abre WhatsApp          |
-| `cta_principal_click`      | CTA del hero                             |
-| `cta_final_click`          | CTA de cierre                            |
-| `whatsapp_flotante_click`  | Botón flotante                           |
+| Evento                     | Cuándo                                        |
+| -------------------------- | --------------------------------------------- |
+| `page_view`                | Carga de la página                            |
+| `view_service`             | Interés en un servicio concreto               |
+| `click_primary_cta`        | CTA principal (hero)                          |
+| `click_whatsapp`           | Cualquier CTA que abre WhatsApp               |
+| `cta_final_click`          | CTA de cierre                                 |
+| `whatsapp_flotante_click`  | Botón flotante                                |
+| `click_social`             | Enlace a una red social                       |
+| `lead_start`               | Primer campo del formulario                   |
+| `submit_form`              | Envío válido del formulario                   |
+| `form_error`               | Envío rechazado por validación                |
 
-Todos incluyen `campaign`, `campaign_id` y `cta_location`.
+Todos llevan `page`, `campaign`, `campaign_id`, `service`, `cta_location` y los
+UTM disponibles.
 
 ## Rutas en producción (Vercel)
 
 Cada landing es una carpeta con su `index.html`, así que se sirve como archivo
-estático real. `vercel.json` define un rewrite explícito por ruta y deja el
-catch-all hacia `/index.html` para el resto del sitio. Las mismas rutas
+estático real. `vercel.json` define un rewrite explícito por ruta. No hay
+catch-all: las rutas inexistentes caen en `public/404.html`, que Vercel sirve
+con estado 404 real en lugar de devolver la home. Las mismas rutas
 funcionan en `npm run dev` y `npm run preview` gracias al plugin
 `brds-campaign-routes` de `vite.config.ts`.
 
@@ -93,11 +105,17 @@ funcionan en `npm run dev` y `npm run preview` gracias al plugin
 
 ## Pendiente de marca
 
-`public/images/logoempresa.jpg` es el logo que se usa en el encabezado, el
-footer, el favicon y las imágenes Open Graph de las tres landings, y todavía
-lleva la "s" final en el texto de la imagen. Al reemplazar ese archivo por la
-versión corregida, las tres landings y el sitio principal quedan actualizados
-sin tocar código.
+`public/images/logoempresa.jpg` es el logo original y todavía lleva la "s" final
+en el texto de la imagen. De él derivan tres archivos que sí se usan en el sitio:
+
+| Derivado                     | Dónde se usa                                  |
+| ---------------------------- | --------------------------------------------- |
+| `images/favicon-192.png`     | Favicon, cabecera y pie de las landings, pie de la home |
+| `images/favicon-512.png`     | Manifiesto                                    |
+| `images/logo-og.jpg`         | Open Graph y Twitter Card de las cuatro páginas |
+
+Al sustituir el original hay que regenerar esos tres derivados; ningún componente
+necesita cambios.
 
 ---
 

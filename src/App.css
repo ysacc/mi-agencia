@@ -2003,12 +2003,7 @@ html, body { overflow-x: hidden; }
     font-size: 36px;
   }
 }
-/* Ocultar en mobile (ajusta breakpoint si usas otro) */
-@media (max-width: 768px) {
-  .hide-on-mobile {
-    display: none !important;
-  }
-}
+
 /* =========================
    Footer (estructura real: marca, servicios, contacto, redes)
 ========================= */

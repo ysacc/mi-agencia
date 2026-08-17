@@ -704,7 +704,7 @@ export const translations: Record<Lang, Translation> = {
       subtitle: "Resolvemos las dudas más comunes antes de contratar.",
       items: [
         {
-          q: "¿Qué incluye el plan Web Emprendedor desde S/299?",
+          q: "¿Qué incluye el plan Web Emprendedor?",
           a: "Incluye una landing profesional con sección de servicios, botón WhatsApp, formulario de contacto y diseño responsive. Ideal para empezar a captar clientes rápido.",
         },
         {
