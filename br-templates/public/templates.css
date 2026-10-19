@@ -1,0 +1,2308 @@
+﻿/* Template styles are isolated from the application/editor. */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.template {
+  --tpl-primary: #2849c5;
+  --tpl-accent: #e2e8ff;
+  color: #202b2b;
+  background: #fafaf8;
+  font:
+    16px/1.7 system-ui,
+    sans-serif;
+  min-height: 100vh;
+}
+.template a {
+  color: inherit;
+  text-decoration: none;
+}
+.template a:focus-visible,
+.template summary:focus-visible {
+  outline: 3px solid #b67d00;
+  outline-offset: 5px;
+}
+.template h1,
+.template h2,
+.template h3,
+.template p {
+  margin: 0;
+}
+.template h1 {
+  font-size: clamp(2.7rem, 5.6vw, 5.7rem);
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+  font-weight: 650;
+}
+.template h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+}
+.template h3 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.template p {
+  overflow-wrap: anywhere;
+}
+.template img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+.template section[id] {
+  scroll-margin-top: 20px;
+}
+.font-editorial h1,
+.font-editorial h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+.font-geometric {
+  font-family: "Arial", system-ui, sans-serif;
+}
+.font-geometric h1 {
+  font-weight: 800;
+}
+.commercial-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 24px;
+  background: #101d34;
+  color: #fff;
+  font:
+    12px/1.5 system-ui,
+    sans-serif;
+  border-bottom: 1px solid #33415b;
+  position: relative;
+  z-index: 5;
+}
+.commercial-brand {
+  font-size: 17px;
+  font-weight: 850;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+.commercial-brand span {
+  font-weight: 400;
+  color: #b7c7e3;
+}
+.commercial-bar p {
+  flex: 1;
+  font-size: 11px;
+  color: #ced7e9;
+}
+.commercial-bar > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.commercial-bar > div > a {
+  padding: 8px 12px;
+  border: 1px solid #50617f;
+  border-radius: 5px;
+  min-height: 36px;
+  font-size: 11px;
+}
+.commercial-bar > div > a:first-child {
+  background: #fbd24c;
+  color: #132340;
+  border-color: #fbd24c;
+  font-weight: 700;
+}
+.tpl-header {
+  padding: 27px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 1px solid #0002;
+}
+.tpl-brand {
+  font-size: 1.3rem;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.2;
+}
+.tpl-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+.template nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.template nav a {
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.template nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.tpl-kicker {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  display: block;
+  margin-bottom: 22px;
+  color: var(--tpl-primary);
+}
+.tpl-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 22px;
+  background: var(--tpl-primary);
+  color: #fff !important;
+  border: 1px solid #0002;
+  border-radius: 3px;
+  margin-top: 25px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  min-height: 50px;
+}
+.tpl-button:hover {
+  filter: brightness(0.9);
+}
+.tpl-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tpl-art {
+  aspect-ratio: 1/1;
+  background: var(--tpl-accent);
+  overflow: hidden;
+  position: relative;
+}
+.tpl-art span {
+  position: absolute;
+  border: 60px solid var(--tpl-primary);
+  border-radius: 50%;
+  inset: 5% -20% 20% 10%;
+  transform: rotate(25deg);
+}
+.tpl-art i {
+  position: absolute;
+  inset: 70% -20% -20%;
+  background: #0002;
+  transform: rotate(-15deg);
+}
+.tpl-section {
+  padding: 85px 7%;
+  border-top: 1px solid #0002;
+}
+.tpl-about {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px 70px;
+}
+.tpl-about > .tpl-kicker {
+  grid-column: 1/-1;
+  margin-bottom: 0;
+}
+.tpl-about p {
+  max-width: 600px;
+  font-size: 1rem;
+  white-space: pre-line;
+  line-height: 1.9;
+}
+.tpl-section-title {
+  margin-bottom: 35px;
+}
+.tpl-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.tpl-service-grid article {
+  padding: 25px;
+  border: 1px solid #0002;
+}
+.tpl-service-number {
+  font-size: 0.7rem;
+  color: var(--tpl-primary);
+  display: block;
+  margin-bottom: 32px;
+}
+.tpl-service-grid h3 {
+  margin-bottom: 15px;
+}
+.tpl-service-grid p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  white-space: pre-line;
+}
+.tpl-service-grid strong {
+  font-size: 0.9rem;
+}
+.tpl-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+.tpl-gallery img {
+  width: 100%;
+  aspect-ratio: 1.2;
+  height: auto;
+}
+.tpl-faq {
+  margin-top: 35px;
+  max-width: 850px;
+}
+.tpl-faq details {
+  border-top: 1px solid #0003;
+  padding: 22px 0;
+}
+.tpl-faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 32px;
+}
+.tpl-faq p {
+  font-size: 0.9rem;
+  margin-top: 18px;
+}
+.tpl-contact {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  background: var(--tpl-accent);
+}
+.tpl-contact h2 {
+  margin-bottom: 25px;
+}
+.tpl-contact > div:nth-child(2) {
+  align-self: center;
+}
+.tpl-contact p {
+  font-size: 0.85rem;
+  white-space: pre-line;
+}
+.tpl-social {
+  display: flex;
+  gap: 20px;
+  font-size: 0.8rem;
+  margin-top: 24px;
+}
+.tpl-contact-empty {
+  border: 1px dashed #0003;
+  padding: 20px;
+}
+.tpl-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 25px 5%;
+  font-size: 0.7rem;
+  flex-wrap: wrap;
+}
+.tpl-footer > a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.tpl-footer small {
+  flex-basis: 100%;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  border-top: 1px solid #0002;
+  padding-top: 20px;
+  max-width: 100%;
+}
+/* NOIR: dark, oversized type, asymmetric photography and a linear price list. */
+.template-barberia {
+  background: #141616;
+  color: #f4eddf;
+}
+.template-barberia .tpl-header {
+  border-color: #ffffff25;
+}
+.barber-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 45px;
+  padding: 65px 6% 80px 9%;
+  min-height: 650px;
+  align-items: center;
+}
+.barber-side {
+  position: absolute;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  left: 3%;
+  top: 85px;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #c2b8a4;
+}
+.barber-headline h1 {
+  text-transform: uppercase;
+  font-size: clamp(3.7rem, 6.5vw, 7rem);
+  max-width: 680px;
+}
+.barber-headline > p {
+  font-size: 0.95rem;
+  margin-top: 24px;
+  color: #c3c0b6;
+}
+.barber-headline .tpl-button {
+  background: var(--tpl-primary);
+  color: #171b1a !important;
+}
+.barber-image {
+  height: 500px;
+  position: relative;
+}
+.barber-image > img {
+  filter: grayscale(1);
+  border-radius: 120px 0 0 0;
+}
+.barber-stamp {
+  position: absolute;
+  bottom: -20px;
+  left: -35px;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  background: var(--tpl-primary);
+  color: #141616;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 800;
+  font-size: 0.8rem;
+  transform: rotate(-12deg);
+}
+.template-barberia .tpl-section {
+  border-color: #ffffff25;
+}
+.template-barberia .tpl-services {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 70px;
+}
+.template-barberia .tpl-service-grid {
+  display: block;
+}
+.template-barberia .tpl-service-grid article {
+  border: 0;
+  border-top: 1px solid #ffffff35;
+  padding: 23px 0;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 10px 18px;
+}
+.template-barberia .tpl-service-number {
+  grid-row: 1/3;
+  margin: 0;
+}
+.template-barberia .tpl-service-grid h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+.template-barberia .tpl-service-grid p {
+  grid-column: 2;
+  font-size: 0.75rem;
+  margin: 0;
+  color: #c8c5ba;
+}
+.template-barberia .tpl-service-grid strong {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--tpl-primary);
+}
+.template-barberia .tpl-contact {
+  background: #232725;
+  color: #f4eddf;
+}
+.template-barberia .tpl-contact-empty {
+  border-color: #ffffff35;
+}
+.template-barberia .tpl-footer small {
+  border-color: #ffffff25;
+}
+/* MESA: centered editorial masthead, a circular seal and full-bleed image spread. */
+.template-restaurante {
+  background: #f5f0e6;
+  color: #48372b;
+}
+.restaurant-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 20px 5%;
+}
+.restaurant-header nav {
+  gap: 13px;
+}
+.restaurant-header nav a {
+  font-size: 0.63rem;
+}
+.restaurant-header > .tpl-brand {
+  font-family: Georgia, serif;
+  letter-spacing: 0.03em;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.restaurant-header > span {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+.restaurant-hero {
+  text-align: center;
+  padding: 60px 6% 65px;
+}
+.restaurant-overline {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--tpl-primary);
+  margin-bottom: 25px !important;
+}
+.restaurant-hero h1 {
+  font-size: clamp(3rem, 5.5vw, 6.2rem);
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  font-style: italic;
+}
+.restaurant-spread {
+  display: grid;
+  grid-template-columns: 1fr 2.3fr 1fr;
+  gap: 30px;
+  align-items: center;
+  text-align: left;
+}
+.restaurant-spread > p {
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.restaurant-spread > img {
+  height: 380px;
+  border-radius: 180px 180px 0 0;
+}
+.restaurant-spread > div {
+  text-align: center;
+}
+.restaurant-seal {
+  border: 1px solid var(--tpl-primary);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  height: 95px;
+  width: 95px;
+  margin: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  color: var(--tpl-primary);
+  transform: rotate(10deg);
+}
+.restaurant-spread .tpl-button {
+  font-size: 0.65rem;
+  gap: 6px;
+  padding: 10px 12px;
+}
+.template-restaurante .tpl-services {
+  background: #eee4d5;
+}
+.template-restaurante .tpl-service-grid article {
+  border: 0;
+  border-left: 1px solid #85432e50;
+  border-radius: 0;
+  padding: 0 25px;
+}
+.template-restaurante .tpl-service-grid h3 {
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.template-restaurante .tpl-service-grid strong {
+  font-style: italic;
+  color: var(--tpl-primary);
+}
+/* SERENA: a persistent visual sidebar and an offset information card. */
+.template-consultorio {
+  background: #f3f8f6;
+  color: #1e403c;
+}
+.clinic-shell {
+  display: grid;
+  grid-template-columns: 235px 1fr;
+}
+.clinic-sidebar {
+  padding: 50px 28px;
+  border-right: 1px solid #b8d2c9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.clinic-sidebar .tpl-brand {
+  font-size: 1.2rem;
+}
+.clinic-sidebar > p {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  color: #426a61;
+}
+.clinic-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 50px;
+}
+.clinic-sidebar nav a {
+  border-bottom: 1px solid #c7dbd4;
+  min-width: 150px;
+}
+.clinic-plus {
+  font-size: 10rem;
+  font-weight: 200;
+  color: var(--tpl-accent);
+  margin-top: 80px;
+  line-height: 1;
+}
+.clinic-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  padding: 65px 6%;
+  align-items: center;
+}
+.clinic-hero h1 {
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  letter-spacing: -0.05em;
+}
+.clinic-hero > div > p {
+  font-size: 0.9rem;
+  margin-top: 24px;
+  max-width: 400px;
+}
+.clinic-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--tpl-primary);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.clinic-label > span {
+  font-size: 1.5rem;
+}
+.clinic-image {
+  height: 420px;
+  position: relative;
+}
+.clinic-image img {
+  border-radius: 160px 160px 12px 12px;
+}
+.clinic-caption {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: #fff;
+  padding: 15px 18px;
+  border-radius: 9px;
+  box-shadow: 0 5px 40px #1e403c15;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.clinic-caption > span {
+  font-size: 1.5rem;
+  color: var(--tpl-primary);
+}
+.clinic-note {
+  grid-column: 1/-1;
+  background: var(--tpl-accent);
+  border-radius: 12px;
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px 25px;
+  margin-top: 20px;
+}
+.clinic-note p {
+  font-size: 0.8rem;
+}
+.clinic-note a {
+  font-size: 0.75rem;
+  grid-column: 2;
+  text-decoration: underline;
+}
+.template-consultorio .tpl-service-grid {
+  grid-template-columns: 1fr;
+}
+.template-consultorio .tpl-service-grid article {
+  display: grid;
+  grid-template-columns: 35px 1fr auto;
+  gap: 8px 20px;
+  background: #fff;
+  border: 1px solid #d0e2db;
+  border-radius: 12px;
+  padding: 25px;
+}
+.template-consultorio .tpl-service-number {
+  margin: 0;
+  grid-row: 1/3;
+}
+.template-consultorio .tpl-service-grid h3 {
+  margin: 0;
+}
+.template-consultorio .tpl-service-grid p {
+  grid-column: 2;
+  margin: 0;
+}
+.template-consultorio .tpl-service-grid strong {
+  grid-column: 3;
+  grid-row: 1;
+}
+.template-consultorio .tpl-about {
+  display: block;
+}
+.template-consultorio .tpl-about p {
+  margin-top: 25px;
+}
+/* HÁBITAT: photographic panorama, overlay heading, listing-style cards. */
+.template-inmobiliaria {
+  color: #283c33;
+  background: #f7f7f2;
+}
+.estate-header {
+  padding-block: 22px;
+}
+.estate-header .tpl-brand {
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+.estate-hero {
+  height: 670px;
+  position: relative;
+  color: #fff;
+}
+.estate-hero > img {
+  position: absolute;
+  inset: 0;
+}
+.estate-hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #07170fe0, #07170f45);
+}
+.estate-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 90px 7%;
+  max-width: 900px;
+}
+.estate-overlay .tpl-kicker {
+  color: #e0e3cc;
+}
+.estate-overlay h1 {
+  font-size: clamp(3rem, 5.8vw, 6.1rem);
+  font-weight: 450;
+  max-width: 750px;
+}
+.estate-overlay > p {
+  margin-top: 25px;
+  color: #e6e8df;
+}
+.estate-overlay .tpl-button {
+  background: #fff;
+  color: #21392c !important;
+}
+.estate-bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 7%;
+  right: 7%;
+  border-top: 1px solid #ffffff50;
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+}
+.template-inmobiliaria .tpl-service-grid article {
+  border: 0;
+  border-bottom: 1px solid #c8cec6;
+  background: #eceee6;
+  position: relative;
+  padding-top: 55px;
+}
+.template-inmobiliaria .tpl-service-number {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+.template-inmobiliaria .tpl-services h2 {
+  max-width: 600px;
+}
+.template-inmobiliaria .tpl-gallery {
+  grid-template-columns: 2fr 1fr;
+}
+.template-inmobiliaria .tpl-gallery img:first-child {
+  grid-row: span 2;
+  aspect-ratio: 1.5;
+}
+/* AURA: soft editorial split, sculpted portrait and horizontal service bands. */
+.template-belleza {
+  background: #f9f1f1;
+  color: #633e50;
+}
+.beauty-header {
+  border: 0;
+}
+.beauty-header .tpl-brand {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+}
+.beauty-hero {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 70px;
+  padding: 35px 10% 90px;
+  align-items: center;
+}
+.beauty-copy {
+  position: relative;
+}
+.beauty-copy h1 {
+  font-size: clamp(3.4rem, 5.4vw, 6.5rem);
+  font-style: italic;
+  font-weight: 400;
+}
+.beauty-copy > p {
+  font-size: 0.95rem;
+  margin-top: 25px;
+  max-width: 340px;
+}
+.beauty-copy .tpl-button {
+  border-radius: 50px;
+  padding-inline: 25px;
+}
+.beauty-flower {
+  display: block;
+  margin: 40px 0 0 20px;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--tpl-primary);
+  transform: rotate(15deg);
+}
+.beauty-portrait {
+  height: 580px;
+  position: relative;
+  padding-top: 35px;
+}
+.beauty-portrait img {
+  border-radius: 47% 47% 43% 43%;
+  height: 100%;
+}
+.beauty-portrait > span {
+  position: absolute;
+  right: -38px;
+  top: 10%;
+  writing-mode: vertical-rl;
+  font-size: 0.55rem;
+  letter-spacing: 0.23em;
+}
+.template-belleza .tpl-services {
+  background: var(--tpl-accent);
+}
+.template-belleza .tpl-service-grid {
+  display: block;
+}
+.template-belleza .tpl-service-grid article {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 100px;
+  align-items: center;
+  gap: 25px;
+  border: 0;
+  border-top: 1px solid #633e5040;
+  padding: 30px 0;
+}
+.template-belleza .tpl-service-number {
+  margin: 0;
+}
+.template-belleza .tpl-service-grid h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+}
+.template-belleza .tpl-service-grid p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+.template-belleza .tpl-contact {
+  background: #f9f1f1;
+}
+/* NEXO: modular graphic tiles, strong geometry, process strip. */
+.template-profesionales {
+  background: #f5f6fa;
+  color: #14244c;
+}
+.consulting-header .tpl-brand {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+.consulting-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  padding: 60px 6% 0;
+  gap: 40px;
+  overflow: hidden;
+}
+.consulting-hero > div:nth-child(2) {
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+.consulting-hero h1 {
+  font-size: clamp(3rem, 5.8vw, 6rem);
+  max-width: 700px;
+}
+.consulting-hero p {
+  margin-top: 25px;
+  max-width: 450px;
+}
+.consulting-grid-mark {
+  position: absolute;
+  right: -25px;
+  top: -180px;
+  font-size: 35rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--tpl-accent);
+  z-index: 0;
+}
+.consulting-tile {
+  align-self: center;
+  background: var(--tpl-primary);
+  color: #fff;
+  padding: 35px;
+  position: relative;
+  transform: rotate(3deg);
+  margin: 15px 15px 40px;
+}
+.consulting-tile img {
+  aspect-ratio: 1.4;
+  height: auto;
+  mix-blend-mode: luminosity;
+}
+.consulting-tile > span {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  display: block;
+  margin-top: 24px;
+}
+.consulting-foot {
+  grid-column: 1/-1;
+  background: var(--tpl-primary);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -7%;
+  padding: 22px 7%;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+}
+.template-profesionales .tpl-service-grid article {
+  border: 0;
+  background: #fff;
+  border-top: 4px solid var(--tpl-primary);
+}
+.template-profesionales .tpl-service-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--tpl-primary);
+  margin-bottom: 25px;
+}
+.template-profesionales .tpl-services {
+  background: #e7ebf5;
+}
+@media (max-width: 1000px) {
+  .clinic-shell {
+    grid-template-columns: 185px 1fr;
+  }
+  .clinic-sidebar {
+    padding: 40px 20px;
+  }
+  .clinic-sidebar nav a {
+    min-width: 125px;
+  }
+  .clinic-hero {
+    grid-template-columns: 1fr;
+  }
+  .clinic-image {
+    height: 350px;
+  }
+  .clinic-note {
+    display: block;
+  }
+  .clinic-note p {
+    margin: 10px 0;
+  }
+  .restaurant-header {
+    grid-template-columns: auto 1fr;
+  }
+  .restaurant-header > span {
+    display: none;
+  }
+  .restaurant-header .tpl-brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .restaurant-header nav {
+    justify-content: flex-end;
+  }
+  .beauty-hero {
+    gap: 35px;
+    padding-inline: 7%;
+  }
+  .barber-hero {
+    gap: 30px;
+  }
+  .barber-image {
+    height: 450px;
+  }
+  .template-belleza .tpl-service-grid article {
+    grid-template-columns: 40px 1fr 100px;
+  }
+  .template-belleza .tpl-service-grid p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .template-belleza .tpl-service-grid strong {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .template-barberia .tpl-services {
+    gap: 40px;
+  }
+}
+@media (max-width: 700px) {
+  .commercial-bar {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 8px 15px;
+  }
+  .commercial-bar p {
+    font-size: 10px;
+    min-width: 180px;
+  }
+  .commercial-bar > div {
+    flex-basis: 100%;
+  }
+  .commercial-bar > div > a {
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+  }
+  .tpl-header {
+    flex-wrap: wrap;
+    padding: 20px 6%;
+    gap: 15px;
+  }
+  .template nav {
+    gap: 15px;
+  }
+  .template nav a {
+    font-size: 0.7rem;
+  }
+  .tpl-section {
+    padding: 55px 7%;
+  }
+  .tpl-about,
+  .tpl-contact {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .tpl-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .tpl-service-grid article {
+    padding: 25px;
+  }
+  .tpl-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tpl-footer {
+    gap: 10px;
+  }
+  .tpl-footer small {
+    line-height: 1.8;
+  }
+  .barber-hero {
+    grid-template-columns: 1fr;
+    padding: 45px 7% 65px;
+    gap: 40px;
+  }
+  .barber-headline h1 {
+    font-size: clamp(3.4rem, 13vw, 5.8rem);
+  }
+  .barber-side {
+    display: none;
+  }
+  .barber-image {
+    height: 360px;
+    padding-left: 30px;
+  }
+  .barber-stamp {
+    left: 0;
+    width: 105px;
+    height: 105px;
+  }
+  .template-barberia .tpl-services {
+    display: block;
+  }
+  .template-barberia .tpl-services .tpl-section-title {
+    margin-bottom: 35px;
+  }
+  .template-barberia .tpl-service-grid article {
+    grid-template-columns: 20px 1fr auto;
+  }
+  .template-barberia .tpl-service-grid h3 {
+    font-size: 1.1rem;
+  }
+  .restaurant-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .restaurant-header .tpl-brand {
+    font-size: 1.3rem;
+    order: -1;
+  }
+  .restaurant-header nav {
+    justify-content: center;
+  }
+  .restaurant-hero {
+    padding: 40px 6% 50px;
+  }
+  .restaurant-hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 30px;
+  }
+  .restaurant-spread {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .restaurant-spread > p {
+    grid-column: 1/-1;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+  .restaurant-spread > img {
+    height: 300px;
+  }
+  .restaurant-spread .tpl-button {
+    padding: 10px;
+    font-size: 0.6rem;
+  }
+  .restaurant-spread > div {
+    min-width: 0;
+  }
+  .template-restaurante .tpl-service-grid {
+    gap: 35px;
+  }
+  .clinic-shell {
+    display: block;
+  }
+  .clinic-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #c7dbd4;
+    padding: 25px 6%;
+    display: block;
+  }
+  .clinic-sidebar > .tpl-brand {
+    font-size: 1.3rem;
+  }
+  .clinic-sidebar > p,
+  .clinic-plus {
+    display: none;
+  }
+  .clinic-sidebar nav {
+    flex-direction: row;
+    margin-top: 15px;
+    gap: 16px;
+  }
+  .clinic-sidebar nav a {
+    min-width: 0;
+    border: 0;
+    font-size: 0.7rem;
+  }
+  .clinic-hero {
+    padding: 40px 7%;
+  }
+  .clinic-hero h1 {
+    font-size: 3rem;
+  }
+  .clinic-image {
+    margin-top: 10px;
+    height: 350px;
+  }
+  .clinic-caption {
+    left: -10px;
+  }
+  .clinic-note {
+    padding: 23px;
+  }
+  .template-consultorio .tpl-service-grid article {
+    grid-template-columns: 25px 1fr;
+    gap: 10px;
+  }
+  .template-consultorio .tpl-service-grid strong {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .estate-hero {
+    height: 620px;
+  }
+  .estate-overlay {
+    padding: 75px 7%;
+  }
+  .estate-overlay h1 {
+    font-size: 3.4rem;
+  }
+  .estate-bottom {
+    font-size: 0.52rem;
+    letter-spacing: 0.05em;
+  }
+  .template-inmobiliaria .tpl-gallery {
+    grid-template-columns: 1fr;
+  }
+  .beauty-hero {
+    grid-template-columns: 1fr;
+    padding: 20px 8% 55px;
+    gap: 35px;
+  }
+  .beauty-copy h1 {
+    font-size: 4rem;
+  }
+  .beauty-flower {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 3rem;
+    opacity: 0.65;
+    margin: 0;
+  }
+  .beauty-portrait {
+    height: 420px;
+    margin-inline: 12px 22px;
+    padding-top: 0;
+  }
+  .beauty-portrait > span {
+    right: -27px;
+  }
+  .template-belleza .tpl-service-grid article {
+    grid-template-columns: 25px 1fr;
+    gap: 15px;
+  }
+  .template-belleza .tpl-service-grid h3 {
+    font-size: 1.7rem;
+  }
+  .template-belleza .tpl-service-grid strong {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .consulting-hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+    gap: 10px;
+  }
+  .consulting-hero h1 {
+    font-size: 3.3rem;
+  }
+  .consulting-hero > div:nth-child(2) {
+    padding-bottom: 10px;
+  }
+  .consulting-tile {
+    max-width: 420px;
+    margin: 15px 15px 45px;
+  }
+  .consulting-foot {
+    font-size: 0.5rem;
+    gap: 15px;
+    letter-spacing: 0.08em;
+  }
+  .consulting-grid-mark {
+    font-size: 25rem;
+    top: 40px;
+    right: -100px;
+  }
+  .tpl-contact .tpl-button {
+    font-size: 0.75rem;
+  }
+  .tpl-section .tpl-kicker {
+    margin-bottom: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Full content blocks for the static collection. */
+.commercial-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.commercial-brand > span {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.commercial-bar > div > a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.commercial-bar > div > a:first-child {
+  background: transparent;
+  color: #fff;
+  border-color: #50617f;
+}
+.commercial-bar > div > a:last-child {
+  background: #fbd24c;
+  color: #132340;
+  border-color: #fbd24c;
+  font-weight: 750;
+}
+.template h1 {
+  font-size: clamp(3rem, 5.6vw, 6rem);
+}
+.tpl-kicker {
+  font-size: 0.6rem;
+}
+.tpl-button {
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+}
+.tpl-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.93);
+}
+.template section[id] {
+  scroll-margin-top: 25px;
+}
+.tpl-about {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.tpl-about > div > p {
+  font-size: 0.88rem;
+  line-height: 1.95;
+  margin-top: 25px;
+}
+.about-photo {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+.tpl-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.tpl-section-heading h2 {
+  max-width: 650px;
+}
+.tpl-section-heading > p {
+  font-size: 0.7rem;
+  line-height: 1.9;
+  max-width: 320px;
+}
+.tpl-gallery {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.tpl-gallery figure {
+  margin: 0;
+}
+.tpl-gallery img {
+  width: 100%;
+  height: 320px;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.tpl-gallery figcaption {
+  font-size: 0.58rem;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-top: 15px;
+}
+.tpl-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.tpl-benefit-grid article {
+  border-top: 1px solid #0003;
+  padding-top: 25px;
+}
+.tpl-benefit-grid article > span {
+  font-size: 0.65rem;
+  color: var(--tpl-primary);
+}
+.tpl-benefit-grid h3 {
+  margin: 25px 0 15px;
+}
+.tpl-benefit-grid p {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  max-width: 350px;
+}
+.tpl-contact {
+  align-items: center;
+  gap: 65px;
+}
+.tpl-contact > div > p {
+  font-size: 0.86rem;
+  line-height: 1.9;
+  margin-top: 24px;
+  max-width: 550px;
+}
+.tpl-contact .demo-contact-notice {
+  font-size: 0.62rem;
+  margin-top: 16px;
+  max-width: 400px;
+}
+.contact-info {
+  border-left: 1px solid #0002;
+  padding-left: 40px;
+}
+.contact-info > div + div {
+  margin-top: 25px;
+}
+.contact-info span {
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+.contact-info p {
+  font-size: 0.74rem;
+  margin-top: 8px;
+}
+.tpl-footer {
+  padding-block: 35px;
+}
+.tpl-footer p {
+  font-size: 0.65rem;
+  margin-top: 7px;
+}
+.tpl-footer > div > strong {
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+.tpl-footer small {
+  font-size: 0.62rem;
+  line-height: 1.9;
+}
+.tpl-footer > a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.demo-form {
+  background: #fff;
+  color: #243349;
+  border: 1px solid #0002;
+  border-radius: 8px;
+  padding: 28px;
+}
+.demo-form > p {
+  font-size: 0.7rem;
+  line-height: 1.9;
+  margin-top: 13px;
+}
+.demo-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.demo-form label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 650;
+  margin-top: 20px;
+}
+.demo-form input,
+.demo-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 7px;
+  padding: 11px 12px;
+  border: 1px solid #acbac9;
+  background: #fff;
+  border-radius: 5px;
+  font:
+    400 0.8rem/1.6 system-ui,
+    sans-serif;
+  color: #243349;
+}
+.demo-form .tpl-button {
+  font-family: system-ui, sans-serif;
+  font-size: 0.73rem;
+  margin-top: 20px;
+}
+.demo-form .form-demo-status {
+  background: #edf4ee;
+  color: #285737;
+  border: 1px solid #b5d1bc;
+  border-radius: 5px;
+  padding: 13px;
+  margin-top: 18px;
+  font-size: 0.7rem;
+}
+.barber-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.barber-hero-note {
+  font-size: 0.53rem;
+  letter-spacing: 0.14em;
+  display: block;
+  margin-top: 25px;
+  color: #b5b1a7;
+}
+.barber-services {
+  display: grid;
+  grid-template-columns: 0.65fr 1fr;
+  gap: 75px;
+}
+.tpl-section-title > p {
+  font-size: 0.75rem;
+  margin-top: 20px;
+}
+.barber-service-list article {
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 20px;
+  border-top: 1px solid #ffffff30;
+  padding: 26px 0;
+}
+.barber-service-list article > span {
+  font-size: 0.65rem;
+  color: var(--tpl-primary);
+}
+.barber-service-list h3 {
+  font-size: 1.35rem;
+}
+.barber-service-list p {
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: #c8c5ba;
+  margin-top: 12px;
+}
+.barber-service-list small {
+  font-size: 0.6rem;
+  color: #aaa89e;
+  display: block;
+  margin-top: 10px;
+}
+.barber-service-list strong {
+  font-size: 1.1rem;
+  color: var(--tpl-primary);
+  white-space: nowrap;
+}
+.template-barberia .about-photo {
+  filter: grayscale(1);
+  height: 420px;
+}
+.template-barberia .tpl-gallery img {
+  filter: grayscale(1);
+}
+.template-barberia .tpl-benefit-grid article {
+  border-color: #ffffff35;
+}
+.template-barberia .benefits-section {
+  background: #1d2220;
+}
+.template-barberia .contact-info {
+  border-color: #ffffff30;
+}
+.restaurant-spread > img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 220px 220px 0 0;
+}
+.restaurant-menu {
+  background: #eee4d5;
+}
+.restaurant-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.restaurant-menu-grid article > img {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+}
+.restaurant-menu-grid article > div {
+  padding-top: 22px;
+}
+.restaurant-menu-grid article > div > span {
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  color: var(--tpl-primary);
+}
+.restaurant-menu-grid article > div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  margin: 14px 0;
+}
+.restaurant-menu-grid h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.restaurant-menu-grid strong {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.restaurant-menu-grid p {
+  font-size: 0.78rem;
+  line-height: 1.85;
+}
+.template-restaurante .about-photo {
+  border-radius: 160px 0 0 0;
+}
+.template-restaurante .tpl-gallery figure:nth-child(2) {
+  padding-top: 40px;
+}
+.clinic-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.clinic-specialties > div {
+  margin-top: 35px;
+  display: grid;
+  gap: 15px;
+}
+.clinic-specialties article {
+  display: grid;
+  grid-template-columns: 45px 1fr 45px;
+  align-items: start;
+  gap: 20px;
+  border: 1px solid #cfe0d8;
+  background: #fff;
+  border-radius: 12px;
+  padding: 26px;
+}
+.specialty-icon {
+  font-size: 1.6rem;
+  color: var(--tpl-primary);
+}
+.clinic-specialties h3 {
+  font-size: 1.2rem;
+}
+.clinic-specialties p {
+  font-size: 0.78rem;
+  line-height: 1.85;
+  margin-top: 12px;
+  max-width: 550px;
+}
+.clinic-specialties article > a {
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  background: #e8f2ec;
+  border-radius: 50%;
+  color: var(--tpl-primary);
+}
+.template-consultorio .tpl-about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  background: #e6f0ea;
+}
+.template-consultorio .about-photo {
+  height: 300px;
+}
+.clinic-team > p {
+  font-size: 0.75rem;
+  margin-top: 22px;
+  max-width: 600px;
+}
+.clinic-team > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+.clinic-team article {
+  border: 1px solid #cfe0d8;
+  border-radius: 10px;
+  background: #fff;
+  padding: 22px;
+}
+.clinic-team article > span {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e8f2ec;
+  color: var(--tpl-primary);
+  font-size: 1.3rem;
+}
+.clinic-team h3 {
+  font-size: 0.95rem;
+  margin-top: 22px;
+}
+.clinic-team article > p {
+  font-size: 0.65rem;
+  margin-top: 12px;
+}
+.template-consultorio .tpl-contact {
+  grid-template-columns: 1fr;
+  gap: 35px;
+}
+.template-consultorio .contact-info {
+  border-left: 0;
+  border-top: 1px solid #0002;
+  padding: 25px 0 0;
+}
+.template-consultorio .tpl-benefit-grid {
+  gap: 25px;
+}
+.template-consultorio .tpl-benefit-grid h3 {
+  font-size: 1.05rem;
+}
+.estate-hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.property-grid article {
+  background: #fff;
+  border: 1px solid #d4dcd3;
+  overflow: hidden;
+}
+.property-photo {
+  position: relative;
+}
+.property-photo > img {
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+}
+.property-photo > span {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #fffffff2;
+  color: #283c33;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  padding: 7px 10px;
+}
+.property-info {
+  padding: 25px;
+}
+.property-info > p {
+  font-size: 0.6rem;
+  color: #586b60;
+}
+.property-info h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.property-info ul {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 18px 0;
+  margin: 18px 0 0;
+  border-block: 1px solid #dce2d9;
+  font-size: 0.65rem;
+}
+.property-info ul li:not(:last-child):after {
+  content: "·";
+  margin-left: 10px;
+}
+.property-info > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.property-info strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.property-info strong small {
+  display: block;
+  font-size: 0.55rem;
+  color: #617067;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.property-info > div > a {
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bfcfc1;
+}
+.template-inmobiliaria .tpl-about {
+  background: #e9ece3;
+}
+.template-inmobiliaria .tpl-contact {
+  grid-template-columns: 1fr 1.1fr;
+  gap: 65px;
+}
+.beauty-portrait > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.beauty-treatments {
+  background: var(--tpl-accent);
+}
+.prices-notice {
+  font-size: 0.65rem;
+  margin-top: 20px !important;
+  max-width: 650px;
+}
+.beauty-treatments > div {
+  margin-top: 35px;
+}
+.beauty-treatments article {
+  display: grid;
+  grid-template-columns: 45px 1fr 1fr 100px;
+  align-items: center;
+  gap: 25px;
+  border-top: 1px solid #633e5040;
+  padding: 30px 0;
+}
+.beauty-treatments article > span {
+  font-size: 0.65rem;
+}
+.beauty-treatments h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+}
+.beauty-treatments small {
+  font-size: 0.58rem;
+  display: block;
+  margin-top: 10px;
+}
+.beauty-treatments article > p {
+  font-size: 0.8rem;
+  line-height: 1.9;
+}
+.beauty-treatments strong {
+  font-size: 1.3rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.template-belleza .tpl-about .about-photo {
+  border-radius: 120px 0 120px 0;
+  height: 450px;
+}
+.template-belleza .gallery-section {
+  background: #f1e6e8;
+}
+.template-belleza .tpl-gallery figure:nth-child(2) {
+  padding-top: 45px;
+}
+.template-belleza .tpl-gallery img {
+  height: 370px;
+  border-radius: 130px 130px 0 0;
+}
+.consulting-tile > img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.professional-services {
+  background: #e7ebf5;
+}
+.professional-services > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+.professional-services article {
+  background: #fff;
+  border-top: 4px solid var(--tpl-primary);
+  padding: 30px;
+}
+.professional-services article > span {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--tpl-primary);
+  display: block;
+  margin-bottom: 30px;
+}
+.professional-services h3 {
+  font-size: 1.3rem;
+}
+.professional-services article > p {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  margin-top: 20px;
+}
+.professional-services small {
+  display: block;
+  margin-top: 25px;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--tpl-primary);
+}
+.professional-faq > div {
+  margin-top: 35px;
+  max-width: 900px;
+}
+.professional-faq details {
+  border-top: 1px solid #c9d2e3;
+  padding: 22px 0;
+}
+.professional-faq summary {
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  min-height: 32px;
+}
+.professional-faq details p {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  margin-top: 18px;
+  max-width: 750px;
+}
+@media (max-width: 1050px) {
+  .commercial-bar {
+    gap: 18px;
+  }
+  .commercial-bar > p {
+    font-size: 0.58rem;
+  }
+  .barber-services {
+    gap: 40px;
+  }
+  .tpl-about {
+    gap: 40px;
+  }
+  .tpl-contact {
+    gap: 40px;
+  }
+  .contact-info {
+    padding-left: 30px;
+  }
+  .property-grid {
+    gap: 18px;
+  }
+  .property-info {
+    padding: 20px;
+  }
+  .property-info h3 {
+    font-size: 1.3rem;
+  }
+  .property-photo > img {
+    height: 230px;
+  }
+  .template-inmobiliaria .tpl-contact {
+    gap: 35px;
+  }
+  .clinic-team > div {
+    grid-template-columns: 1fr;
+  }
+  .clinic-team article {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 6px 20px;
+    align-items: center;
+  }
+  .clinic-team article > span {
+    grid-row: 1/3;
+  }
+  .clinic-team h3,
+  .clinic-team article > p {
+    margin: 0;
+  }
+  .beauty-treatments article {
+    grid-template-columns: 30px 1fr 1fr 80px;
+    gap: 20px;
+  }
+  .restaurant-spread > img {
+    height: 350px;
+  }
+}
+@media (max-width: 700px) {
+  .commercial-bar {
+    padding: 13px 18px;
+    flex-wrap: wrap;
+    gap: 10px 15px;
+  }
+  .commercial-bar > p {
+    font-size: 0.56rem;
+    line-height: 1.7;
+    flex-basis: 55%;
+    min-width: 0;
+  }
+  .commercial-brand {
+    font-size: 1rem;
+  }
+  .commercial-brand > span {
+    font-size: 0.6rem;
+  }
+  .commercial-bar > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex-basis: 100%;
+  }
+  .commercial-bar > div > a {
+    justify-content: center;
+    text-align: center;
+    font-size: 0.58rem;
+    padding: 8px;
+    min-height: 44px;
+  }
+  .tpl-header {
+    padding: 22px 6%;
+    gap: 15px;
+  }
+  .template nav {
+    gap: 15px;
+  }
+  .template nav a {
+    font-size: 0.65rem;
+  }
+  .tpl-section {
+    padding: 50px 7%;
+  }
+  .template h2 {
+    font-size: 2rem;
+  }
+  .tpl-section-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .tpl-section-heading > p {
+    margin-top: 18px;
+    font-size: 0.67rem;
+  }
+  .tpl-kicker {
+    font-size: 0.53rem;
+    margin-bottom: 18px;
+  }
+  .tpl-about {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .tpl-about > div > p {
+    font-size: 0.83rem;
+    margin-top: 20px;
+  }
+  .about-photo {
+    height: 300px;
+  }
+  .tpl-gallery {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .tpl-gallery img {
+    height: 300px;
+  }
+  .tpl-gallery figcaption {
+    font-size: 0.55rem;
+  }
+  .tpl-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .tpl-benefit-grid h3 {
+    margin: 18px 0 12px;
+    font-size: 1.25rem;
+  }
+  .tpl-benefit-grid p {
+    max-width: none;
+    font-size: 0.8rem;
+  }
+  .tpl-contact {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .tpl-contact > div > p {
+    font-size: 0.8rem;
+  }
+  .contact-info {
+    border-left: 0;
+    border-top: 1px solid #0002;
+    padding: 25px 0 0;
+  }
+  .tpl-contact .demo-contact-notice {
+    font-size: 0.6rem;
+  }
+  .tpl-footer {
+    padding: 30px 7%;
+    gap: 15px;
+  }
+  .tpl-footer small {
+    font-size: 0.58rem;
+  }
+  .tpl-button {
+    font-size: 0.73rem;
+    padding: 13px 19px;
+  }
+  .barber-services {
+    display: block;
+  }
+  .barber-service-list {
+    margin-top: 35px;
+  }
+  .barber-service-list article {
+    grid-template-columns: 20px 1fr auto;
+    gap: 12px;
+  }
+  .barber-service-list h3 {
+    font-size: 1.15rem;
+  }
+  .barber-service-list p {
+    font-size: 0.72rem;
+  }
+  .barber-service-list strong {
+    font-size: 0.95rem;
+  }
+  .barber-image > img {
+    width: 100%;
+    height: 100%;
+  }
+  .template-barberia .about-photo {
+    height: 330px;
+  }
+  .restaurant-spread > img {
+    height: 300px;
+  }
+  .restaurant-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .restaurant-menu-grid article > img {
+    height: 300px;
+  }
+  .restaurant-menu-grid article > div {
+    padding-top: 20px;
+  }
+  .restaurant-menu-grid h3 {
+    font-size: 1.65rem;
+  }
+  .template-restaurante .tpl-gallery figure:nth-child(2) {
+    padding-top: 0;
+  }
+  .clinic-specialties article {
+    grid-template-columns: 30px 1fr 40px;
+    padding: 20px;
+    gap: 12px;
+  }
+  .clinic-specialties h3 {
+    font-size: 1.1rem;
+  }
+  .clinic-specialties p {
+    font-size: 0.73rem;
+  }
+  .clinic-specialties article > a {
+    min-width: 40px;
+    min-height: 44px;
+  }
+  .clinic-team article {
+    padding: 20px;
+    grid-template-columns: 55px 1fr;
+    gap: 7px 15px;
+  }
+  .clinic-team article > span {
+    width: 55px;
+    height: 55px;
+    font-size: 1.15rem;
+  }
+  .clinic-team h3 {
+    font-size: 0.9rem;
+  }
+  .clinic-team article > p {
+    font-size: 0.6rem;
+  }
+  .template-consultorio .tpl-benefit-grid h3 {
+    font-size: 1.2rem;
+  }
+  .property-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .property-photo > img {
+    height: 290px;
+  }
+  .property-info {
+    padding: 25px;
+  }
+  .property-info h3 {
+    font-size: 1.6rem;
+  }
+  .property-info strong {
+    font-size: 1.35rem;
+  }
+  .template-inmobiliaria .tpl-contact {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .beauty-treatments article {
+    grid-template-columns: 25px 1fr 80px;
+    gap: 15px;
+  }
+  .beauty-treatments h3 {
+    font-size: 1.7rem;
+  }
+  .beauty-treatments article > p {
+    grid-column: 2/4;
+    font-size: 0.75rem;
+  }
+  .beauty-treatments article > strong {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 1.1rem;
+  }
+  .beauty-treatments small {
+    font-size: 0.52rem;
+  }
+  .template-belleza .tpl-about .about-photo {
+    height: 350px;
+    border-radius: 100px 0 100px 0;
+  }
+  .template-belleza .tpl-gallery figure:nth-child(2) {
+    padding-top: 0;
+  }
+  .template-belleza .tpl-gallery img {
+    height: 330px;
+  }
+  .professional-services > div {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .professional-services article {
+    padding: 25px;
+  }
+  .professional-services article > span {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .consulting-tile > img {
+    height: 240px;
+  }
+  .demo-form {
+    padding: 23px;
+  }
+  .demo-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .demo-form input,
+  .demo-form textarea {
+    font-size: 16px;
+  }
+  .professional-faq summary {
+    font-size: 0.85rem;
+  }
+  .template-consultorio .tpl-about {
+    grid-template-columns: 1fr;
+  }
+  .template-consultorio .tpl-contact {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 380px) {
+  .commercial-brand > span {
+    display: none;
+  }
+  .commercial-bar > p {
+    font-size: 0.53rem;
+  }
+  .commercial-bar > div > a {
+    font-size: 0.53rem;
+  }
+  .template nav {
+    gap: 12px;
+  }
+  .template nav a {
+    font-size: 0.6rem;
+  }
+  .barber-headline h1 {
+    font-size: 3.25rem;
+  }
+  .beauty-copy h1 {
+    font-size: 3.4rem;
+  }
+  .estate-overlay h1 {
+    font-size: 3rem;
+  }
+  .clinic-hero h1 {
+    font-size: 2.7rem;
+  }
+  .restaurant-hero h1 {
+    font-size: 2.8rem;
+  }
+  .tpl-button {
+    font-size: 0.68rem;
+    gap: 15px;
+  }
+  .beauty-treatments article {
+    grid-template-columns: 18px 1fr 65px;
+    gap: 10px;
+  }
+  .beauty-treatments h3 {
+    font-size: 1.5rem;
+  }
+}
