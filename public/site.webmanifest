@@ -1,13 +1,13 @@
 {
   "name": "BR Digital System",
   "short_name": "BR Digital System",
-  "description": "Desarrollo de páginas web, tiendas online y sistemas a medida.",
+  "description": "Páginas web profesionales para emprendedores y pequeñas empresas de Perú.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
-  "lang": "es",
-  "background_color": "#0b1220",
-  "theme_color": "#0b1220",
+  "lang": "es-PE",
+  "background_color": "#ffffff",
+  "theme_color": "#0a1832",
   "icons": [
     {
       "src": "/images/favicon-192.png",

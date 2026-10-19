@@ -1,7 +1,3 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-
-# Recursos técnicos sin valor de búsqueda
-Disallow: /assets/
-
 Sitemap: https://brdigitalsystem.online/sitemap.xml

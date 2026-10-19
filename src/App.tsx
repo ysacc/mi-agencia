@@ -1,104 +1,391 @@
-import React, { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import "./App.css";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Services from "./components/Services";
-import ServiceLinks from "./components/ServiceLinks";
-import type { Lang } from "./translations";
-import TrustedCompanies from "./components/TrustedCompanies";
-import WhyChooseUs from "./components/WhyChooseUs";
-import WhyHireUs from "./components/WhyHireUs";
-import FAQ from "./components/FAQ";
-import { FAQ_DATA } from "./data/faq";
-import WhatsAppFab from "./components/WhatsAppFab";
-import JsonLd from "./components/JsonLd";
-import { buildFaqPage, buildGraph } from "./lib/structuredData";
+import { PLANS, CONDITIONS, money } from "./data/plans";
+import type { PlanId } from "./data/plans";
+import { WEB_FAQ } from "./data/webFaq";
+import {
+  BRAND,
+  CONTACT_EMAIL,
+  SOCIAL_LINKS,
+  WHATSAPP_DISPLAY,
+} from "./lib/site";
 import { captureUtm } from "./lib/utm";
 import { trackPageView } from "./lib/analytics";
+import WebQuote from "./components/WebQuote";
+import { WebNav, WhatsAppLink, SitePreview } from "./components/WebUi";
 
-/**
- * FAQPage con exactamente las preguntas visibles en la página.
- * Organization y WebSite viven en el <head> de index.html.
- */
-const STRUCTURED_DATA = buildGraph([buildFaqPage(FAQ_DATA)]);
+const benefits = [
+  [
+    "01",
+    "Que te encuentren y te conozcan",
+    "Reúne tu información, servicios y contacto en un solo lugar. Comparte tu enlace donde estén tus clientes.",
+  ],
+  [
+    "02",
+    "Una buena primera impresión",
+    "Presenta tu negocio con un diseño ordenado, legible y adaptado a celulares, tablets y computadoras.",
+  ],
+  [
+    "03",
+    "De la visita a la conversación",
+    "Dale a tus visitantes un camino claro para hacerte una consulta por WhatsApp. Sin vueltas.",
+  ],
+];
+const steps = [
+  [
+    "Cuéntanos tu idea",
+    "Elige un plan y conversemos por WhatsApp sobre tu negocio.",
+  ],
+  [
+    "Definimos el alcance",
+    "Revisamos lo que necesitas y acordamos presupuesto, condiciones y plazo.",
+  ],
+  [
+    "Creamos y revisamos",
+    "Nos entregas tus materiales. Diseñamos y ajustamos en las rondas de tu plan.",
+  ],
+  [
+    "Publicamos tu web",
+    "Con tu aprobación y el dominio y hosting listos, coordinamos la publicación.",
+  ],
+];
 
-const App: React.FC = () => {
-  const [lang, setLang] = useState<Lang>("es");
-
-  // Servicios seleccionados (desde Services)
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-
-  // Caso seleccionado (desde Portfolio)
-  const [selectedCase, setSelectedCase] = useState<string | null>(null);
-
+export default function App() {
+  const [plan, setPlan] = useState<PlanId>("negocio");
   useEffect(() => {
     captureUtm();
-    trackPageView({
-      page: "/",
-      title: document.title,
-    });
+    trackPageView({ page: window.location.pathname, title: document.title });
   }, []);
-
+  function selectPlan(id: PlanId) {
+    setPlan(id);
+    document.getElementById("cotizador")?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+    document
+      .querySelector<HTMLSelectElement>("#cotizador select")
+      ?.focus({ preventScroll: true });
+  }
   return (
-    <div>
+    <div className="web-root">
       <a className="skip-link" href="#contenido">
         Saltar al contenido
       </a>
-
-      <JsonLd data={STRUCTURED_DATA} />
-
-      <Navbar lang={lang} setLang={setLang} />
-
-      <main id="contenido">
-        <section id="inicio" className="section">
-          <div className="container">
-            <Hero lang={lang} />
+      <WebNav />
+      <main id="contenido" tabIndex={-1}>
+        <section id="inicio" className="hero-section">
+          <div className="hero-grid wrap">
+            <div className="hero-copy">
+              <p className="eyebrow">
+                <span className="status-dot" /> PÁGINAS WEB PARA NEGOCIOS EN
+                PERÚ
+              </p>
+              <h1>
+                Tu negocio merece una <span>página web profesional</span>
+                <span className="yellow-dot">.</span>
+              </h1>
+              <p className="hero-description">
+                Presenta lo que haces y recibe consultas por WhatsApp. Creamos
+                tu página web con un diseño claro, listo para verse bien en
+                cualquier pantalla.
+              </p>
+              <p className="hero-price">
+                Tu web desde <strong>{money(PLANS[0].price)}</strong>
+                <span>Pago único por desarrollo</span>
+              </p>
+              <div className="hero-actions">
+                <a className="button primary" href="#planes">
+                  Encuentra tu plan <span aria-hidden="true">↗</span>
+                </a>
+                <a className="text-link" href="#ejemplos">
+                  Explorar ejemplos <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <p className="hero-footnote">
+                Dominio, hosting y mantenimiento se cotizan por separado.
+              </p>
+            </div>
+            <div className="hero-visual">
+              <div className="visual-tag">
+                <span className="status-dot" /> TU PRÓXIMA PRESENCIA DIGITAL
+              </div>
+              <SitePreview />
+              <div className="visual-caption">
+                <span className="caption-icon" aria-hidden="true">
+                  ↗
+                </span>
+                <div>
+                  <strong>Tu negocio, con su propio espacio.</strong>
+                  <span>Diseño adaptable · Contacto directo</span>
+                </div>
+                <span className="caption-check" aria-hidden="true">
+                  ✓
+                </span>
+              </div>
+              <span className="demo-disclaimer">
+                Vista ilustrativa de diseño · No es un proyecto de cliente
+              </span>
+            </div>
+          </div>
+          <div className="hero-strip wrap">
+            <span>DISEÑADO PARA EMPRENDER</span>
+            <span>✓ Precios claros</span>
+            <span>✓ Adaptado a celulares</span>
+            <span>✓ Contacto por WhatsApp</span>
           </div>
         </section>
-
-        <section id="companies" className="section">
-          <TrustedCompanies lang={lang} />
-        </section>
-
-        <section id="servicios" className="section-alt">
-          <div className="container">
-            <Services
-              lang={lang}
-              onSelectService={(title) => {
-                setSelectedService(title);
-                setSelectedCase(null);
-              }}
-            />
-            <ServiceLinks />
+        <section id="planes" className="web-section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">UNA INVERSIÓN CLARA</p>
+                <h2>Una web para cada etapa.</h2>
+              </div>
+              <p>
+                Empieza con lo que necesitas hoy.
+                <br />
+                Conoce qué incluye cada plan antes de elegir.
+              </p>
+            </div>
+            <div className="plan-grid">
+              {PLANS.map((p, i) => (
+                <article
+                  className={`plan-card ${p.featured ? "featured" : ""}`}
+                  key={p.id}
+                >
+                  {p.featured && (
+                    <span className="plan-badge">
+                      PARA DAR EL SIGUIENTE PASO
+                    </span>
+                  )}
+                  <div className="plan-top">
+                    <span className="plan-index">0{i + 1}</span>
+                    <h3>{p.name}</h3>
+                    <p>{p.description}</p>
+                  </div>
+                  <p className="plan-price">
+                    {money(p.price)}
+                    <small>Pago único por desarrollo</small>
+                  </p>
+                  <button
+                    className={`button full ${p.featured ? "primary" : "outline"}`}
+                    type="button"
+                    onClick={() => selectPlan(p.id)}
+                  >
+                    Elegir {p.name} <span aria-hidden="true">↗</span>
+                  </button>
+                  <p className="includes-label">LO QUE INCLUYE</p>
+                  <ul className="feature-list">
+                    {p.features.map((f) => (
+                      <li key={f}>
+                        <span aria-hidden="true">✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+            <aside
+              className="conditions"
+              aria-label="Condiciones de los planes"
+            >
+              <strong>Antes de elegir, ten en cuenta</strong>
+              <ul>
+                {CONDITIONS.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </section>
-
-        <WhyChooseUs lang={lang} />
-        <WhyHireUs lang={lang} />
-
-        <section id="faq" className="section">
-          <FAQ />
+        <section id="ejemplos" className="web-section examples-section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">IMAGINA TU NEGOCIO AQUÍ</p>
+                <h2>Una idea de lo que podemos crear.</h2>
+              </div>
+              <p>
+                Explora estas demostraciones de diseño.
+                <br />
+                La propuesta se adapta a tu marca y al plan elegido.
+              </p>
+            </div>
+            <div className="example-grid">
+              {(
+                [
+                  [
+                    "studio",
+                    "Servicios creativos",
+                    "Una presentación visual para tu trabajo.",
+                  ],
+                  [
+                    "food",
+                    "Negocio gastronómico",
+                    "Tu propuesta y una forma sencilla de contactarte.",
+                  ],
+                  [
+                    "consulting",
+                    "Servicios profesionales",
+                    "Claridad para presentar lo que ofreces.",
+                  ],
+                ] as const
+              ).map(([variant, title, text]) => (
+                <article className="example-card" key={variant}>
+                  <a
+                    className="example-preview-link"
+                    href={`/demos/${variant}.html`}
+                    aria-label={`Ver demostración de ${title}`}
+                  >
+                    <SitePreview variant={variant} />
+                  </a>
+                  <div className="example-info">
+                    <span className="tiny-label">DEMO DE DISEÑO</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    <a className="text-link" href={`/demos/${variant}.html`}>
+                      Ver demostración <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="examples-note">
+              Ejemplos creados para explorar estilos. No representan clientes ni
+              trabajos entregados. Las imágenes y el contenido final los
+              proporciona cada cliente.
+            </p>
+          </div>
         </section>
-
-        <section id="contacto" className="section-alt">
-          <div className="container">
-            <Contact
-              lang={lang}
-              selectedService={selectedService}
-              selectedCase={selectedCase}
-              onClearSelectedService={() => setSelectedService(null)}
-              onClearSelectedCase={() => setSelectedCase(null)}
-            />
+        <section className="web-section benefits-section">
+          <div className="wrap">
+            <p className="eyebrow">MÁS CERCA DE TUS CLIENTES</p>
+            <h2>
+              Tu negocio tiene mucho que ofrecer.
+              <br />
+              Ayudemos a mostrarlo.
+            </h2>
+            <div className="benefit-grid">
+              {benefits.map(([num, title, text]) => (
+                <article key={num}>
+                  <span className="benefit-number">
+                    {num}
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="web-section process-section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">SIMPLE DE PRINCIPIO A FIN</p>
+                <h2>De tu idea a tu página web.</h2>
+              </div>
+              <p>
+                Te acompañamos en cuatro pasos.
+                <br />
+                Sin necesidad de saber de tecnología.
+              </p>
+            </div>
+            <ol className="process-grid">
+              {steps.map(([title, text], i) => (
+                <li key={title}>
+                  <span className="step-number">0{i + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+        <WebQuote planId={plan} onPlanChange={setPlan} />
+        <section className="web-section" id="preguntas">
+          <div className="wrap faq-layout">
+            <div>
+              <p className="eyebrow">HABLEMOS CLARO</p>
+              <h2>¿Te queda alguna duda?</h2>
+              <p>Aquí tienes las respuestas para elegir con tranquilidad.</p>
+              <WhatsAppLink location="faq" className="text-link">
+                Haznos tu pregunta ↗
+              </WhatsAppLink>
+            </div>
+            <div className="faq-list">
+              {WEB_FAQ.map((f) => (
+                <details key={f.q}>
+                  <summary>
+                    {f.q}
+                    <span aria-hidden="true">+</span>
+                  </summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="final-section" id="contacto">
+          <div className="wrap final-inner">
+            <div>
+              <p className="eyebrow">EL SIGUIENTE PASO ES UNA CONVERSACIÓN</p>
+              <h2>
+                Hagamos que tu negocio
+                <br />
+                tenga su lugar en internet<span>.</span>
+              </h2>
+              <p>Cuéntanos tu idea. Te ayudamos a elegir por dónde empezar.</p>
+            </div>
+            <div>
+              <WhatsAppLink location="cta_final" className="button yellow">
+                Hablemos por WhatsApp <span aria-hidden="true">↗</span>
+              </WhatsAppLink>
+              <p className="contact-number">{WHATSAPP_DISPLAY}</p>
+            </div>
           </div>
         </section>
       </main>
-
-      <Footer lang={lang} />
-      <WhatsAppFab />
+      <footer className="web-footer">
+        <div className="wrap footer-inner">
+          <div>
+            <strong>{BRAND}</strong>
+            <p>Páginas web para emprendedores y pequeñas empresas de Perú.</p>
+          </div>
+          <div>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <div className="social-links">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  href={s.url}
+                  key={s.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {s.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="wrap footer-bottom">
+          <span>
+            © {new Date().getFullYear()} {BRAND}
+          </span>
+          <a href="#inicio">Volver al inicio ↑</a>
+        </div>
+      </footer>
+      <aside
+        className="mobile-contact"
+        aria-label="Consulta rápida por WhatsApp"
+      >
+        <WhatsAppLink location="boton_flotante">
+          Consultar por WhatsApp <span aria-hidden="true">↗</span>
+        </WhatsAppLink>
+      </aside>
     </div>
   );
-};
-
-export default App;
+}

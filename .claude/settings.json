@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f dist/_debug.html dist/_view.html)",
+      "Bash(npm run *)",
+      "Bash(echo \"eslint exit=$?\")",
+      "Bash(sed -i 's|from \"../lib/whatsapp\"|from \"../../lib/whatsapp\"|; s|from \"../lib/utm\"|from \"../../lib/utm\"|; s|from \"../lib/analytics\"|from \"../../lib/analytics\"|' src/campaigns/components/*.tsx)",
+      "Bash(sed -i 's|from \"../lib/whatsapp\"|from \"../lib/whatsapp\"|' src/campaigns/pages/*.tsx)",
+      "Bash(sed -i \"s|{ src: 'logoempresa.png',  out: 'logo-og.webp',      w: 1200, type: 'image/webp', q: 0.9 },|{ src: 'logoempresa.png',  out: 'logo-og.jpg',       w: 1200, type: 'image/jpeg', q: 0.86 },|\" \"C:/Users/Ysacc/AppData/Local/Temp/claude/c--Users-Ysacc-proyectos-mi-agencia/e1600c5c-9ef6-41f2-b239-2416fec81aca/scratchpad/convert.html\")",
+      "Bash(rm -f public/images/logo-og.webp)",
+      "Bash(mkdir -p src/data)",
+      "Bash(python -)",
+      "Bash(echo \"tsc=$?\")"
+    ]
+  }
+}
