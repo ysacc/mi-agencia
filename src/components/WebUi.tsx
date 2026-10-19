@@ -8,17 +8,18 @@ export function WhatsAppLink({
   children,
   location,
   className = "button primary",
+  message = "Hola BR Digital System, quiero una página web para mi negocio.",
 }: {
   children: ReactNode;
   location: string;
   className?: string;
+  message?: string;
 }) {
   return (
     <a
       className={className}
       href={buildWhatsAppUrl({
-        message:
-          "Hola BR Digital System, quiero una página web para mi negocio.",
+        message,
         location,
       })}
       onClick={() =>

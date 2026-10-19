@@ -135,6 +135,39 @@ export default function App() {
             <span>✓ Contacto por WhatsApp</span>
           </div>
         </section>
+        <section id="servicios" className="web-section benefits-section">
+          <div className="wrap">
+            <p className="eyebrow">SERVICIOS PARA CRECER</p>
+            <h2>Tu negocio merece más clientes, no solo una página web.</h2>
+            <p>
+              En BR Digital System creamos páginas web profesionales,
+              optimizamos tu presencia en Google y desarrollamos campañas de
+              marketing para impulsar tu negocio.
+            </p>
+            <div className="benefit-grid">
+              {[
+                [
+                  "Desarrollo web",
+                  "Páginas web modernas, rápidas, adaptadas a celulares y enfocadas en convertir visitantes en clientes.",
+                ],
+                [
+                  "Posicionamiento SEO",
+                  "Optimizamos tu página para mejorar su visibilidad en Google y facilitar que potenciales clientes encuentren tu negocio. El SEO inicial no garantiza aparecer en los primeros resultados.",
+                ],
+                [
+                  "Marketing digital",
+                  "Creamos contenido y campañas para Facebook, Instagram y TikTok, ayudando a las empresas a llegar a más personas y generar oportunidades de venta. La gestión de anuncios es un servicio adicional y la inversión publicitaria no está incluida.",
+                ],
+              ].map(([title, text], i) => (
+                <article key={title}>
+                  <span className="benefit-number">0{i + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
         <section id="planes" className="web-section">
           <div className="wrap">
             <div className="section-heading">
@@ -200,6 +233,141 @@ export default function App() {
             </aside>
           </div>
         </section>
+        {[
+          {
+            id: "marketing",
+            title: "Marketing mensual para tu negocio.",
+            eyebrow: "PRESENCIA EN REDES SOCIALES",
+            note: "Los reels se elaboran con material proporcionado por el cliente o recursos gráficos acordados. La inversión publicitaria se paga por separado. La gestión de anuncios es adicional a los planes Presencia y Crecimiento; Impulso incluye la gestión de una campaña.",
+            plans: [
+              {
+                name: "Presencia",
+                price: 149,
+                features: [
+                  "4 publicaciones",
+                  "Textos y calendario básico",
+                  "Facebook e Instagram",
+                ],
+              },
+              {
+                name: "Crecimiento",
+                price: 299,
+                features: [
+                  "8 publicaciones",
+                  "2 reels sencillos",
+                  "Adaptación a Facebook, Instagram y TikTok",
+                ],
+              },
+              {
+                name: "Impulso",
+                price: 499,
+                features: [
+                  "12 publicaciones y 4 reels",
+                  "Programación de contenido",
+                  "Gestión de una campaña",
+                  "Reporte mensual",
+                ],
+              },
+            ],
+          },
+          {
+            id: "combos",
+            title: "Tu web y tu primer mes de marketing.",
+            eyebrow: "COMBOS COMERCIALES",
+            note: "Los precios de los combos corresponden al desarrollo web más el primer mes de marketing. No existe renovación automática del desarrollo web. Después, el marketing es opcional. Dominio, hosting y funcionalidades personalizadas se cotizan aparte; la inversión publicitaria se paga por separado.",
+            plans: [
+              {
+                name: "Combo Emprende",
+                price: 249,
+                features: [
+                  "Web Emprendedor",
+                  "SEO esencial",
+                  "Primer mes de Plan Presencia",
+                  "Después, marketing opcional desde S/ 149/mes",
+                ],
+              },
+              {
+                name: "Combo Crece Digital",
+                price: 499,
+                features: [
+                  "Web Negocio",
+                  "SEO inicial",
+                  "Primer mes de Plan Crecimiento",
+                  "Después, marketing opcional a S/ 299/mes",
+                ],
+              },
+              {
+                name: "Combo Marca Pro",
+                price: 899,
+                features: [
+                  "Web Profesional",
+                  "SEO inicial ampliado",
+                  "Primer mes de Plan Impulso",
+                  "Después, marketing opcional a S/ 499/mes",
+                ],
+              },
+            ],
+          },
+        ].map((group) => (
+          <section id={group.id} className="web-section" key={group.id}>
+            <div className="wrap">
+              <div className="section-heading">
+                <div>
+                  <p className="eyebrow">{group.eyebrow}</p>
+                  <h2>{group.title}</h2>
+                </div>
+              </div>
+              <div className="plan-grid">
+                {group.plans.map((offer, i) => {
+                  const recommended = group.id === "combos" && i === 1;
+                  return (
+                    <article
+                      className={`plan-card ${recommended ? "featured" : ""}`}
+                      key={offer.name}
+                    >
+                      {recommended && (
+                        <span className="plan-badge">Más recomendado</span>
+                      )}
+                      <div className="plan-top">
+                        <span className="plan-index">0{i + 1}</span>
+                        <h3>{offer.name}</h3>
+                      </div>
+                      <p className="plan-price">
+                        {money(offer.price)}
+                        {group.id === "marketing" && "/mes"}
+                        <small>
+                          {group.id === "marketing"
+                            ? "Pago mensual"
+                            : "Desarrollo web + primer mes de marketing"}
+                        </small>
+                      </p>
+                      <WhatsAppLink
+                        location={group.id}
+                        className={`button full ${recommended ? "primary" : "outline"}`}
+                        message={`Hola, me interesa ${offer.name} de ${money(offer.price)}${group.id === "marketing" ? "/mes" : ""}. Quisiera más información.`}
+                      >
+                        Consultar {offer.name} <span aria-hidden="true">↗</span>
+                      </WhatsAppLink>
+                      <p className="includes-label">LO QUE INCLUYE</p>
+                      <ul className="feature-list">
+                        {offer.features.map((feature) => (
+                          <li key={feature}>
+                            <span aria-hidden="true">↗</span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  );
+                })}
+              </div>
+              <aside className="conditions">
+                <strong>Ten en cuenta</strong>
+                <p>{group.note}</p>
+              </aside>
+            </div>
+          </section>
+        ))}
         <section id="ejemplos" className="web-section examples-section">
           <div className="wrap">
             <div className="section-heading">
